@@ -1,0 +1,5564 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)https://www.sabjihaat.in/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabji Haat - Fresh Vegetables</title>
+    <link rel="stylesheet" href="./Sabji Haat - Fresh Vegetables_files/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: white;
+            max-width: 414px;
+            margin: 0 auto;
+            min-height: 100vh;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            padding-bottom: 0;
+        }
+        
+        header {
+            background-color: white;
+            padding: 10px 12px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 4px;
+            backdrop-filter: blur(5px);
+        }
+        
+        nav a:hover {
+            background-color: rgba(245, 245, 245, 0.9);
+        }
+        
+        .hero-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+        }
+        
+        .hero-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .mission-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .offer-banner {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            width: 100%;
+        }
+        
+        .icons-container {
+            background-color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .icon {
+            font-size: 24px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .whatsapp {
+            color: #25D366;
+        }
+        
+        .facebook {
+            color: #1877F2;
+        }
+        
+        .instagram {
+            color: #E4405F;
+        }
+        
+        .review {
+            color: #FFA500;
+        }
+        
+        .cart {
+            color: #007BFF;
+        }
+        
+        .icon:hover {
+            transform: scale(1.1);
+        }
+        
+        /* UPDATED SERVICES SECTION - SHOW 3 CARDS AT A TIME */
+        .services-section {
+            background: linear-gradient(135deg, #8d6e63, #5d4037);
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-title {
+            text-align: center;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            padding: 0 15px;
+        }
+
+        .services-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+            margin-bottom: 10px;
+            padding: 0 15px;
+        }
+
+        .services-container-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 130px; /* Adjusted height for 3 cards */
+        }
+
+        .services-container {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .service-card {
+            flex: 0 0 calc(33.33% - 10px); /* Show 3 cards at a time */
+            background: rgba(255, 255, 255, 0.85); /* More transparent background */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 0 5px; /* Reduced margins for 3 cards */
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 80px; /* Adjusted image height */
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-name {
+            padding: 5px; /* Reduced padding */
+            text-align: center;
+            font-size: 11px; /* Smaller font */
+            font-weight: bold;
+            color: #5d4037;
+            background: transparent; /* Transparent background */
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Navigation arrows */
+        .services-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .services-nav:hover {
+            background: white;
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .services-nav.prev {
+            left: 5px;
+        }
+
+        .services-nav.next {
+            right: 5px;
+        }
+
+        .services-nav i {
+            color: #5d4037;
+            font-size: 14px;
+        }
+
+        /* Dots indicator */
+        .services-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 0 15px;
+        }
+
+        .services-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .services-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .search-container {
+            padding: 15px;
+            background-color: white;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            cursor: pointer; /* Add cursor pointer to indicate clickable */
+        }
+        
+        .search-bar {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            cursor: pointer; /* Make search bar clickable */
+        }
+        
+        .search-bar:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-icon:hover {
+            color: #007BFF;
+        }
+       .category-section {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            border-bottom: 1px solid #f0f0f0;
+            padding: 12px 8px 5px;
+            border-radius: 12px;
+            margin: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-images {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding: 0 5px;
+        }
+        
+        .category-image {
+            width: 55px;
+            height: 55px;
+            border-radius: 60px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid #fdf900;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        }
+        
+        .category-image:hover {
+            transform: scale(1.08);
+            border-color: #fb1302;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-image.active {
+            border-color: #fb1302;
+            box-shadow: 0 0 12px rgba(251, 19, 2, 0.7);
+            transform: scale(1.05);
+        }
+        
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .category-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4px;
+            padding: 0 4px;
+        }
+        
+        .category-btn {
+             background: linear-gradient(135deg, #26734d, #2E7D32);
+            color: white;
+            border: none;
+            padding: 7px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 30px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        .category-btn:hover, .category-btn.active {
+           background: linear-gradient(135deg, #fdf900, #ffeb3b);
+            color: #fb1302;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .products-container {
+            padding: 15px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            background: linear-gradient(135deg, #e8f5e9, #ffffff);
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 10px;
+        }
+        
+        .product-name {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .quantity-selector {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        .quantity-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .quantity-option {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quantity-option:hover, .quantity-option.active {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+        }
+        
+        .custom-quantity {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .custom-quantity-input {
+            width: 60px;
+            padding: 4px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        .custom-quantity-unit {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .add-to-cart {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+        
+        .add-to-cart:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+        }
+        
+        .add-to-cart:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .add-to-cart:disabled:hover {
+            background: #cccccc;
+        }
+        
+        .out-of-stock {
+            display: none !important;
+        }
+
+        
+        .stock-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(231, 76, 60, 0.9);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: bold;
+            z-index: 5;
+        }
+        
+        .sticky-cart-btn {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .sticky-cart-btn:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #c0392b, #a93226);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #fdf900;
+            color: #e74c3c;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cart-content {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .cart-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .cart-items {
+            margin-bottom: 15px;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        
+        .cart-item-info {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            color: #e74c3c;
+            font-size: 14px;
+        }
+        
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cart-total {
+            font-weight: bold;
+            font-size: 18px;
+            text-align: right;
+            margin: 15px 0;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .checkout-btn {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+        
+        .checkout-btn:hover {
+            background: linear-gradient(135deg, #45a049, #1b5e20);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+        }
+        
+        footer {
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            padding-top: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #eee;
+            margin-top: 0;
+        }
+        
+        /* Reviews Section */
+        .reviews-section {
+            background: linear-gradient(135deg, #e8f5e9, #ffffff);
+            padding: 30px 10px;
+            text-align: center;
+            overflow: hidden;
+            margin-bottom: 0;
+            padding-bottom: 10px;
+            position: relative;
+        }
+/* Enhanced File Upload Styles */
+.file-upload-container {
+    margin-bottom: 15px;
+}
+
+.file-upload-label {
+    display: block;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.file-upload-label:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.file-upload-label:active {
+    transform: translateY(0);
+}
+
+.file-upload-input {
+    display: none;
+}
+
+.image-preview {
+    width: 100%;
+    max-width: 200px;
+    height: 150px;
+    border: 2px dashed #ddd;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px auto;
+    overflow: hidden;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.image-preview:hover {
+    border-color: #667eea;
+    background: #f0f0f0;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Image Source Modal Animation */
+.image-source-modal {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Upload Progress */
+.upload-progress {
+    width: 100%;
+    height: 4px;
+    background: #f0f0f0;
+    border-radius: 2px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.upload-progress-bar {
+    height: 100%;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .file-upload-label {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .image-preview {
+        max-width: 150px;
+        height: 120px;
+    }
+}
+        .review-title {
+            color: #2e7d32;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* UPDATED REVIEWS CONTAINER WITH SLIDING ANIMATION */
+        .review-container-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .review-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .review-card {
+            flex: 0 0 280px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding: 15px;
+            text-align: left;
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .review-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .review-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .review-card p {
+            font-size: 14px;
+            color: #444;
+            line-height: 1.4;
+        }
+        
+        .review-card h4 {
+            margin-top: 1px;
+            color: #2e7d32;
+            font-weight: 600;
+        }
+        
+        .stars {
+            color: gold;
+            font-size: 16px;
+            margin-top: 5px;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Review navigation arrows */
+        .review-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .review-nav:hover {
+            background: white;
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .review-nav.prev {
+            left: 5px;
+        }
+
+        .review-nav.next {
+            right: 5px;
+        }
+
+        .review-nav i {
+            color: #5d4037;
+            font-size: 14px;
+        }
+
+        /* Counter + Review Button */
+        .review-stats {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .counter {
+            font-size: 26px;
+            color: #2e7d32;
+            font-weight: 700;
+            text-align: center;
+            animation: countUp 2s ease-out;
+        }
+
+        @keyframes countUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .counter p {
+            font-size: 14px;
+            color: #444;
+            margin: 5px 0 0;
+        }
+
+        .review-btn {
+            background: linear-gradient(135deg, #43a047, #1b5e20);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .review-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #66bb6a, #2e7d32);
+            animation: none;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .modal-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .location-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .location-btn {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f5f5f5;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .location-btn:hover {
+            background: #e0e0e0;
+        }
+        
+        .location-btn.active {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border-color: #4CAF50;
+        }
+        
+        .business-hours-modal {
+            text-align: center;
+        }
+        
+        .business-hours-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .hours-details {
+            background: #fff9e6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ffa500;
+        }
+        
+        .hours-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e67e22;
+            margin-bottom: 10px;
+        }
+        
+        .hours-description {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .hours-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .hours-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .hours-primary {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+        
+        .hours-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .billing-details {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .billing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+        
+        .billing-total {
+            font-weight: bold;
+            font-size: 18px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        
+        .delivery-time {
+            background: #e8f5e9;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2ecc71;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 4000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            display: none;
+        }
+        
+        /* Unit display for different product types */
+        .unit-display {
+            font-size: 12px;
+            color: #666;
+            margin-left: 5px;
+        }
+        
+        /* About Us Page Styles */
+        .about-page {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            max-width: 414px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .about-title {
+            font-size: 24px;
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+        
+        .about-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .about-content {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card {
+            background: #f5f9f5;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .feature-icon {
+            font-size: 24px;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        
+        .feature-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .back-to-home {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-to-home:hover {
+            background: linear-gradient(135deg, #45a049, #1b5e20);
+        }
+        
+        /* Admin Panel Styles */
+        .admin-panel {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            max-width: 414px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+        
+        .admin-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .admin-title {
+            font-size: 24px;
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+        
+        .admin-dashboard {
+            display: block; /* Changed from none to block */
+        }
+        
+        .admin-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .admin-tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            background: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-tab.active {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+        }
+        
+        .admin-tab-content {
+            display: none;
+        }
+        
+        .admin-tab-content.active {
+            display: block;
+        }
+        
+        .product-list {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        
+        .admin-product-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            background: #f9f9f9;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+        
+        .admin-product-info {
+            flex: 1;
+        }
+        
+        .admin-product-name {
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        
+        .admin-product-details {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .admin-product-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .admin-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .edit-btn {
+            background: #3498db;
+            color: white;
+        }
+        
+        .edit-btn:hover {
+            background: #2980b9;
+        }
+        
+        .delete-btn {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+        
+        .save-btn {
+            background: #2ecc71;
+            color: white;
+        }
+        
+        .save-btn:hover {
+            background: #27ae60;
+        }
+        
+        .cancel-btn {
+            background: #95a5a6;
+            color: white;
+        }
+        
+        .cancel-btn:hover {
+            background: #7f8c8d;
+        }
+        
+        .add-product-form {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .form-row input, .form-row select {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: #f5f9f5;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .admin-search {
+            margin-bottom: 15px;
+        }
+        
+        .admin-search input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .category-filter {
+            margin-bottom: 15px;
+        }
+        
+        .category-filter select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .edit-product-form {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 1px solid #ddd;
+        }
+        
+        .edit-product-form h4 {
+            margin-bottom: 10px;
+            color: #2e7d32;
+        }
+        
+        .image-upload-container {
+            margin-bottom: 15px;
+        }
+        
+        .image-preview {
+            width: 100px;
+            height: 100px;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            overflow: hidden;
+            background: #f9f9f9;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .file-upload-label {
+            display: block;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .file-upload-label:hover {
+            background: linear-gradient(135deg, #2980b9, #1f618d);
+            transform: translateY(-2px);
+        }
+
+        .file-upload-input {
+            display: none;
+        }
+        
+        .upload-btn {
+            background: #3498db;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .upload-btn:hover {
+            background: #2980b9;
+        }
+        
+        .image-url-input {
+            margin-top: 10px;
+        }
+        
+        /* File upload styling */
+        .file-upload-container {
+            margin-bottom: 15px;
+        }
+        
+        .admin-product-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        
+        /* Pincode Management */
+        .pincode-management {
+            margin-top: 20px;
+        }
+        
+        .pincode-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            margin-bottom: 8px;
+        }
+        
+        .pincode-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .pincode-charge {
+            width: 80px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        /* Stock Management */
+        .stock-management {
+            margin-top: 20px;
+        }
+        
+        .stock-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            margin-bottom: 8px;
+        }
+        
+        .stock-info {
+            flex: 1;
+        }
+        
+        .stock-name {
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        
+        .stock-details {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .stock-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .stock-input {
+            width: 80px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .stock-status {
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        
+        .in-stock {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .out-of-stock {
+            background: #ffebee;
+            color: #c62828;
+            border: 1px solid #c62828;
+        }
+
+        
+        /* Packaging Charge Styles */
+        .packaging-note {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .packaging-highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        /* Pickup Information */
+        .pickup-info {
+            background: #e8f5e9;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        /* Admin Login Modal */
+        .admin-login-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 5000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .admin-login-content {
+            background: white;
+            width: 90%;
+            max-width: 350px;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .admin-login-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2e7d32;
+            font-size: 24px;
+        }
+        
+        .admin-login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .admin-login-input {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-login-input:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+        }
+        
+        .admin-login-btn {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-login-btn:hover {
+            background: linear-gradient(135deg, #45a049, #1b5e20);
+        }
+        
+        .admin-back-home {
+            background: #95a5a6;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-back-home:hover {
+            background: #7f8c8d;
+        }
+        /* Add to CSS section */
+.payment-instructions {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    border-left: 5px solid #f39c12;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.payment-steps {
+    counter-reset: step-counter;
+    margin-top: 15px;
+}
+
+.payment-step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid #2ecc71;
+}
+
+.payment-step::before {
+    counter-increment: step-counter;
+    content: counter(step-counter);
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.payment-step.warning {
+    border-left-color: #e74c3c;
+    background: #ffeaea;
+}
+
+.payment-step.warning::before {
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+}
+
+.payment-step.success {
+    border-left-color: #2ecc71;
+    background: #e8f5e9;
+}
+
+.payment-step.success::before {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.payment-highlight {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 15px;
+    text-align: center;
+    padding: 10px;
+    background: rgba(231, 76, 60, 0.1);
+    border-radius: 8px;
+    border: 2px dashed #e74c3c;
+}
+
+/* Performance improvements for product loading */
+.product-card.fast-load {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.lazy-image {
+    background: #f5f5f5;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+    </style>
+</head>
+<body>
+    <!-- Main App (Home Page) -->
+    <div class="main-app">
+        <header>
+            <nav>
+                <a href="https://www.sabjihaat.in/#" class="nav-home" id="homeButton" onmousedown="startHomePress()" onmouseup="endHomePress()" ontouchstart="startHomePress()" ontouchend="endHomePress()">HOME</a>
+                <a href="https://www.sabjihaat.in/#" class="nav-about" onclick="showAboutPage()">ABOUT US</a>
+            </nav>
+        </header>
+        
+        <div class="hero-section">
+            <div class="hero-image">
+                <img src="./Sabji Haat - Fresh Vegetables_files/hero.jpg" alt="Fresh Vegetables">
+            </div>
+            <div class="offer-banner" id="offerBanner">
+        📞 For Bulk Orders at Wholesale Rate : +919051410591
+    </div>
+            <div class="payment-highlight">
+        ⚠️ Your order will be confirmed only after 50% advance payment
+    </div>
+           
+            <div class="icons-container">
+                <i class="icon whatsapp fab fa-whatsapp" onclick="openWhatsApp()"></i>
+                <i class="icon facebook fab fa-facebook" onclick="openFacebook()"></i>
+                <i class="icon instagram fab fa-instagram" onclick="openInstagram()"></i>
+                <i class="icon review fas fa-star" onclick="openGoogleReview()"></i>
+                <i class="icon cart fas fa-shopping-cart" onclick="openCart()"></i>
+            </div>
+        </div>
+      
+        <!-- UPDATED SERVICES SECTION - SHOW 3 CARDS AT A TIME -->
+        <div class="services-section">
+            <h3 class="services-title">Our Special Services</h3>
+            <p class="services-subtitle">Click any service to contact owner directly via WhatsApp</p>
+            
+            <div class="services-container-wrapper">
+                <button class="services-nav prev" onclick="slideServices(&#39;prev&#39;)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="services-container" id="servicesContainer" style="transform: translateX(-100%);">
+                    <div class="service-card" onclick="openServiceWhatsApp(&#39;Restaurant Orders&#39;)">
+                        <img src="./Sabji Haat - Fresh Vegetables_files/photo-1517248135467-4c7edcad34c4" alt="Restaurant Orders" class="service-image">
+                        <div class="service-name">Restaurant Orders</div>
+                    </div>
+                    <div class="service-card" onclick="openServiceWhatsApp(&#39;Catering Orders&#39;)">
+                        <img src="./Sabji Haat - Fresh Vegetables_files/photo-1555244162-803834f70033" alt="Catering Orders" class="service-image">
+                        <div class="service-name">Catering Orders</div>
+                    </div>
+                    <div class="service-card" onclick="openServiceWhatsApp(&#39;Special Occasions&#39;)">
+                        <img src="./Sabji Haat - Fresh Vegetables_files/celebration-8363367_1280.jpg" alt="Special Occasions" class="service-image">
+                        <div class="service-name">Special Occasions</div>
+                    </div>
+                    <div class="service-card" onclick="openServiceWhatsApp(&#39;Bulk Orders&#39;)">
+                        <img src="./Sabji Haat - Fresh Vegetables_files/premium_photo-1686529896385-8a8d581d0225" alt="Bulk Orders" class="service-image">
+                        <div class="service-name">Bulk Orders</div>
+                    </div>
+                    <div class="service-card" onclick="openServiceWhatsApp(&#39;Wholesale Price&#39;)">
+                        <img src="./Sabji Haat - Fresh Vegetables_files/wholesaler.png" alt="Wholesale Price" class="service-image">
+                        <div class="service-name">Wholesale Price</div>
+                    </div>
+                   
+                </div>
+                
+                <button class="services-nav next" onclick="slideServices(&#39;next&#39;)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="services-dots" id="servicesDots"><div class="services-dot"></div><div class="services-dot active"></div></div>
+        </div>
+
+        
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search products..." id="searchInput">
+            <i class="search-icon fas fa-search" id="searchIcon"></i>
+        </div>
+        
+        <div class="category-section">
+            <div class="category-images">
+                <div class="category-image active" data-category="indian" onclick="loadCategory(&#39;indian&#39;)">
+                    <img src="./Sabji Haat - Fresh Vegetables_files/categoryimageindian.jpg" alt="Indian Vegetables">
+                </div>
+                <div class="category-image" data-category="exotic" onclick="loadCategory(&#39;exotic&#39;)">
+                    <img src="./Sabji Haat - Fresh Vegetables_files/exoticcategoryimage.jpg" alt="Exotic Vegetables">
+                </div>
+                <div class="category-image" data-category="leafy" onclick="loadCategory(&#39;leafy&#39;)">
+                    <img src="./Sabji Haat - Fresh Vegetables_files/photo-1576045057995-568f588f82fb" alt="Leafy Vegetables">
+                </div>
+                <div class="category-image" data-category="others" onclick="loadCategory(&#39;others&#39;)">
+                    <img src="./Sabji Haat - Fresh Vegetables_files/paneerimage.jpg" alt="Other Products">
+                </div>
+                 <div class="category-image" data-category="puja" onclick="loadCategory(&#39;puja&#39;)">
+                    <img src="./Sabji Haat - Fresh Vegetables_files/copper-kalash-with-coconut-mango-leaf-with-floral-decoration-diya-haldi-kumkum-sweet-pedha-essential-hindu-puja-front-view-closeup-red-surface_466689-47208.jpg" alt="Puja Needs">
+                </div>
+        </div>
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="indian" onclick="loadCategory(&#39;indian&#39;)">Indian</button>
+                <button class="category-btn" data-category="exotic" onclick="loadCategory(&#39;exotic&#39;)">Exotic</button>
+                <button class="category-btn" data-category="leafy" onclick="loadCategory(&#39;leafy&#39;)">Leafy</button>
+                <button class="category-btn" data-category="others" onclick="loadCategory(&#39;others&#39;)">Others</button>
+                <button class="category-btn" data-category="puja" onclick="loadCategory(&#39;puja&#39;)">Puja Needs</button>
+        </div>
+        </div>
+            <div class="products-container" id="productsContainer"><div class="product-card fast-load" style="animation-delay: 0ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/green-beans-761940_1280.jpg" alt="Beans" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Beans</div>
+            <div class="product-price">₹40<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-9">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="9">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="9">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="9">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="9">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-9" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(9)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 50ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/beetroot-3490809_1280.jpg" alt="Beet Root" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Beet Root</div>
+            <div class="product-price">₹35<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-19">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="19">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="19">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="19">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="19">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-19" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(19)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 100ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/kohl-3722517_1280.jpg" alt="Cabbage" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Cabbage</div>
+            <div class="product-price">₹25<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-8">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="8">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="8">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="8">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="8">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-8" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(8)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 150ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/images" alt="Capsicum" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Capsicum</div>
+            <div class="product-price">₹60<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-6">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="6">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="6">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="6">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="6">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-6" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(6)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 200ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/carrots-1508847_1280.jpg" alt="Carrot" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Carrot</div>
+            <div class="product-price">₹35<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-10">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="10">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="10">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="10">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="10">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-10" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(10)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 250ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/tmqpesvegj6hveotuqre.jpg" alt="Chandramukhi Potato" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Chandramukhi Potato</div>
+            <div class="product-price">₹25<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-17">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="17">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="17">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="17">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="17">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-17" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(17)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 300ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/pexels-photo-7676718.jpeg" alt="Coconut" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Coconut</div>
+            <div class="product-price">₹30<span class="unit-display">/piece</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-3">
+                    
+                        <div class="quantity-option" data-value="1" data-product="3">
+                            1
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="3">
+                            2
+                        </div>
+                    
+                        <div class="quantity-option" data-value="3" data-product="3">
+                            3
+                        </div>
+                    
+                        <div class="quantity-option" data-value="4" data-product="3">
+                            4
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-3" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">piece</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(3)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 350ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/images(1)" alt="Coriander Leaf" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Coriander Leaf</div>
+            <div class="product-price">₹15<span class="unit-display">/bunch</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-7">
+                    
+                        <div class="quantity-option" data-value="1" data-product="7">
+                            1
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="7">
+                            2
+                        </div>
+                    
+                        <div class="quantity-option" data-value="3" data-product="7">
+                            3
+                        </div>
+                    
+                        <div class="quantity-option" data-value="4" data-product="7">
+                            4
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-7" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">bunch</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(7)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 400ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/images(2)" alt="Cucumber" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Cucumber</div>
+            <div class="product-price">₹20<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-14">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="14">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="14">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="14">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="14">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-14" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(14)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 450ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/garlic-1238337_1280.jpg" alt="Garlic Whole" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Garlic Whole</div>
+            <div class="product-price">₹150<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-13">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="13">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="13">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="13">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="13">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-13" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(13)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 500ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/images(3)" alt="Ginger" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Ginger</div>
+            <div class="product-price">₹120<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-12">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="12">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="12">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="12">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="12">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-12" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(12)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 550ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/images(4)" alt="Gondhoraj Lemon" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Gondhoraj Lemon</div>
+            <div class="product-price">₹10<span class="unit-display">/piece</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-2">
+                    
+                        <div class="quantity-option" data-value="1" data-product="2">
+                            1
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="2">
+                            2
+                        </div>
+                    
+                        <div class="quantity-option" data-value="3" data-product="2">
+                            3
+                        </div>
+                    
+                        <div class="quantity-option" data-value="4" data-product="2">
+                            4
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-2" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">piece</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(2)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 600ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/photo-1524593410820-38510f580a77" alt="Green Chilli" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Green Chilli</div>
+            <div class="product-price">₹30<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-5">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="5">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="5">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="5">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="5">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-5" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(5)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 650ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/ox4n035lfx1riop1ndxy.jpg" alt="Jyoti Potato" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Jyoti Potato</div>
+            <div class="product-price">₹30<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-18">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="18">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="18">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="18">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="18">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-18" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(18)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 700ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/rfjbe5qnphhxrkwp74un.jpg" alt="Lemon" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Lemon</div>
+            <div class="product-price">₹5<span class="unit-display">/piece</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-1">
+                    
+                        <div class="quantity-option" data-value="1" data-product="1">
+                            1
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="1">
+                            2
+                        </div>
+                    
+                        <div class="quantity-option" data-value="3" data-product="1">
+                            3
+                        </div>
+                    
+                        <div class="quantity-option" data-value="4" data-product="1">
+                            4
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-1" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">piece</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(1)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 750ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/blossom-972369_1280.jpg" alt="Mustard Leaf" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Mustard Leaf</div>
+            <div class="product-price">₹25<span class="unit-display">/bunch</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-22">
+                    
+                        <div class="quantity-option" data-value="1" data-product="22">
+                            1
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="22">
+                            2
+                        </div>
+                    
+                        <div class="quantity-option" data-value="3" data-product="22">
+                            3
+                        </div>
+                    
+                        <div class="quantity-option" data-value="4" data-product="22">
+                            4
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-22" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">bunch</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(22)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 800ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/photo-1580201092675-a0a6a6cafbb1" alt="Onion" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Onion</div>
+            <div class="product-price">₹40<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-16">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="16">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="16">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="16">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="16">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-16" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(16)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 850ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/d5ohqajwxsygbywxicnd.jpg" alt="Papaya" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Papaya</div>
+            <div class="product-price">₹50<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-21">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="21">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="21">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="21">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="21">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-21" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(21)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 900ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/photo-1576045057995-568f588f82fb" alt="Spinach" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Spinach</div>
+            <div class="product-price">₹20<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-20">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="20">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="20">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="20">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="20">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-20" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(20)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 950ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/tamarind-8373925_1280.jpg" alt="Tamarind" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Tamarind</div>
+            <div class="product-price">₹80<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-11">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="11">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="11">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="11">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="11">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-11" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(11)">
+                Add to Cart
+            </button>
+        </div>
+    </div><div class="product-card fast-load" style="animation-delay: 1000ms;">
+        
+        
+        <img src="./Sabji Haat - Fresh Vegetables_files/cherry-tomato-4330441_1280.jpg" alt="Tomato" class="product-image" loading="lazy" onload="this.classList.remove(&#39;lazy-image&#39;)" onerror="this.src=&#39;https://via.placeholder.com/300x200?text=Sabji+Haat&#39;">
+        <div class="product-info">
+            <div class="product-name">Tomato</div>
+            <div class="product-price">₹30<span class="unit-display">/kg</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options " id="quantity-options-15">
+                    
+                        <div class="quantity-option" data-value="0.25" data-product="15">
+                            250g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="0.5" data-product="15">
+                            500g
+                        </div>
+                    
+                        <div class="quantity-option" data-value="1" data-product="15">
+                            1kg
+                        </div>
+                    
+                        <div class="quantity-option" data-value="2" data-product="15">
+                            2kg
+                        </div>
+                    
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-15" placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)">
+                    <span class="custom-quantity-unit">kg</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(15)">
+                Add to Cart
+            </button>
+        </div>
+    </div></div>
+        
+        <div class="mission-image">
+            <img src="./Sabji Haat - Fresh Vegetables_files/mission.jpg" alt="Our Mission">
+        </div>
+        
+        <button class="sticky-cart-btn" onclick="openCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+        
+        <!-- CUSTOMER REVIEWS SECTION WITH SLIDING ANIMATION -->
+        <section class="reviews-section">
+            <h2 class="review-title">💚 What Our Customers Say</h2>
+
+            <div class="review-container-wrapper">
+                <button class="review-nav prev" onclick="slideReviews(&#39;prev&#39;)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="review-container" id="reviewContainer" style="transform: translateX(-100%);">
+                    <!-- Review Cards -->
+                    <div class="review-card visible">
+                        <p>"Best place to buy fresh vegetables — quality is always top-notch!"</p>
+                        <h4>— Arjun</h4>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="review-card visible">
+                        <p>"Timely pickup every morning! The bulk orders are handled very professionally."</p>
+                        <h4>— Suman</h4>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="review-card visible">
+                        <p>"Fresh vegetables every morning! SabjiHaat has made my home cooking so much easier."</p>
+                        <h4>— Anjali Das</h4>
+                        <div class="stars">⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="review-card visible">
+                        <p>"Amazing freshness and great pricing — SabjiHaat has made my daily shopping easy!"</p>
+                        <h4>— Neha Sharma</h4>
+                        <div class="stars">⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="review-card visible">
+                        <p>"Reliable and honest service. Vegetables are always clean and well packed."</p>
+                        <h4>— Rajesh Kumar</h4>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="review-card visible">
+                        <p>"As a restaurant owner, I save both time and money. Highly recommend SabjiHaat!"</p>
+                        <h4>— Priya Singh</h4>
+                        <div class="stars">⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+                
+                <button class="review-nav next" onclick="slideReviews(&#39;next&#39;)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="review-stats">
+                <div class="counter">
+                    <span id="happyCount">1200</span>+
+                    <p>Happy Customers</p>
+                </div>
+                <button class="review-btn" onclick="openGoogleReview()">
+                    ⭐ Leave a Google Review 
+                </button>
+            </div>
+            
+            <!-- ADDED PACKAGING NOTE IN REVIEWS SECTION -->
+            <div class="packaging-note">
+                <strong>📦 Note:</strong> All orders include a <span class="packaging-highlight">packaging charge</span> for safe and hygienic packaging.
+            </div>
+        </section>
+<!-- Add this after the reviews section and before the footer -->
+<section class="payment-instructions">
+    <h2 style="color: #e74c3c; margin-bottom: 15px; text-align: center;">
+        <i class="fas fa-shopping-cart"></i> How to Order - Step by Step
+    </h2>
+    
+    <div class="payment-highlight">
+        ⚠️ Your order will be confirmed only after 50% advance payment
+    </div>
+    
+    <div class="payment-steps">
+        <div class="payment-step">
+            <div>
+                <strong>Step 1: Add to Cart</strong>
+                <p>Browse products and add desired items to your cart with correct quantities</p>
+            </div>
+        </div>
+        
+        <div class="payment-step">
+            <div>
+                <strong>Step 2: Review Cart</strong>
+                <p>Click the cart icon to review all items, quantities, and total amount</p>
+            </div>
+        </div>
+        
+        <div class="payment-step">
+            <div>
+                <strong>Step 3: Checkout</strong>
+                <p>Click "Confirm Order via WhatsApp" and fill your name &amp; phone number</p>
+            </div>
+        </div>
+        
+        <div class="payment-step warning">
+            <div>
+                <strong>Step 4: Send 50% Advance Payment</strong>
+                <p>Send 50% of total amount via GPay/PhonePe/UPI to ${BUSINESS_INFO.phone}</p>
+            </div>
+        </div>
+        
+        <div class="payment-step warning">
+            <div>
+                <strong>Step 5: Send Payment Screenshot</strong>
+                <p>Immediately send payment screenshot on the same WhatsApp chat</p>
+            </div>
+        </div>
+        
+        <div class="payment-step success">
+            <div>
+                <strong>Step 6: Order Confirmation</strong>
+                <p>Wait for order confirmation message with pickup time and details</p>
+            </div>
+        </div>
+        
+        <div class="payment-step">
+            <div>
+                <strong>Step 7: Pickup from Store</strong>
+                <p>Collect your order from our store with remaining 50% payment</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="payment-highlight" style="margin-top: 20px;">
+        <i class="fas fa-exclamation-circle"></i> 
+        Remember: Order ID will be generated automatically and sent on WhatsApp
+    </div>
+    
+    <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <h4 style="color: #2e7d32; margin-bottom: 10px;">
+            <i class="fas fa-info-circle"></i> Important Notes:
+        </h4>
+        <ul style="margin-left: 20px; color: #444;">
+            <li>Orders accepted from 10 AM to 10 PM only</li>
+            <li>Next-day pickup available for all orders </li>
+            <li>Bring your order ID and payment screenshot for pickup</li>
+            <li>Packaging charge applies to all orders for safe handling</li>
+            <li>For bulk orders (&gt; ₹5000), contact us directly for special rates</li>
+        </ul>
+    </div>
+</section>
+        <footer>
+            <p>© 2025 SabjiHaat. All rights reserved.</p>
+            <p> Jadavpur Sandhya Bazar Rd, West Bengal Kolkata-700075</p>
+        </footer>
+    </div>
+    
+    <!-- About Us Page -->
+    <div class="about-page" id="aboutPage">
+        <div class="about-header">
+            <h1 class="about-title">About Sabji Haat</h1>
+            <img src="./Sabji Haat - Fresh Vegetables_files/photo-1542838132-92c53300491e" alt="About Sabji Haat" class="about-image">
+        </div>
+        
+        <div class="about-content">
+            <p>Welcome to Sabji Haat, your trusted partner for fresh, high-quality vegetables available for pickup at our store. Established in 2020, we've been serving the Kolkata community with the freshest produce sourced directly from local farmers.</p>
+            
+            <p>Our mission is simple: to provide fresh, healthy, and affordable vegetables while supporting local agriculture and reducing food waste. We believe that everyone deserves access to quality produce, and we're committed to making that a reality.</p>
+            
+            <h3>Why Choose Sabji Haat?</h3>
+            <div class="about-features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="feature-title">Farm Fresh</div>
+                    <p>Direct from farms to your kitchen</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="feature-title">Easy Pickup</div>
+                    <p>Convenient store pickup available</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="feature-title">Best Prices</div>
+                    <p>Competitive pricing guaranteed</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="feature-title">Quality Assured</div>
+                    <p>Rigorous quality checks</p>
+                </div>
+                
+            </div>
+            
+            <h3>Our Story</h3>
+            <p>Sabji Haat began as a small family business with a simple vision: to bridge the gap between local farmers and urban consumers. What started as a single vegetable cart has now grown into a trusted platform serving hundreds of customers daily.</p>
+             <div class="payment-highlight">
+        ⚠️ Your order will be confirmed only after 50% advance payment
+    </div>
+            <!-- ADDED PACKAGING NOTE IN ABOUT PAGE -->
+            <div class="packaging-note" style="margin-top: 20px;">
+                <strong>📦 Packaging:</strong> All orders include a packaging charge for safe and hygienic handling of your vegetables.
+            </div>
+        </div>
+        
+        <button class="back-to-home" onclick="showHomePage()">Back to Home</button>
+    </div>
+    
+    <!-- Admin Login Modal -->
+    <div class="admin-login-modal" id="adminLoginModal">
+        <div class="admin-login-content">
+            <h2 class="admin-login-title">Admin Login</h2>
+            <form class="admin-login-form" id="adminLoginForm">
+                <input type="text" class="admin-login-input" id="adminUsername" placeholder="Username" required="">
+                <input type="password" class="admin-login-input" id="adminPassword" placeholder="Password" required="">
+                <button type="submit" class="admin-login-btn">Login</button>
+            </form>
+            <button class="admin-back-home" onclick="closeAdminLogin()">Back to Home</button>
+        </div>
+    </div>
+    
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h1 class="admin-title">Admin Panel</h1>
+            <button class="admin-btn logout-btn" onclick="adminLogout()" style="background: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; margin-left: auto;">Logout</button>
+        </div>
+        
+        <div class="admin-dashboard" id="adminDashboard">
+            <div class="admin-tabs">
+                <button class="admin-tab active" onclick="switchAdminTab(&#39;products&#39;)">Products</button>
+                <button class="admin-tab" onclick="switchAdminTab(&#39;settings&#39;)">Settings</button>
+                <button class="admin-tab" onclick="switchAdminTab(&#39;stock&#39;)">Stock Management</button>
+            </div>
+            
+            <div class="admin-tab-content active" id="productsTab">
+                <div class="admin-search">
+                    <input type="text" id="adminProductSearch" placeholder="Search products..." oninput="filterAdminProducts()">
+                </div>
+                <div class="category-filter">
+                    <select id="adminCategoryFilter" onchange="filterAdminProducts()">
+                        <option value="all">All Categories</option>
+                        <option value="indian">Indian</option>
+                        <option value="exotic">Exotic</option>
+                        <option value="leafy">Leafy</option>
+                        <option value="others">Others</option>
+                      <option value="puja">Puja Needs</option>
+                    </select>
+                </div>
+                <div class="product-list" id="adminProductList">
+                    <!-- Admin product list will be loaded here -->
+                </div>
+                <button class="admin-btn save-btn" onclick="showAddProductForm()">Add New Product</button>
+                
+                <div class="add-product-form hidden" id="addProductForm">
+                    <h4>Add New Product</h4>
+                    <div class="form-row">
+                        <input type="text" id="newProductName" placeholder="Product Name">
+                        <input type="number" id="newProductPrice" placeholder="Price">
+                    </div>
+                    <div class="form-row">
+                        <select id="newProductCategory">
+                            <option value="indian">Indian</option>
+                            <option value="exotic">Exotic</option>
+                            <option value="leafy">Leafy</option>
+                            <option value="others">Others</option>
+                          <option value="puja">Puja Needs</option>
+                        </select>
+                        <select id="newProductUnit">
+                            <option value="kg">kg</option>
+                            <option value="piece">piece</option>
+                            <option value="bunch">bunch</option>
+                            <option value="packet">packet</option>
+                            <option value="tin">tin</option>
+                            <option value="bottle">bottle</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <input type="number" id="newProductStock" placeholder="Stock Quantity" value="10">
+                    </div>
+                   
+                    <!-- Image upload section -->
+                    <div class="file-upload-container">
+                        
+                        <button type="button" class="file-upload-label">
+        <i class="fas fa-camera"></i>  Choose from Gallery
+    </button><input type="file" id="newProductImageUpload" class="file-upload-input" accept="image/*" capture="environment" style="display: none;">
+                        <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                            Supports: JPEG, PNG, WebP (Max 5MB)
+                        </div>
+                        <div class="image-preview" id="newProductImagePreview"></div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <input type="text" id="newProductImage" placeholder="Or enter image URL">
+                    </div>
+                    <div class="form-row">
+                        <button class="admin-btn save-btn" onclick="addNewProduct()">Save Product</button>
+                        <button class="admin-btn cancel-btn" onclick="hideAddProductForm()">Cancel</button>
+                    </div>
+                </div>
+                
+                <!-- Edit Product Form -->
+                <div class="edit-product-form hidden" id="editProductForm">
+                    <h4>Edit Product</h4>
+                    <div class="form-row">
+                        <input type="text" id="editProductName" placeholder="Product Name">
+                        <input type="number" id="editProductPrice" placeholder="Price">
+                    </div>
+                    <div class="form-row">
+                        <select id="editProductCategory">
+                            <option value="indian">Indian</option>
+                            <option value="exotic">Exotic</option>
+                            <option value="leafy">Leafy</option>
+                            <option value="others">Others</option>
+                          <option value="puja">Puja Needs</option>
+                        </select>
+                        <select id="editProductUnit">
+                            <option value="kg">kg</option>
+                            <option value="piece">piece</option>
+                            <option value="bunch">bunch</option>
+                            <option value="packet">packet</option>
+                            <option value="tin">tin</option>
+                            <option value="bottle">bottle</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <input type="number" id="editProductStock" placeholder="Stock Quantity">
+                    </div>
+                    
+                    <!-- For edit form -->
+                    <div class="file-upload-container">
+                        
+                        <button type="button" class="file-upload-label">
+        <i class="fas fa-camera"></i>  Choose from Gallery
+    </button><input type="file" id="editProductImageUpload" class="file-upload-input" accept="image/*" capture="environment" style="display: none;">
+                        <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                            Supports: JPEG, PNG, WebP (Max 5MB)
+                        </div>
+                        <div class="image-preview" id="editProductImagePreview"></div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <input type="text" id="editProductImage" placeholder="Or enter image URL">
+                    </div>
+                    <div class="form-row">
+                        <button class="admin-btn save-btn" onclick="updateProduct()">Update Product</button>
+                        <button class="admin-btn cancel-btn" onclick="hideEditProductForm()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-tab-content" id="settingsTab">
+                <div class="admin-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalProducts">0</div>
+                        <div class="stat-label">Total Products</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalOrders">0</div>
+                        <div class="stat-label">Total Orders</div>
+                    </div>
+                </div>
+                
+                <h4>Store Settings</h4>
+                <div class="form-group">
+                    <label>Packaging Charge (₹)</label>
+                    <input type="number" id="packagingCharge" value="10">
+                </div>
+                <button class="admin-btn save-btn" onclick="saveSettings()">Save Settings</button>
+            </div>
+            
+            <div class="admin-tab-content" id="stockTab">
+                <h4>Stock Management</h4>
+                <div class="admin-search">
+                    <input type="text" id="stockSearch" placeholder="Search products..." oninput="filterStockProducts()">
+                </div>
+                <div class="category-filter">
+                    <select id="stockCategoryFilter" onchange="filterStockProducts()">
+                        <option value="all">All Categories</option>
+                        <option value="indian">Indian</option>
+                        <option value="exotic">Exotic</option>
+                        <option value="leafy">Leafy</option>
+                        <option value="others">Others</option>
+                      <option value="puja">Puja Needs</option>
+                    </select>
+                </div>
+                <div class="stock-management">
+                    <div id="stockList">
+                        <!-- Stock items will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="back-to-home" onclick="showHomePage()">Back to Home</button>
+    </div>
+    
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2 class="cart-title">Your Cart</h2>
+                <button class="close-cart" onclick="closeCart()">×</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be loaded here -->
+            </div>
+         
+            <div class="cart-total" id="cartTotal">
+                Total: ₹0
+            </div>
+             <div class="payment-highlight">
+        ⚠️ Your order will be confirmed only after 50% advance payment
+    </div>
+            <!-- PICKUP INFORMATION -->
+            <div class="pickup-info">
+                🏪 Order will be ready for pickup at our store
+            </div>
+            
+            <!-- ADDED PACKAGING NOTE IN CART -->
+            <div class="packaging-note">
+                <strong>📦 Packaging Charge:</strong> All orders include a packaging charge for safe and hygienic handling.
+            </div>
+            
+            <button class="checkout-btn" id="checkoutBtn" onclick="checkBusinessHours()">
+                Confirm Order via WhatsApp
+            </button>
+        </div>
+    </div>
+    
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Order Confirmation</h2>
+                <button class="close-modal" onclick="closeCheckoutModal()">×</button>
+            </div>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="customerName">Full Name *</label>
+                    <input type="text" id="customerName" required="">
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">Phone Number *</label>
+                    <input type="tel" id="customerPhone" required="">
+                </div>
+                 <div class="payment-highlight">
+        ⚠️ Your order will be confirmed only after 50% advance payment
+    </div>
+                <div class="pickup-info">
+                    🏪 <strong>Pickup Information:</strong><br>
+                    Your order will be ready for pickup at our store:<br>
+                    <strong>Sabji Haat, Jadavpur Sandhya Bazar Rd, Kolkata-700075</strong>
+                </div>
+                
+                <div class="billing-details" id="billingSummary">
+                    <!-- Billing summary will be loaded here -->
+                </div>
+                
+                <!-- ADDED PACKAGING NOTE IN CHECKOUT -->
+                <div class="packaging-note">
+                    <strong>📦 Note:</strong> All orders include a packaging charge for safe and hygienic handling of your vegetables.
+                </div>
+                
+                <button type="button" class="checkout-btn" onclick="validateAndCheckout()">
+                    Confirm Order via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Business Hours Modal -->
+    <div class="modal" id="businessHoursModal">
+        <div class="modal-content business-hours-modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Store Closed</h2>
+                <button class="close-modal" onclick="closeBusinessHoursModal()">×</button>
+            </div>
+            <img src="./Sabji Haat - Fresh Vegetables_files/photo-1592924357228-91a4daadcfea" class="business-hours-image">
+            <div class="hours-details">
+                <div class="hours-title">Our Store Hours</div>
+                <div class="hours-description">
+                    We're currently closed. Please place your orders between 10:00 AM and 10:00 PM for next day pickup.
+                </div>
+                <div class="hours-actions">
+                    <button class="hours-btn hours-primary" onclick="closeBusinessHoursModal()">
+                        OK
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <script>
+// Business information - loaded from API
+let BUSINESS_INFO = {
+    name: "Sabji Haat",
+    phone: "+919051410591",
+    address: "Jadavpur Sandhya Bazar Rd, West Bengal Kolkata-700075",
+    instagram: "https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=seyxfz6",
+    facebook: "https://www.facebook.com/sabjihaat?mibextid=ZbWKwL",
+    googleReview: "https://maps.app.goo.gl/1DNV5UUPp2MXR81fA",
+    packagingCharge: 10
+};
+
+// Cloudinary Configuration
+const CLOUDINARY_UPLOAD_PRESET = 'sabji_haat';
+const CLOUDINARY_CLOUD_NAME = 'dmt4fr2rp';
+
+// Product data - loaded from API, organized by category
+let PRODUCTS = {
+    indian: [],
+    exotic: [],
+    leafy: [],
+    others: [],
+    puja: []
+};
+
+// Current loading state
+let isLoading = false;
+let currentCategory = 'indian';
+let categoryLoadQueue = [];
+
+// Quantity options based on product type
+const getQuantityOptions = (unit) => {
+    switch(unit) {
+        case 'piece':
+        case 'bunch':
+        case 'packet':
+        case 'tin':
+        case 'bottle':
+            return [
+                { label: "1", value: 1 },
+                { label: "2", value: 2 },
+                { label: "3", value: 3 },
+                { label: "4", value: 4 }
+            ];
+        case 'kg':
+            return [
+                { label: "250g", value: 0.25 },
+                { label: "500g", value: 0.5 },
+                { label: "1kg", value: 1 },
+                { label: "2kg", value: 2 }
+            ];
+        default:
+            return [
+                { label: "250g", value: 0.25 },
+                { label: "500g", value: 0.5 },
+                { label: "1kg", value: 1 },
+                { label: "2kg", value: 2 }
+            ];
+    }
+};
+
+// Cart state
+let cart = [];
+let selectedQuantities = {};
+let productsVisible = true;
+let editingProductId = null;
+let homeClickCount = 0;
+let homePressTimer = null;
+let reviewsScrollInterval = null;
+
+// Services animation variables - UPDATED FOR 3 CARDS
+let servicesCurrentSlide = 0;
+let servicesTotalSlides = 1;
+let servicesAutoSlideInterval;
+
+// Reviews animation variables
+let reviewsCurrentSlide = 0;
+let reviewsTotalSlides = 2;
+let reviewsAutoSlideInterval;
+
+// DOM elements
+const productsContainer = document.getElementById('productsContainer');
+const cartModal = document.getElementById('cartModal');
+const cartItems = document.getElementById('cartItems');
+const cartTotal = document.getElementById('cartTotal');
+const cartCount = document.getElementById('cartCount');
+const searchInput = document.getElementById('searchInput');
+const searchIcon = document.getElementById('searchIcon');
+const categoryButtons = document.querySelectorAll('.category-btn');
+const categoryImages = document.querySelectorAll('.category-image');
+const checkoutModal = document.getElementById('checkoutModal');
+const checkoutForm = document.getElementById('checkoutForm');
+const billingSummary = document.getElementById('billingSummary');
+const businessHoursModal = document.getElementById('businessHoursModal');
+const notification = document.getElementById('notification');
+const adminLoginModal = document.getElementById('adminLoginModal');
+const adminPanel = document.getElementById('adminPanel');
+const adminDashboard = document.getElementById('adminDashboard');
+const adminLoginForm = document.getElementById('adminLoginForm');
+const offerBanner = document.getElementById('offerBanner');
+
+// Admin credentials and token
+const ADMIN_CREDENTIALS = {
+    username: "admin",
+    password: "sabjihaat2025"
+};
+let adminToken = null;
+
+// ==================== CLOUDINARY FUNCTIONS ====================
+
+// Enhanced Cloudinary upload function
+async function uploadToCloudinary(file) {
+    try {
+        // Convert file to base64
+        const base64Data = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                const base64 = reader.result.split(',')[1];
+                resolve(base64);
+            };
+            reader.onerror = error => reject(error);
+        });
+        
+        const response = await fetch(`${API_BASE_URL}/upload-cloudinary`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': adminToken ? `Bearer ${adminToken}` : ''
+            },
+            body: JSON.stringify({ image: base64Data })
+        });
+        
+        if (!response.ok) {
+            const errorData = await response.text();
+            throw new Error(`Upload failed: ${response.status} ${errorData}`);
+        }
+        
+        const data = await response.json();
+        console.log('✅ Cloudinary upload successful:', data.imageUrl);
+        return data.imageUrl;
+    } catch (error) {
+        console.error('❌ Cloudinary upload error:', error);
+        throw new Error('Image upload failed: ' + error.message);
+    }
+}
+
+// Setup image upload with Cloudinary
+function setupImageUpload(inputElement, previewElement, urlInputElement) {
+    if (!inputElement) return;
+    
+    inputElement.addEventListener('change', async function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        
+        // Validate file type
+        const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+        if (!validTypes.includes(file.type)) {
+            showNotification('Please select a valid image file (JPEG, PNG, GIF, WebP)', 'error');
+            return;
+        }
+        
+        // Validate file size (5MB)
+        if (file.size > 5 * 1024 * 1024) {
+            showNotification('Image size should be less than 5MB', 'error');
+            return;
+        }
+        
+        // Show preview
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            if (previewElement) {
+                previewElement.innerHTML = `<img src="${e.target.result}" style="max-width: 100%; max-height: 100%; border-radius: 5px;">`;
+            }
+        };
+        reader.readAsDataURL(file);
+        
+        // Upload to Cloudinary
+        try {
+            const imageUrl = await uploadToCloudinary(file);
+            if (urlInputElement) {
+                urlInputElement.value = imageUrl;
+            }
+        } catch (error) {
+            console.error('Upload error:', error);
+            showNotification('Failed to upload image: ' + error.message, 'error');
+            if (urlInputElement) {
+                urlInputElement.value = '';
+            }
+        }
+    });
+}
+
+// Initialize image uploads
+function initializeImageUploads() {
+    console.log('🖼️ Initializing Cloudinary image upload...');
+    
+    // New product form
+    setupImageUpload(
+        document.getElementById('newProductImageUpload'),
+        document.getElementById('newProductImagePreview'),
+        document.getElementById('newProductImage')
+    );
+    
+    // Edit product form
+    setupImageUpload(
+        document.getElementById('editProductImageUpload'),
+        document.getElementById('editProductImagePreview'),
+        document.getElementById('editProductImage')
+    );
+}
+
+// Fixed Business Hours Check
+function checkBusinessHours() {
+    const now = new Date();
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+    
+    const currentTime = currentHour + currentMinute/60;
+    
+    // CORRECTED: Store opens at 10AM and closes at 10PM
+    const openTime = 10; // 10:00 AM
+    const closeTime = 22; // 10:00 PM
+    
+    if (currentTime >= openTime && currentTime < closeTime) {
+        openCheckoutModal();
+    } else {
+        businessHoursModal.style.display = 'flex';
+    }
+}
+
+// ==================== GALLERY/CAMERA FUNCTIONS ====================
+
+// Enhanced image upload setup with gallery option
+function setupImageUpload(inputElement, previewElement, urlInputElement) {
+    if (!inputElement) return;
+    
+    // Get the container
+    const container = inputElement.closest('.file-upload-container');
+    if (!container) return;
+    
+    // Remove existing file input label और new button create करें
+    const existingLabel = container.querySelector('.file-upload-label');
+    if (existingLabel) {
+        existingLabel.remove();
+    }
+    
+    // Create new button with gallery/camera options
+    const uploadButton = document.createElement('button');
+    uploadButton.type = 'button';
+    uploadButton.className = 'file-upload-label';
+    uploadButton.innerHTML = `
+        <i class="fas fa-camera"></i>  Choose from Gallery
+    `;
+    uploadButton.onclick = function(e) {
+        e.preventDefault();
+        showImageSourceModal(inputElement, previewElement, urlInputElement);
+    };
+    
+    // Insert button before the file input
+    container.insertBefore(uploadButton, inputElement);
+    
+    // Hide the original file input
+    inputElement.style.display = 'none';
+}
+
+// Image source selection modal
+function showImageSourceModal(inputElement, previewElement, urlInputElement) {
+    // Modal HTML create करें
+    const modalHTML = `
+        <div class="image-source-modal" style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        ">
+            <div style="
+                background: white;
+                padding: 30px;
+                border-radius: 15px;
+                text-align: center;
+                max-width: 300px;
+                width: 90%;
+            ">
+                <h3 style="margin-bottom: 20px; color: #333;">Choose Image Source</h3>
+                
+                <button onclick="chooseFromGallery()" 
+                    style="
+                        background: linear-gradient(135deg, #2196F3, #0D47A1);
+                        color: white;
+                        border: none;
+                        padding: 15px 20px;
+                        border-radius: 10px;
+                        font-size: 16px;
+                        cursor: pointer;
+                        width: 100%;
+                        margin-bottom: 20px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                    ">
+                    <i class="fas fa-images"></i> Choose from Gallery
+                </button>
+                
+                <button onclick="closeImageSourceModal()" 
+                    style="
+                        background: #95a5a6;
+                        color: white;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        width: 100%;
+                    ">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    `;
+    
+    // Modal add करें
+    const modalDiv = document.createElement('div');
+    modalDiv.innerHTML = modalHTML;
+    modalDiv.id = 'imageSourceModal';
+    document.body.appendChild(modalDiv);
+    
+    // Store references for later use
+    window.currentImageUploadData = {
+        inputElement: inputElement,
+        previewElement: previewElement,
+        urlInputElement: urlInputElement
+    };
+}
+
+// Close modal function
+function closeImageSourceModal() {
+    const modal = document.getElementById('imageSourceModal');
+    if (modal) {
+        document.body.removeChild(modal);
+    }
+    window.currentImageUploadData = null;
+}
+
+// Take photo with camera
+function takePhotoWithCamera() {
+    if (!window.currentImageUploadData) return;
+    
+    // Create camera input
+    const cameraInput = document.createElement('input');
+    cameraInput.type = 'file';
+    cameraInput.accept = 'image/*';
+    cameraInput.capture = 'environment';
+    cameraInput.style.display = 'none';
+    
+    cameraInput.addEventListener('change', async function(e) {
+        const file = e.target.files[0];
+        if (!file) {
+            closeImageSourceModal();
+            return;
+        }
+        
+        await processSelectedFile(file, window.currentImageUploadData.previewElement, window.currentImageUploadData.urlInputElement);
+        closeImageSourceModal();
+        document.body.removeChild(cameraInput);
+    });
+    
+    document.body.appendChild(cameraInput);
+    cameraInput.click();
+}
+
+// Choose from gallery
+function chooseFromGallery() {
+    if (!window.currentImageUploadData) return;
+    
+    // Create gallery input
+    const galleryInput = document.createElement('input');
+    galleryInput.type = 'file';
+    galleryInput.accept = 'image/*';
+    galleryInput.multiple = false;
+    galleryInput.style.display = 'none';
+    
+    galleryInput.addEventListener('change', async function(e) {
+        const file = e.target.files[0];
+        if (!file) {
+            closeImageSourceModal();
+            return;
+        }
+        
+        await processSelectedFile(file, window.currentImageUploadData.previewElement, window.currentImageUploadData.urlInputElement);
+        closeImageSourceModal();
+        document.body.removeChild(galleryInput);
+    });
+    
+    document.body.appendChild(galleryInput);
+    galleryInput.click();
+}
+
+// Process selected file (common for both camera and gallery)
+async function processSelectedFile(file, previewElement, urlInputElement) {
+    // Validate file type
+    const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+    if (!validTypes.includes(file.type)) {
+        showNotification('Please select a valid image file (JPEG, PNG, GIF, WebP)', 'error');
+        return;
+    }
+    
+    // Validate file size (5MB)
+    if (file.size > 5 * 1024 * 1024) {
+        showNotification('Image size should be less than 5MB', 'error');
+        return;
+    }
+    
+    // Show preview
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        if (previewElement) {
+            previewElement.innerHTML = `<img src="${e.target.result}" style="max-width: 100%; max-height: 100%; border-radius: 5px;">`;
+        }
+    };
+    reader.readAsDataURL(file);
+    
+    // Upload to Cloudinary
+    try {
+        const imageUrl = await uploadToCloudinary(file);
+        if (urlInputElement) {
+            urlInputElement.value = imageUrl;
+        }
+    } catch (error) {
+        console.error('Upload error:', error);
+        showNotification('Failed to upload image: ' + error.message, 'error');
+        if (urlInputElement) {
+            urlInputElement.value = '';
+        }
+    }
+}
+
+// Updated initializeImageUploads function
+function initializeImageUploads() {
+    console.log('🖼️ Initializing enhanced image upload with gallery...');
+    
+    // New product form
+    setupImageUpload(
+        document.getElementById('newProductImageUpload'),
+        document.getElementById('newProductImagePreview'),
+        document.getElementById('newProductImage')
+    );
+    
+    // Edit product form
+    setupImageUpload(
+        document.getElementById('editProductImageUpload'),
+        document.getElementById('editProductImagePreview'),
+        document.getElementById('editProductImage')
+    );
+}
+
+// ==================== API FUNCTIONS ====================
+
+// API Utility Functions
+const API_BASE_URL = 'https://sobjihaat-backend.onrender.com/api';
+
+// Helper function for API calls
+async function apiCall(endpoint, options = {}) {
+    try {
+        const headers = {
+            'Content-Type': 'application/json',
+            ...(options.headers || {})
+        };
+        
+        const requestOptions = {
+            method: options.method || 'GET',
+            headers: headers,
+            mode: 'cors'
+        };
+        
+        if (options.body) {
+            requestOptions.body = typeof options.body === 'string' ? options.body : JSON.stringify(options.body);
+        }
+        
+        const response = await fetch(`${API_BASE_URL}${endpoint}`, requestOptions);
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText || 'Request failed');
+        }
+        
+        return await response.json();
+    } catch (error) {
+        console.error('❌ API Error:', error);
+        throw error;
+    }
+}
+
+// Products API
+const productsAPI = {
+    async getAll(category = null) {
+        const endpoint = category ? `/products?category=${category}` : '/products';
+        return await apiCall(endpoint);
+    },
+    
+    async getById(id) {
+        return await apiCall(`/products/${id}`);
+    },
+    
+    async create(product, token) {
+        return await apiCall('/products', {
+            method: 'POST',
+            body: product,
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+    },
+    
+    async update(id, product, token) {
+        return await apiCall(`/products/${id}`, {
+            method: 'PUT',
+            body: product,
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+    },
+    
+    async delete(id, token) {
+        return await apiCall(`/products/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+    },
+    
+    async updateStock(id, stock, token) {
+        return await apiCall(`/products/${id}/stock`, {
+            method: 'PUT',
+            body: { stock: Number(stock) },
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+    }
+};
+
+// Orders API
+const ordersAPI = {
+    async create(order) {
+        return await apiCall('/orders', {
+            method: 'POST',
+            body: order
+        });
+    },
+    
+    async getAll(token) {
+        return await apiCall('/orders', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+    }
+};
+
+// Business Info API
+const businessInfoAPI = {
+    async get() {
+        return await apiCall('/business-info');
+    },
+    
+    async update(data, token) {
+        return await apiCall('/business-info', {
+            method: 'PUT',
+            body: data,
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+    }
+};
+
+// Admin API
+const adminAPI = {
+    async login(username, password) {
+        return await apiCall('/admin/login', {
+            method: 'POST',
+            body: { username, password }
+        });
+    }
+};
+
+// Export for use in HTML
+window.productsAPI = productsAPI;
+window.ordersAPI = ordersAPI;
+window.businessInfoAPI = businessInfoAPI;
+window.adminAPI = adminAPI;
+window.uploadToCloudinary = uploadToCloudinary;
+
+// ==================== MAIN APPLICATION FUNCTIONS ====================
+
+// Page navigation functions
+function showHomePage() {
+    document.querySelector('.main-app').style.display = 'block';
+    document.getElementById('aboutPage').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'none';
+    closeAdminLogin();
+}
+
+function showAboutPage() {
+    document.querySelector('.main-app').style.display = 'none';
+    document.getElementById('aboutPage').style.display = 'block';
+    document.getElementById('adminPanel').style.display = 'none';
+    closeAdminLogin();
+}
+
+async function showAdminPanel() {
+    document.querySelector('.main-app').style.display = 'none';
+    document.getElementById('aboutPage').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'block';
+    closeAdminLogin();
+    
+    try {
+        await loadAllProducts();
+        loadAdminProducts();
+        loadAdminSettings();
+        await loadStockManagement();
+    } catch (error) {
+        console.error('❌ Error loading admin panel:', error);
+    }
+}
+
+function adminLogout() {
+    adminToken = null;
+    localStorage.removeItem('adminToken');
+    document.getElementById('adminPanel').style.display = 'none';
+    document.querySelector('.main-app').style.display = 'block';
+}
+
+// Initialize the app
+document.addEventListener('DOMContentLoaded', async function() {
+    try {
+        // Check if admin is already logged in
+        const savedToken = localStorage.getItem('adminToken');
+        if (savedToken) {
+            adminToken = savedToken;
+        }
+        
+        // Load business info from API
+        await loadBusinessInfo();
+        
+        // Load products from API
+        await loadAllProducts();
+        
+        // Load initial category products
+        await loadCategoryProducts(currentCategory);
+        
+        // Update offer banner
+        updateOfferBanner();
+        
+        // Add emergency admin access
+        setupEmergencyAdminAccess();
+        
+        // Initialize image uploads
+        initializeImageUploads();
+    } catch (error) {
+        console.error('Error initializing app:', error);
+    }
+    
+    setupEventListeners();
+    updateCartCount();
+    
+    // Initialize reviews slider
+    initReviewsSlider();
+    
+    // Initialize services slider
+    initServicesSlider();
+});
+
+// Setup emergency admin access
+function setupEmergencyAdminAccess() {
+    let clickCount = 0;
+    let clickTimer;
+    
+    document.querySelector('header').addEventListener('click', function(e) {
+        if (e.target.classList.contains('nav-home')) {
+            clickCount++;
+            
+            if (clickTimer) {
+                clearTimeout(clickTimer);
+            }
+            
+            clickTimer = setTimeout(function() {
+                if (clickCount === 3) {
+                    openAdminLogin();
+                }
+                clickCount = 0;
+            }, 500);
+        }
+    });
+}
+
+// Load business info from API
+async function loadBusinessInfo() {
+    try {
+        BUSINESS_INFO = await businessInfoAPI.get();
+    } catch (error) {
+        console.error('❌ Error loading business info from API:', error);
+        
+        // Use fallback data
+        BUSINESS_INFO = {
+            name: "Sabji Haat",
+            phone: "+919051410591", 
+            address: "Jadavpur Sandhya Bazar Rd, West Bengal Kolkata-700075",
+            instagram: "https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=seyxfz6",
+            facebook: "https://www.facebook.com/sabjihaat?mibextid=ZbWKwL",
+            googleReview: "https://maps.app.goo.gl/1DNV5UUPp2MXR81fA",
+            packagingCharge: 10
+        };
+    }
+}
+
+// Load all products from API
+async function loadAllProducts() {
+    const categories = ['indian', 'exotic', 'leafy', 'others', 'puja'];
+    
+    for (const category of categories) {
+        try {
+            const products = await productsAPI.getAll(category);
+            
+            // Remove duplicates
+            const uniqueProducts = [];
+            const productIds = new Set();
+            
+            products.forEach(product => {
+                if (!productIds.has(product.id)) {
+                    productIds.add(product.id);
+                    uniqueProducts.push(product);
+                }
+            });
+            
+            // Store in PRODUCTS object
+            PRODUCTS[category] = uniqueProducts;
+            
+        } catch (error) {
+            console.error(`❌ Error loading ${category} products:`, error);
+            PRODUCTS[category] = [];
+        }
+    }
+}
+
+// Set up event listeners
+function setupEventListeners() {
+    // Category buttons
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', async function() {
+            const category = this.getAttribute('data-category');
+            if (!isLoading) {
+                await loadCategory(category);
+            }
+        });
+    });
+ 
+    // Search functionality
+    searchInput.addEventListener('input', function() {
+        filterProducts(this.value);
+        updateSearchIcon();
+    });
+
+    // Search icon click - focus on search input to open keyboard
+    searchIcon.addEventListener('click', function() {
+        searchInput.focus();
+        if (searchInput.value.trim() !== '') {
+            filterProducts(searchInput.value);
+        }
+    });
+
+    // Search bar focus - scroll to top
+    searchInput.addEventListener('focus', function() {
+        window.scrollTo(0, 0);
+    });
+
+    // Enter key support for search
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            filterProducts(this.value);
+            this.blur();
+            
+            setTimeout(() => {
+                const productsSection = document.querySelector('.products-container');
+                if (productsSection) {
+                    productsSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 300);
+        }
+    });
+
+    // Auto scroll to search bar when clicked
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.search-container') || e.target === searchInput || e.target === searchIcon) {
+            const searchContainer = document.querySelector('.search-container');
+            const headerHeight = document.querySelector('header').offsetHeight;
+            
+            window.scrollTo({
+                top: searchContainer.offsetTop - headerHeight - 10,
+                behavior: 'smooth'
+            });
+            
+            setTimeout(() => {
+                searchInput.focus();
+            }, 300);
+        }
+    });
+
+    // Close cart when clicking outside
+    cartModal.addEventListener('click', function(e) {
+        if (e.target === cartModal) {
+            closeCart();
+        }
+    });
+
+    // Close checkout modal when clicking outside
+    checkoutModal.addEventListener('click', function(e) {
+        if (e.target === checkoutModal) {
+            closeCheckoutModal();
+        }
+    });
+
+    // Close business hours modal when clicking outside
+    businessHoursModal.addEventListener('click', function(e) {
+        if (e.target === businessHoursModal) {
+            closeBusinessHoursModal();
+        }
+    });
+
+    // Close admin login modal when clicking outside
+    adminLoginModal.addEventListener('click', function(e) {
+        if (e.target === adminLoginModal) {
+            closeAdminLogin();
+        }
+    });
+
+    // Admin login form
+    adminLoginForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const username = document.getElementById('adminUsername').value;
+        const password = document.getElementById('adminPassword').value;
+        
+        try {
+            const response = await adminAPI.login(username, password);
+            adminToken = response.token;
+            localStorage.setItem('adminToken', adminToken);
+            showAdminPanel();
+        } catch (error) {
+            console.error('❌ Login error:', error);
+            showNotification('Invalid credentials', 'error');
+        }
+    });
+}
+
+// Initialize services slider - UPDATED FOR 3 CARDS
+function initServicesSlider() {
+    const servicesContainer = document.getElementById('servicesContainer');
+    const serviceCards = servicesContainer.querySelectorAll('.service-card');
+    servicesTotalSlides = Math.ceil(serviceCards.length / 3) - 1;
+    
+    // Create dots
+    createServicesDots();
+    
+    // Start auto sliding
+    startServicesAutoSlide();
+    
+    // Pause auto slide on hover
+    servicesContainer.addEventListener('mouseenter', () => {
+        clearInterval(servicesAutoSlideInterval);
+    });
+    
+    // Resume auto slide when mouse leaves
+    servicesContainer.addEventListener('mouseleave', () => {
+        startServicesAutoSlide();
+    });
+}
+
+// Create dots for services slider
+function createServicesDots() {
+    const dotsContainer = document.getElementById('servicesDots');
+    dotsContainer.innerHTML = '';
+    
+    for (let i = 0; i <= servicesTotalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = `services-dot ${i === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => {
+            goToServicesSlide(i);
+        });
+        dotsContainer.appendChild(dot);
+    }
+}
+
+// Slide services - UPDATED FOR 3 CARDS
+function slideServices(direction) {
+    if (direction === 'next') {
+        servicesCurrentSlide = Math.min(servicesCurrentSlide + 1, servicesTotalSlides);
+    } else {
+        servicesCurrentSlide = Math.max(servicesCurrentSlide - 1, 0);
+    }
+    
+    updateServicesSlider();
+}
+
+// Go to specific slide
+function goToServicesSlide(slideIndex) {
+    servicesCurrentSlide = slideIndex;
+    updateServicesSlider();
+}
+
+// Update services slider position - UPDATED FOR 3 CARDS
+function updateServicesSlider() {
+    const servicesContainer = document.getElementById('servicesContainer');
+    const translateX = -servicesCurrentSlide * 100;
+    servicesContainer.style.transform = `translateX(${translateX}%)`;
+    
+    // Update active dot
+    const dots = document.querySelectorAll('.services-dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === servicesCurrentSlide);
+    });
+    
+    // Reset auto slide timer
+    resetServicesAutoSlide();
+}
+
+// Start auto sliding for services
+function startServicesAutoSlide() {
+    servicesAutoSlideInterval = setInterval(() => {
+        if (servicesCurrentSlide >= servicesTotalSlides) {
+            servicesCurrentSlide = 0;
+        } else {
+            servicesCurrentSlide++;
+        }
+        updateServicesSlider();
+    }, 4000);
+}
+
+// Reset auto slide timer
+function resetServicesAutoSlide() {
+    clearInterval(servicesAutoSlideInterval);
+    startServicesAutoSlide();
+}
+
+// Initialize reviews slider
+function initReviewsSlider() {
+    const reviewCards = document.querySelectorAll('.review-card');
+    reviewsTotalSlides = Math.ceil(reviewCards.length / 3) - 1;
+    
+    // Start auto sliding for reviews
+    startReviewsAutoSlide();
+    
+    // Pause auto slide on hover
+    const reviewContainer = document.getElementById('reviewContainer');
+    reviewContainer.addEventListener('mouseenter', () => {
+        clearInterval(reviewsAutoSlideInterval);
+    });
+    
+    // Resume auto slide when mouse leaves
+    reviewContainer.addEventListener('mouseleave', () => {
+        startReviewsAutoSlide();
+    });
+    
+    // Initialize counter animation
+    const countElem = document.getElementById('happyCount');
+    let count = 0;
+    const target = 1200;
+    const increment = Math.ceil(target / 100);
+
+    function countUp() {
+        if (count < target) {
+            count += increment;
+            countElem.textContent = count > target ? target : count;
+            requestAnimationFrame(countUp);
+        }
+    }
+    countUp();
+    
+    // Initialize card animations
+    reviewCards.forEach((card, index) => {
+        setTimeout(() => {
+            card.classList.add('visible');
+        }, index * 200);
+    });
+}
+
+// Slide reviews
+function slideReviews(direction) {
+    if (direction === 'next') {
+        reviewsCurrentSlide = Math.min(reviewsCurrentSlide + 1, reviewsTotalSlides);
+    } else {
+        reviewsCurrentSlide = Math.max(reviewsCurrentSlide - 1, 0);
+    }
+    
+    updateReviewsSlider();
+}
+
+// Update reviews slider position
+function updateReviewsSlider() {
+    const reviewContainer = document.getElementById('reviewContainer');
+    const translateX = -reviewsCurrentSlide * 100;
+    reviewContainer.style.transform = `translateX(${translateX}%)`;
+    
+    // Reset auto slide timer
+    resetReviewsAutoSlide();
+}
+
+// Start auto sliding for reviews
+function startReviewsAutoSlide() {
+    reviewsAutoSlideInterval = setInterval(() => {
+        if (reviewsCurrentSlide >= reviewsTotalSlides) {
+            reviewsCurrentSlide = 0;
+        } else {
+            reviewsCurrentSlide++;
+        }
+        updateReviewsSlider();
+    }, 5000);
+}
+
+// Reset auto slide timer for reviews
+function resetReviewsAutoSlide() {
+    clearInterval(reviewsAutoSlideInterval);
+    startReviewsAutoSlide();
+}
+
+// Update search icon based on input
+function updateSearchIcon() {
+    if (searchInput.value.trim() !== '') {
+        searchIcon.className = 'search-icon fas fa-times';
+        searchIcon.onclick = function() {
+            searchInput.value = '';
+            filterProducts('');
+            updateSearchIcon();
+            searchInput.blur();
+        };
+    } else {
+        searchIcon.className = 'search-icon fas fa-search';
+        searchIcon.onclick = function() {
+            searchInput.focus();
+            filterProducts(searchInput.value);
+        };
+    }
+}
+
+// Load category
+async function loadCategory(category) {
+    if (isLoading) {
+        categoryLoadQueue.push(category);
+        return;
+    }
+    
+    productsVisible = true;
+    productsContainer.style.display = 'grid';
+    setActiveCategory(category);
+    
+    isLoading = true;
+    
+    try {
+        await loadCategoryProducts(category);
+        currentCategory = category;
+    } catch (error) {
+        console.error(`Error loading ${category} products:`, error);
+    } finally {
+        isLoading = false;
+        
+        if (categoryLoadQueue.length > 0) {
+            const nextCategory = categoryLoadQueue.shift();
+            setTimeout(() => loadCategory(nextCategory), 300);
+        }
+    }
+}
+
+// Set active category
+function setActiveCategory(category) {
+    // Update category buttons
+    categoryButtons.forEach(button => {
+        button.classList.remove('active');
+        if (button.getAttribute('data-category') === category) {
+            button.classList.add('active');
+        }
+    });
+    
+    // Update category images
+    categoryImages.forEach(image => {
+        image.classList.remove('active');
+        if (image.getAttribute('data-category') === category) {
+            image.classList.add('active');
+        }
+    });
+}
+
+// Load products for a specific category
+async function loadCategoryProducts(category) {
+    let products = [];
+    
+    // Check if we already have products for this category
+    if (PRODUCTS[category] && PRODUCTS[category].length > 0) {
+        products = PRODUCTS[category];
+    } else {
+        // Load from API if not cached
+        try {
+            const response = await fetch(`${API_BASE_URL}/products/cached?category=${category}`);
+            
+            if (response.ok) {
+                products = await response.json();
+                
+                // Remove duplicates
+                const uniqueProducts = [];
+                const productIds = new Set();
+                
+                products.forEach(product => {
+                    if (!productIds.has(product.id)) {
+                        productIds.add(product.id);
+                        uniqueProducts.push(product);
+                    }
+                });
+                
+                products = uniqueProducts;
+                
+                // Cache the products
+                PRODUCTS[category] = products;
+                
+            } else {
+                products = [];
+            }
+        } catch (error) {
+            console.error(`❌ Error loading ${category} products:`, error);
+            products = [];
+        }
+    }
+    
+    // Sort products: in-stock first
+    products = products.sort((a, b) => {
+        const stockA = a.stock ?? 0;
+        const stockB = b.stock ?? 0;
+        const isOutOfStockA = stockA <= 0;
+        const isOutOfStockB = stockB <= 0;
+        
+        if (isOutOfStockA === isOutOfStockB) {
+            return a.name.localeCompare(b.name);
+        }
+        return isOutOfStockA ? 1 : -1;
+    });
+    
+    // Clear container and render
+    productsContainer.innerHTML = '';
+    
+    if (products.length === 0) {
+        productsContainer.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #666;">
+                <i class="fas fa-box-open" style="font-size: 48px; margin-bottom: 15px; opacity: 0.5;"></i>
+                <p>No products found in ${category} category</p>
+                <button onclick="loadCategory('${category}')" style="
+                    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 8px;
+                    margin-top: 10px;
+                    cursor: pointer;
+                ">
+                    <i class="fas fa-sync-alt"></i> Retry Loading
+                </button>
+            </div>
+        `;
+        return;
+    }
+    
+    // Render all products at once
+    for (let i = 0; i < products.length; i++) {
+        renderSingleProduct(products[i], i);
+    }
+}
+
+// Render single product with animation
+async function renderSingleProduct(product, index) {
+    const quantityOptions = getQuantityOptions(product.unit);
+    const stockValue = product.stock ?? 0;
+    const isOutOfStock = stockValue <= 0;
+    
+    const productCard = document.createElement('div');
+    productCard.className = 'product-card fast-load';
+    productCard.style.animationDelay = (index * 50) + 'ms';
+    productCard.innerHTML = `
+        ${isOutOfStock ? '<div class="out-of-stock"></div>' : ''}
+        ${stockValue < 10 && stockValue > 0 ? `<div class="stock-badge">Low Stock</div>` : ''}
+        <img 
+            src="${product.image}" 
+            alt="${product.name}" 
+            class="product-image" 
+            loading="lazy"
+            onload="this.classList.remove('lazy-image')"
+            onerror="this.src='https://via.placeholder.com/300x200?text=Sabji+Haat'"
+        >
+        <div class="product-info">
+            <div class="product-name">${product.name}</div>
+            <div class="product-price">₹${product.price}<span class="unit-display">/${product.unit}</span></div>
+            <div class="quantity-selector">
+                <div class="quantity-options ${isOutOfStock ? 'disabled' : ''}" id="quantity-options-${product.id}">
+                    ${quantityOptions.map(option => `
+                        <div class="quantity-option" data-value="${option.value}" data-product="${product.id}" ${isOutOfStock ? 'style="pointer-events: none; opacity: 0.5;"' : ''}>
+                            ${option.label}
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="custom-quantity">
+                    <input type="number" class="custom-quantity-input" id="custom-quantity-${product.id}" 
+                           placeholder="Custom" min="0.1" step="0.1" oninput="validateNumberInput(this)" 
+                           ${isOutOfStock ? 'disabled' : ''}>
+                    <span class="custom-quantity-unit">${product.unit}</span>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart(${product.id})" ${isOutOfStock ? 'disabled' : ''}>
+                ${isOutOfStock ? 'Currently Not Available' : 'Add to Cart'}
+            </button>
+        </div>
+    `;
+    
+    // Add to container
+    productsContainer.appendChild(productCard);
+    
+    // Setup event listeners
+    setTimeout(() => {
+        setupProductEventListeners(product.id, isOutOfStock);
+    }, 100);
+}
+
+// New function to setup product event listeners
+function setupProductEventListeners(productId, isOutOfStock) {
+    const optionsContainer = document.getElementById(`quantity-options-${productId}`);
+    if (optionsContainer) {
+        const options = optionsContainer.querySelectorAll('.quantity-option');
+        const customInput = document.getElementById(`custom-quantity-${productId}`);
+        
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                if (isOutOfStock) {
+                    showNotification('This product is currently not available', 'error');
+                    return;
+                }
+                
+                options.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                
+                const quantity = parseFloat(this.getAttribute('data-value'));
+                selectedQuantities[productId] = quantity;
+                
+                if (customInput) {
+                    customInput.value = '';
+                }
+            });
+        });
+        
+        if (customInput) {
+            customInput.addEventListener('input', function() {
+                const customValue = parseFloat(this.value);
+                if (!isNaN(customValue) && customValue > 0) {
+                    options.forEach(opt => opt.classList.remove('active'));
+                    selectedQuantities[productId] = customValue;
+                } else {
+                    selectedQuantities[productId] = 0;
+                }
+            });
+        }
+    }
+}
+
+// Validate number input to allow only numbers
+function validateNumberInput(input) {
+    input.value = input.value.replace(/[^0-9.]/g, '');
+    
+    if ((input.value.match(/\./g) || []).length > 1) {
+        input.value = input.value.substring(0, input.value.lastIndexOf('.'));
+    }
+    
+    const value = parseFloat(input.value);
+    if (!isNaN(value) && value > 0) {
+        const roundedValue = Math.round(value * 10) / 10;
+        input.value = roundedValue;
+        selectedQuantities[input.id.replace('custom-quantity-', '')] = roundedValue;
+    }
+}
+
+// Filter products based on search - searches across all categories
+function filterProducts(searchTerm) {
+    if (searchTerm.trim() === '') {
+        loadCategoryProducts(currentCategory);
+        return;
+    }
+    
+    const allProducts = [];
+    for (const category in PRODUCTS) {
+        allProducts.push(...PRODUCTS[category]);
+    }
+    
+    let filteredProducts = allProducts.filter(product => 
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    
+    // Remove duplicates
+    const uniqueProducts = [];
+    const productIds = new Set();
+    
+    filteredProducts.forEach(product => {
+        if (!productIds.has(product.id)) {
+            productIds.add(product.id);
+            uniqueProducts.push(product);
+        }
+    });
+    
+    filteredProducts = uniqueProducts;
+    
+    // Sort by stock status
+    filteredProducts = filteredProducts.sort((a, b) => {
+        const stockA = a.stock ?? 0;
+        const stockB = b.stock ?? 0;
+        const isOutOfStockA = stockA <= 0;
+        const isOutOfStockB = stockB <= 0;
+        
+        if (isOutOfStockA === isOutOfStockB) {
+            return 0;
+        }
+        return isOutOfStockA ? 1 : -1;
+    });
+    
+    productsContainer.innerHTML = '';
+    
+    if (filteredProducts.length === 0) {
+        productsContainer.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #666;">No products found matching your search</div>';
+        return;
+    }
+    
+    // Load filtered products
+    for (let i = 0; i < filteredProducts.length; i++) {
+        renderSingleProduct(filteredProducts[i], i);
+    }
+}
+
+// Add product to cart
+function addToCart(productId) {
+    if (!selectedQuantities[productId] || selectedQuantities[productId] === 0) {
+        showNotification('Please select quantity first');
+        return;
+    }
+    
+    const quantity = selectedQuantities[productId];
+    
+    let product = null;
+    for (const category in PRODUCTS) {
+        product = PRODUCTS[category].find(p => p.id === productId);
+        if (product) break;
+    }
+    
+    if (!product) return;
+    
+    const stockValue = product.stock ?? 0;
+    if (stockValue <= 0) {
+        showNotification('Sorry, this product is currently not available', 'error');
+        return;
+    }
+    
+    if (quantity > stockValue) {
+        showNotification(`Only ${stockValue} ${product.unit} available`, 'error');
+        return;
+    }
+    
+    const existingItemIndex = cart.findIndex(item => item.id === productId);
+    
+    if (existingItemIndex !== -1) {
+        cart[existingItemIndex].quantity += quantity;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            quantity: quantity,
+            unit: product.unit
+        });
+    }
+    
+    const newStock = Math.max(0, (product.stock ?? 0) - quantity);
+    product.stock = newStock;
+    
+    selectedQuantities[productId] = 0;
+    
+    const optionsContainer = document.getElementById(`quantity-options-${productId}`);
+    if (optionsContainer) {
+        const options = optionsContainer.querySelectorAll('.quantity-option');
+        options.forEach(opt => opt.classList.remove('active'));
+    }
+    
+    const customInput = document.getElementById(`custom-quantity-${productId}`);
+    if (customInput) {
+        customInput.value = '';
+    }
+    
+    updateCartCount();
+    showNotification(`${product.name} added to cart`);
+    
+    loadCategoryProducts(currentCategory);
+}
+
+// Update cart count in the UI
+function updateCartCount() {
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    cartCount.textContent = Math.round(totalItems * 10) / 10;
+}
+
+// Open cart modal
+function openCart() {
+    renderCartItems();
+    cartModal.style.display = 'flex';
+}
+
+// Close cart modal
+function closeCart() {
+    cartModal.style.display = 'none';
+}
+
+// Render cart items in the modal
+function renderCartItems() {
+    cartItems.innerHTML = '';
+    
+    if (cart.length === 0) {
+        cartItems.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
+        cartTotal.textContent = 'Total: ₹0';
+        return;
+    }
+    
+    let subtotal = 0;
+    
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+        
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        cartItem.innerHTML = `
+            <div class="cart-item-info">
+                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-price">₹${item.price}/${item.unit} × ${item.quantity}${getUnitDisplay(item.unit)} = ₹${itemTotal.toFixed(2)}</div>
+            </div>
+            <div class="cart-item-actions">
+                <button class="quantity-btn minus" onclick="updateCartItemQuantity(${item.id}, -${getQuantityStep(item.unit)})">-</button>
+                <span class="quantity">${item.quantity}${getUnitDisplay(item.unit)}</span>
+                <button class="quantity-btn plus" onclick="updateCartItemQuantity(${item.id}, ${getQuantityStep(item.unit)})">+</button>
+                <button class="quantity-btn remove" onclick="removeFromCart(${item.id})" style="background: #e74c3c;">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        `;
+        cartItems.appendChild(cartItem);
+    });
+    
+    // Calculate packaging charge
+    const packagingCharge = BUSINESS_INFO.packagingCharge || 10;
+    const total = subtotal + packagingCharge;
+    
+    cartTotal.innerHTML = `
+        <div class="billing-row">
+            <span>Subtotal:</span>
+            <span>₹${subtotal.toFixed(2)}</span>
+        </div>
+        <div class="billing-row">
+            <span>Packaging Charge:</span>
+            <span>₹${packagingCharge}</span>
+        </div>
+        <div class="billing-row billing-total">
+            <span>Total:</span>
+            <span>₹${total.toFixed(2)}</span>
+        </div>
+    `;
+}
+
+// Get unit display for cart
+function getUnitDisplay(unit) {
+    switch(unit) {
+        case 'piece':
+        case 'bunch':
+        case 'packet':
+        case 'tin':
+        case 'bottle':
+            return '';
+        case 'kg':
+            return 'kg';
+        default:
+            return '';
+    }
+}
+
+// Get quantity step based on unit
+function getQuantityStep(unit) {
+    switch(unit) {
+        case 'piece':
+        case 'bunch':
+        case 'packet':
+        case 'tin':
+        case 'bottle':
+            return 1;
+        case 'kg':
+            return 0.1;
+        default:
+            return 1;
+    }
+}
+
+// Update cart item quantity
+function updateCartItemQuantity(productId, change) {
+    const itemIndex = cart.findIndex(item => item.id === productId);
+    
+    if (itemIndex !== -1) {
+        let product = null;
+        for (const category in PRODUCTS) {
+            product = PRODUCTS[category].find(p => p.id === productId);
+            if (product) break;
+        }
+        
+        if (!product) return;
+        
+        const stockValue = product.stock ?? 0;
+        const newQuantity = cart[itemIndex].quantity + change;
+        
+        if (newQuantity <= 0) {
+            cart.splice(itemIndex, 1);
+        } else if (newQuantity > stockValue + cart[itemIndex].quantity) {
+            showNotification(`Only ${stockValue + cart[itemIndex].quantity} ${product.unit} available`, 'error');
+            return;
+        } else {
+            cart[itemIndex].quantity = newQuantity;
+            product.stock = stockValue - change;
+        }
+        
+        updateCartCount();
+        renderCartItems();
+        
+        loadCategoryProducts(currentCategory);
+    }
+}
+
+// Remove item from cart
+function removeFromCart(productId) {
+    const itemIndex = cart.findIndex(item => item.id === productId);
+    
+    if (itemIndex !== -1) {
+        let product = null;
+        for (const category in PRODUCTS) {
+            product = PRODUCTS[category].find(p => p.id === productId);
+            if (product) break;
+        }
+        
+        if (product) {
+            product.stock = (product.stock ?? 0) + cart[itemIndex].quantity;
+        }
+        
+        cart.splice(itemIndex, 1);
+        updateCartCount();
+        renderCartItems();
+        
+        loadCategoryProducts(currentCategory);
+    }
+}
+
+// Open checkout modal
+function openCheckoutModal() {
+    if (cart.length === 0) {
+        showNotification('Your cart is empty');
+        return;
+    }
+    
+    renderBillingSummary();
+    checkoutModal.style.display = 'flex';
+}
+
+// Close checkout modal
+function closeCheckoutModal() {
+    checkoutModal.style.display = 'none';
+}
+
+// Close business hours modal
+function closeBusinessHoursModal() {
+    businessHoursModal.style.display = 'none';
+}
+
+// Render billing summary
+function renderBillingSummary() {
+    let subtotal = 0;
+    
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+    });
+    
+    const packagingCharge = BUSINESS_INFO.packagingCharge || 10;
+    const total = subtotal + packagingCharge;
+    
+    billingSummary.innerHTML = `
+        <h3>Order Summary</h3>
+        ${cart.map(item => `
+            <div class="billing-row">
+                <span>${item.name} (${item.quantity}${getUnitDisplay(item.unit)})</span>
+                <span>₹${(item.price * item.quantity).toFixed(2)}</span>
+            </div>
+        `).join('')}
+        <div class="billing-row">
+            <span>Subtotal:</span>
+            <span>₹${subtotal.toFixed(2)}</span>
+        </div>
+        <div class="billing-row">
+            <span>Packaging Charge:</span>
+            <span>₹${packagingCharge}</span>
+        </div>
+        <div class="billing-row billing-total">
+            <span>Total:</span>
+            <span>₹${total.toFixed(2)}</span>
+        </div>
+    `;
+}
+
+// Validate and process checkout
+function validateAndCheckout() {
+    const name = document.getElementById('customerName').value;
+    const phone = document.getElementById('customerPhone').value;
+    
+    if (!name || !phone) {
+        showNotification('Please fill all required fields', 'error');
+        return;
+    }
+    
+    if (phone.length < 10) {
+        showNotification('Please enter a valid phone number', 'error');
+        return;
+    }
+    
+    processCheckout(name, phone);
+}
+
+// Update the processCheckout function to include order number and payment instructions
+async function processCheckout(name, phone) {
+    try {
+        let subtotal = 0;
+        const orderItems = cart.map(item => {
+            const itemTotal = item.price * item.quantity;
+            subtotal += itemTotal;
+            return {
+                productId: item.id,
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity,
+                unit: item.unit
+            };
+        });
+        
+        const packagingCharge = BUSINESS_INFO.packagingCharge || 10;
+        const total = subtotal + packagingCharge;
+        
+        // Save order to backend
+        let savedOrder = null;
+        try {
+            savedOrder = await ordersAPI.create({
+                customerName: name,
+                customerPhone: phone,
+                address: "Store Pickup",
+                pincode: "700075",
+                items: orderItems,
+                subtotal: subtotal,
+                deliveryFee: 0,
+                total: total
+            });
+        } catch (error) {
+            console.error('Error saving order:', error);
+            // Generate local order ID if API fails
+            const date = new Date();
+            const dateStr = date.toISOString().slice(0, 10).replace(/-/g, '');
+            const orderNumber = Math.floor(Math.random() * 1000) + 1;
+            savedOrder = { orderId: `ORD${dateStr}-${orderNumber.toString().padStart(4, '0')}` };
+        }
+        
+        // Prepare order message for WhatsApp
+        let message = `*${BUSINESS_INFO.name} - New Order*\n\n`;
+        message += `*📦 Order ID:* ${savedOrder.orderId}\n`;
+        message += `*📅 Order Date:* ${new Date().toLocaleDateString('en-IN')}\n\n`;
+        
+        message += `*👤 Customer Details:*\n`;
+        message += `Name: ${name}\n`;
+        message += `Phone: ${phone}\n`;
+        message += `Pickup: Store Pickup\n`;
+        message += `Payment: Cash on Pickup\n\n`;
+        
+        message += `*🛒 Order Items:*\n`;
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            message += `• ${item.name} - ${item.quantity}${getUnitDisplay(item.unit)} × ₹${item.price} = ₹${itemTotal.toFixed(2)}\n`;
+        });
+        
+        message += `\n*💰 Order Summary:*\n`;
+        message += `Subtotal: ₹${subtotal.toFixed(2)}\n`;
+        message += `Packaging Charge: ₹${packagingCharge}\n`;
+        message += `*Total Amount: ₹${total.toFixed(2)}*\n\n`;
+        
+        message += `*🏪 Pickup Information:*\n`;
+        message += `Your order will be ready for pickup at:\n`;
+        message += `${BUSINESS_INFO.address}\n\n`;
+        
+        message += `*⚠️ IMPORTANT PAYMENT INSTRUCTIONS:*\n`;
+        message += `1️⃣ Your order will be confirmed only after 50% advance payment\n`;
+        message += `2️⃣ Please send ₹${(total * 0.5).toFixed(2)} as advance payment\n`;
+        message += `3️⃣ Payment methods: GPay/PhonePe/UPI: ${BUSINESS_INFO.phone}\n`;
+        message += `4️⃣ Send payment screenshot immediately after this message\n`;
+        message += `5️⃣ Pickup time will be shared after payment confirmation\n\n`;
+        
+        message += `*✅ Order Confirmation Steps:*\n`;
+        message += `1. Add items to cart on website\n`;
+        message += `2. Send order details via WhatsApp (this message)\n`;
+        message += `3. Send 50% advance payment screenshot\n`;
+        message += `4. Wait for order confirmation message\n`;
+        message += `5. Collect order from store with remaining payment\n\n`;
+        
+        message += `*Order ID for reference: ${savedOrder.orderId}*\n`;
+        message += `Thank you for choosing Sabji Haat! 🥦`;
+        
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${BUSINESS_INFO.phone.replace('+', '')}?text=${encodedMessage}`;
+        
+        // Open WhatsApp
+        window.open(whatsappUrl, '_blank');
+        
+        // Clear cart
+        cart = [];
+        updateCartCount();
+        closeCheckoutModal();
+        closeCart();
+        
+        // Reload products
+        await loadAllProducts();
+        loadCategoryProducts(currentCategory);
+        
+        showNotification(`Order sent to WhatsApp! Please send 50% advance payment screenshot.`, 'success');
+    } catch (error) {
+        console.error('Error processing checkout:', error);
+        showNotification('Error processing order. Please try again.', 'error');
+    }
+}
+
+// Show notification
+function showNotification(message, type = 'success') {
+    notification.textContent = message;
+    notification.style.background = type === 'success' ? '#2ecc71' : '#e74c3c';
+    notification.style.display = 'block';
+    
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 3000);
+}
+
+// Social media functions
+function openWhatsApp() {
+    window.open(`https://wa.me/${BUSINESS_INFO.phone.replace('+', '')}`, '_blank');
+}
+
+function openFacebook() {
+    window.open(BUSINESS_INFO.facebook, '_blank');
+}
+
+function openInstagram() {
+    window.open(BUSINESS_INFO.instagram, '_blank');
+}
+
+function openGoogleReview() {
+    window.open("https://maps.app.goo.gl/1DNV5UUPp2MXR81fA", '_blank');
+}
+
+// Services section functions
+function openServiceWhatsApp(serviceType) {
+    const message = `Hello Sabji Haat! I'm interested in your ${serviceType} service. Please provide me with more details.`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${BUSINESS_INFO.phone.replace('+', '')}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+}
+
+// Update offer banner
+function updateOfferBanner() {
+    offerBanner.innerHTML = `
+        📞 For Bulk Orders at Wholesale Rate : +919051410591
+    `;
+}
+
+// Admin functions
+function startHomePress() {
+    homePressTimer = setTimeout(function() {
+        openAdminLogin();
+    }, 10000);
+}
+
+function endHomePress() {
+    if (homePressTimer) {
+        clearTimeout(homePressTimer);
+        homePressTimer = null;
+    }
+}
+
+function openAdminLogin() {
+    adminLoginModal.style.display = 'flex';
+}
+
+function closeAdminLogin() {
+    adminLoginModal.style.display = 'none';
+    document.getElementById('adminUsername').value = '';
+    document.getElementById('adminPassword').value = '';
+}
+
+function switchAdminTab(tabName) {
+    document.querySelectorAll('.admin-tab-content').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
+    document.querySelectorAll('.admin-tab').forEach(button => {
+        button.classList.remove('active');
+    });
+    
+    const tabElement = document.getElementById(tabName + 'Tab');
+    if (tabElement) {
+        tabElement.classList.add('active');
+    }
+    
+    if (event && event.target) {
+        event.target.classList.add('active');
+    }
+    
+    if (tabName === 'stock') {
+        loadStockManagement().catch(err => {
+            console.error('Error loading stock management:', err);
+        });
+    } else if (tabName === 'products') {
+        loadAdminProducts();
+    } else if (tabName === 'settings') {
+        loadAdminSettings();
+    }
+}
+
+async function loadAdminProducts() {
+    const productList = document.getElementById('adminProductList');
+    productList.innerHTML = '<div class="loading">Loading products...</div>';
+    
+    try {
+        await loadAllProducts();
+        
+        productList.innerHTML = '';
+        let totalProducts = 0;
+        
+        for (const category in PRODUCTS) {
+            PRODUCTS[category].forEach(product => {
+                totalProducts++;
+                const productItem = document.createElement('div');
+                productItem.className = 'admin-product-item';
+                productItem.innerHTML = `
+                    <div class="admin-product-info">
+                        <div class="admin-product-name">${product.name}</div>
+                        <div class="admin-product-details">₹${product.price}/${product.unit} | ${category} | Stock: ${product.stock}</div>
+                    </div>
+                    <div class="admin-product-actions">
+                        <button class="admin-btn edit-btn" onclick="editProduct(${product.id})">Edit</button>
+                        <button class="admin-btn delete-btn" onclick="deleteProduct(${product.id})">Delete</button>
+                    </div>
+                `;
+                productList.appendChild(productItem);
+            });
+        }
+        
+        document.getElementById('totalProducts').textContent = totalProducts;
+    } catch (error) {
+        productList.innerHTML = '<div class="error">Error loading products</div>';
+    }
+}
+
+function filterAdminProducts() {
+    const searchTerm = document.getElementById('adminProductSearch').value.toLowerCase();
+    const categoryFilter = document.getElementById('adminCategoryFilter').value;
+    
+    const productList = document.getElementById('adminProductList');
+    productList.innerHTML = '';
+    
+    let totalProducts = 0;
+    
+    for (const category in PRODUCTS) {
+        if (categoryFilter !== 'all' && categoryFilter !== category) continue;
+        
+        PRODUCTS[category].forEach(product => {
+            if (product.name.toLowerCase().includes(searchTerm)) {
+                totalProducts++;
+                const productItem = document.createElement('div');
+                productItem.className = 'admin-product-item';
+                productItem.innerHTML = `
+                    <div class="admin-product-info">
+                        <div class="admin-product-name">${product.name}</div>
+                        <div class="admin-product-details">₹${product.price}/${product.unit} | ${category} | Stock: ${product.stock}</div>
+                    </div>
+                    <div class="admin-product-actions">
+                        <button class="admin-btn edit-btn" onclick="editProduct(${product.id})">Edit</button>
+                        <button class="admin-btn delete-btn" onclick="deleteProduct(${product.id})">Delete</button>
+                    </div>
+                `;
+                productList.appendChild(productItem);
+            }
+        });
+    }
+    
+    document.getElementById('totalProducts').textContent = totalProducts;
+}
+
+async function loadAdminSettings() {
+    try {
+        await loadBusinessInfo();
+        document.getElementById('packagingCharge').value = BUSINESS_INFO.packagingCharge || 10;
+    } catch (error) {
+        console.error('Error loading settings:', error);
+    }
+}
+
+async function saveSettings() {
+    if (!adminToken) {
+        showNotification('Please login first', 'error');
+        return;
+    }
+    
+    try {
+        const packagingCharge = parseInt(document.getElementById('packagingCharge').value);
+        
+        await businessInfoAPI.update({
+            ...BUSINESS_INFO,
+            packagingCharge: packagingCharge
+        }, adminToken);
+        
+        BUSINESS_INFO.packagingCharge = packagingCharge;
+        
+        showNotification('Settings saved successfully');
+    } catch (error) {
+        showNotification('Error saving settings', 'error');
+    }
+}
+
+function showAddProductForm() {
+    document.getElementById('addProductForm').classList.remove('hidden');
+}
+
+function hideAddProductForm() {
+    document.getElementById('addProductForm').classList.add('hidden');
+    document.getElementById('newProductName').value = '';
+    document.getElementById('newProductPrice').value = '';
+    document.getElementById('newProductImage').value = '';
+    document.getElementById('newProductStock').value = '10';
+    document.getElementById('newProductImagePreview').innerHTML = '';
+}
+
+async function addNewProduct() {
+    if (!adminToken) {
+        showNotification('Please login first', 'error');
+        return;
+    }
+    
+    const name = (document.getElementById('newProductName').value || '').trim();
+    const priceValue = document.getElementById('newProductPrice').value;
+    const price = parseFloat(priceValue);
+    const category = document.getElementById('newProductCategory').value;
+    const unit = document.getElementById('newProductUnit').value;
+    const stockValue = document.getElementById('newProductStock').value;
+    const stock = stockValue ? parseInt(stockValue) : 0;
+    const image = (document.getElementById('newProductImage').value || '').trim();
+    
+    if (!name || name.length === 0) {
+        showNotification('Please enter product name', 'error');
+        return;
+    }
+    
+    if (!priceValue || isNaN(price) || price <= 0) {
+        showNotification('Please enter a valid price', 'error');
+        return;
+    }
+    
+    if (!image || image.length === 0) {
+        showNotification('Please enter product image URL', 'error');
+        return;
+    }
+    
+    if (!category) {
+        showNotification('Please select a category', 'error');
+        return;
+    }
+    
+    if (!unit) {
+        showNotification('Please select a unit', 'error');
+        return;
+    }
+    
+    try {
+        const allProducts = Object.values(PRODUCTS).flat();
+        const newId = allProducts.length > 0 ? Math.max(...allProducts.map(p => p.id)) + 1 : 1;
+        
+        const productData = {
+            id: newId,
+            name: String(name).trim(),
+            price: Number(price),
+            image: String(image).trim(),
+            unit: String(unit),
+            stock: Number(stock) || 0,
+            category: String(category)
+        };
+        
+        await productsAPI.create(productData, adminToken);
+        
+        await loadAllProducts();
+        hideAddProductForm();
+        showNotification('Product added successfully');
+    } catch (error) {
+        showNotification('Error adding product', 'error');
+    }
+}
+
+function editProduct(productId) {
+    let product = null;
+    let productCategory = null;
+    
+    for (const category in PRODUCTS) {
+        product = PRODUCTS[category].find(p => p.id === productId);
+        if (product) {
+            productCategory = category;
+            break;
+        }
+    }
+    
+    if (!product) return;
+    
+    document.getElementById('editProductName').value = product.name;
+    document.getElementById('editProductPrice').value = product.price;
+    document.getElementById('editProductCategory').value = productCategory;
+    document.getElementById('editProductUnit').value = product.unit;
+    document.getElementById('editProductStock').value = product.stock;
+    document.getElementById('editProductImage').value = product.image;
+    
+    // Set image preview
+    const editImagePreview = document.getElementById('editProductImagePreview');
+    if (editImagePreview) {
+        editImagePreview.innerHTML = `<img src="${product.image}" style="max-width: 100%; max-height: 100%; border-radius: 5px;">`;
+    }
+    
+    editingProductId = productId;
+    
+    document.getElementById('editProductForm').classList.remove('hidden');
+}
+
+function hideEditProductForm() {
+    document.getElementById('editProductForm').classList.add('hidden');
+    editingProductId = null;
+}
+
+async function updateProduct() {
+    if (!editingProductId || !adminToken) {
+        showNotification('Please login first', 'error');
+        return;
+    }
+    
+    const nameInput = document.getElementById('editProductName');
+    const priceInput = document.getElementById('editProductPrice');
+    const categoryInput = document.getElementById('editProductCategory');
+    const unitInput = document.getElementById('editProductUnit');
+    const stockInput = document.getElementById('editProductStock');
+    const imageInput = document.getElementById('editProductImage');
+    
+    if (!nameInput || !priceInput || !categoryInput || !unitInput || !stockInput || !imageInput) {
+        showNotification('Error: Form fields not found', 'error');
+        return;
+    }
+    
+    const name = (nameInput.value || '').trim();
+    const priceValue = priceInput.value;
+    const price = parseFloat(priceValue);
+    const category = categoryInput.value;
+    const unit = unitInput.value;
+    const stockValue = stockInput.value;
+    const stock = stockValue ? parseInt(stockValue) : 0;
+    const image = (imageInput.value || '').trim();
+    
+    if (!name || name.length === 0) {
+        showNotification('Please enter product name', 'error');
+        nameInput.focus();
+        return;
+    }
+    
+    if (!priceValue || isNaN(price) || price <= 0) {
+        showNotification('Please enter a valid price', 'error');
+        priceInput.focus();
+        return;
+    }
+    
+    if (!image || image.length === 0) {
+        showNotification('Please enter product image URL', 'error');
+        imageInput.focus();
+        return;
+    }
+    
+    if (!category) {
+        showNotification('Please select a category', 'error');
+        categoryInput.focus();
+        return;
+    }
+    
+    if (!unit) {
+        showNotification('Please select a unit', 'error');
+        unitInput.focus();
+        return;
+    }
+    
+    if (isNaN(stock) || stock < 0) {
+        showNotification('Please enter a valid stock quantity', 'error');
+        stockInput.focus();
+        return;
+    }
+    
+    const updateData = {
+        name: String(name).trim(),
+        price: Number(price),
+        image: String(image).trim(),
+        unit: String(unit),
+        stock: Number(stock) || 0,
+        category: String(category)
+    };
+    
+    if (!updateData.name || updateData.name.length === 0) {
+        showNotification('Product name cannot be empty', 'error');
+        nameInput.focus();
+        return;
+    }
+    
+    try {
+        await productsAPI.update(editingProductId, updateData, adminToken);
+        
+        await loadAllProducts();
+        await loadAdminProducts();
+        
+        const stockTab = document.getElementById('stockTab');
+        if (stockTab && stockTab.classList.contains('active')) {
+            await loadStockManagement();
+        }
+        
+        loadCategoryProducts(currentCategory);
+        
+        hideEditProductForm();
+        showNotification('Product updated successfully');
+    } catch (error) {
+        console.error('❌ Update product error:', error);
+        showNotification('Error updating product', 'error');
+    }
+}
+
+async function deleteProduct(productId) {
+    if (!adminToken) {
+        showNotification('Please login first', 'error');
+        return;
+    }
+    
+    if (confirm('Are you sure you want to delete this product?')) {
+        try {
+            await productsAPI.delete(productId, adminToken);
+            await loadAdminProducts();
+            showNotification('Product deleted successfully');
+        } catch (error) {
+            showNotification('Error deleting product', 'error');
+        }
+    }
+}
+
+// Stock management functions
+async function loadStockManagement() {
+    const stockList = document.getElementById('stockList');
+    if (!stockList) return;
+    
+    stockList.innerHTML = '<div class="loading">Loading stock management...</div>';
+    
+    if (!PRODUCTS || Object.keys(PRODUCTS).length === 0) {
+        await loadAllProducts();
+    }
+    
+    stockList.innerHTML = '';
+    
+    let outOfStockCount = 0;
+    let lowStockCount = 0;
+    
+    for (const category in PRODUCTS) {
+        if (!PRODUCTS[category] || !Array.isArray(PRODUCTS[category])) continue;
+        
+        PRODUCTS[category].forEach(product => {
+            const stockValue = product.stock ?? 0;
+            const isOutOfStock = stockValue <= 0;
+            const isLowStock = stockValue > 0 && stockValue < 10;
+            
+            if (isOutOfStock) outOfStockCount++;
+            if (isLowStock) lowStockCount++;
+            
+            const stockItem = document.createElement('div');
+            stockItem.className = 'stock-item';
+            const stockInputId = `stock-input-${product.id}`;
+            stockItem.innerHTML = `
+                <div class="stock-info">
+                    <div class="stock-name">${product.name}</div>
+                    <div class="stock-details">₹${product.price}/${product.unit} | ${category}</div>
+                </div>
+                <div class="stock-actions">
+                    <span class="stock-status ${isOutOfStock ? 'out-of-stock' : 'in-stock'}" style="min-width: 140px; text-align: center;">
+                        ${isOutOfStock ? 'Currently Not Available' : (isLowStock ? 'Low Stock' : 'In Stock')}
+                    </span>
+                    <input type="number" class="stock-input" id="${stockInputId}" data-product="${product.id}" value="${stockValue}" min="0">
+                    <button class="admin-btn save-btn" onclick="updateStockFromInput(${product.id}, '${stockInputId}')">Update</button>
+                </div>
+            `;
+            stockList.appendChild(stockItem);
+        });
+    }
+    
+    const totalProductsEl = document.getElementById('totalProducts');
+    const totalOrdersEl = document.getElementById('totalOrders');
+    if (totalProductsEl) {
+        totalProductsEl.textContent = Object.values(PRODUCTS).flat().length;
+    }
+    if (totalOrdersEl) {
+        totalOrdersEl.textContent = outOfStockCount + lowStockCount;
+    }
+}
+
+function updateStockFromInput(productId, inputId) {
+    const inputElement = document.getElementById(inputId);
+    if (!inputElement) {
+        showNotification('Error: Could not find stock input', 'error');
+        return;
+    }
+    const stockValue = inputElement.value;
+    updateStock(productId, stockValue);
+}
+
+function filterStockProducts() {
+    const searchTerm = document.getElementById('stockSearch').value.toLowerCase();
+    const categoryFilter = document.getElementById('stockCategoryFilter').value;
+    
+    const stockList = document.getElementById('stockList');
+    if (!stockList) return;
+    
+    stockList.innerHTML = '';
+    
+    for (const category in PRODUCTS) {
+        if (!PRODUCTS[category] || !Array.isArray(PRODUCTS[category])) continue;
+        if (categoryFilter !== 'all' && categoryFilter !== category) continue;
+        
+        PRODUCTS[category].forEach(product => {
+            if (product.name.toLowerCase().includes(searchTerm)) {
+                const stockValue = product.stock ?? 0;
+                const isOutOfStock = stockValue <= 0;
+                const isLowStock = stockValue > 0 && stockValue < 10;
+                
+                const stockItem = document.createElement('div');
+                stockItem.className = 'stock-item';
+                const stockInputId = `stock-input-${product.id}`;
+                stockItem.innerHTML = `
+                    <div class="stock-info">
+                        <div class="stock-name">${product.name}</div>
+                        <div class="stock-details">₹${product.price}/${product.unit} | ${category}</div>
+                    </div>
+                    <div class="stock-actions">
+                        <span class="stock-status ${isOutOfStock ? 'out-of-stock' : 'in-stock'}" style="min-width: 140px; text-align: center;">
+                            ${isOutOfStock ? 'Currently Not Available' : (isLowStock ? 'Low Stock' : 'In Stock')}
+                        </span>
+                        <input type="number" class="stock-input" id="${stockInputId}" data-product="${product.id}" value="${stockValue}" min="0">
+                        <button class="admin-btn save-btn" onclick="updateStockFromInput(${product.id}, '${stockInputId}')">Update</button>
+                    </div>
+                `;
+                stockList.appendChild(stockItem);
+            }
+        });
+    }
+}
+
+async function updateStock(productId, newStock) {
+    if (!adminToken) {
+        showNotification('Please login first', 'error');
+        return;
+    }
+    
+    if (newStock === null || newStock === undefined || newStock === '') {
+        newStock = 0;
+    }
+    
+    const stockValue = parseInt(newStock);
+    
+    if (isNaN(stockValue) || stockValue < 0) {
+        showNotification('Please enter a valid stock quantity', 'error');
+        return;
+    }
+    
+    try {
+        await productsAPI.updateStock(productId, stockValue, adminToken);
+        
+        await loadAllProducts();
+        await loadStockManagement();
+        loadCategoryProducts(currentCategory);
+        
+        showNotification('Stock updated successfully');
+    } catch (error) {
+        console.error('❌ Error updating stock:', error);
+        showNotification('Error updating stock', 'error');
+    }
+}
+</script>
+
+
+</body></html>
