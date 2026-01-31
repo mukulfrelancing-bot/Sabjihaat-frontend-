@@ -2815,68 +2815,83 @@ Html
         </button>
         
         <!-- CUSTOMER REVIEWS SECTION WITH SLIDING ANIMATION -->
-        <section class="reviews-section">
-            <h2 class="review-title">💚 What Our Customers Say</h2>
+<!-- CUSTOMER REVIEWS SECTION - FIXED FOR MOBILE -->
+<section class="reviews-section">
+    <h2 class="review-title">💚 What Our Customers Say</h2>
 
-            <div class="review-container-wrapper">
-                <button class="review-nav prev" onclick="slideReviews(&#39;prev&#39;)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                
-                <div class="review-container" id="reviewContainer" style="transform: translateX(-100%);">
-                    <!-- Review Cards -->
-                    <div class="review-card visible">
-                        <p>"Best place to buy fresh vegetables — quality is always top-notch!"</p>
-                        <h4>— Arjun</h4>
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="review-card visible">
-                        <p>"Timely pickup every morning! The bulk orders are handled very professionally."</p>
-                        <h4>— Suman</h4>
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="review-card visible">
-                        <p>"Fresh vegetables every morning! SabjiHaat has made my home cooking so much easier."</p>
-                        <h4>— Anjali Das</h4>
-                        <div class="stars">⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="review-card visible">
-                        <p>"Amazing freshness and great pricing — SabjiHaat has made my daily shopping easy!"</p>
-                        <h4>— Neha Sharma</h4>
-                        <div class="stars">⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="review-card visible">
-                        <p>"Reliable and honest service. Vegetables are always clean and well packed."</p>
-                        <h4>— Rajesh Kumar</h4>
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="review-card visible">
-                        <p>"As a restaurant owner, I save both time and money. Highly recommend SabjiHaat!"</p>
-                        <h4>— Priya Singh</h4>
-                        <div class="stars">⭐⭐⭐⭐</div>
-                    </div>
+    <div class="review-container-wrapper">
+        <button class="review-nav prev" onclick="slideReviews('prev')">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="review-container" id="reviewContainer">
+            <!-- Review Cards -->
+            <div class="review-card">
+                <p>"Best place to buy fresh vegetables — quality is always top-notch!"</p>
+                <div>
+                    <h4>— Arjun</h4>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
                 </div>
-                
-                <button class="review-nav next" onclick="slideReviews(&#39;next&#39;)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
             </div>
+            <div class="review-card">
+                <p>"Timely pickup every morning! The bulk orders are handled very professionally."</p>
+                <div>
+                    <h4>— Suman</h4>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+            <div class="review-card">
+                <p>"Fresh vegetables every morning! SabjiHaat has made my home cooking so much easier."</p>
+                <div>
+                    <h4>— Anjali Das</h4>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                </div>
+            </div>
+            <div class="review-card">
+                <p>"Amazing freshness and great pricing — SabjiHaat has made my daily shopping easy!"</p>
+                <div>
+                    <h4>— Neha Sharma</h4>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                </div>
+            </div>
+            <div class="review-card">
+                <p>"Reliable and honest service. Vegetables are always clean and well packed."</p>
+                <div>
+                    <h4>— Rajesh Kumar</h4>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+            <div class="review-card">
+                <p>"As a restaurant owner, I save both time and money. Highly recommend SabjiHaat!"</p>
+                <div>
+                    <h4>— Priya Singh</h4>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="review-nav next" onclick="slideReviews('next')">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
 
-            <div class="review-stats">
-                <div class="counter">
-                    <span id="happyCount">1200</span>+
-                    <p>Happy Customers</p>
-                </div>
-                <button class="review-btn" onclick="openGoogleReview()">
-                    ⭐ Leave a Google Review 
-                </button>
-            </div>
+    <div class="review-stats">
+        <div class="counter">
+            <span id="happyCount">1200</span>+
+            <p>Happy Customers</p>
+        </div>
+        <button class="review-btn" onclick="openGoogleReview()">
+            ⭐ Leave a Google Review 
+        </button>
+    </div>
+    
+    <!-- ADDED PACKAGING NOTE IN REVIEWS SECTION -->
+    <div class="packaging-note">
+        <strong>📦 Note:</strong> All orders include a <span class="packaging-highlight">packaging charge</span> for safe and hygienic packaging.
+    </div>
+</section>
             
-            <!-- ADDED PACKAGING NOTE IN REVIEWS SECTION -->
-            <div class="packaging-note">
-                <strong>📦 Note:</strong> All orders include a <span class="packaging-highlight">packaging charge</span> for safe and hygienic packaging.
-            </div>
-        </section>
+
 
     
     <div class="payment-highlight">
