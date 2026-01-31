@@ -886,86 +886,98 @@ Html
             100% { transform: scale(1); }
         }
 
-        /* UPDATED REVIEWS CONTAINER WITH SLIDING ANIMATION */
-        .review-container-wrapper {
-            position: relative;
-            overflow: hidden;
-            width: 25%;
-            margin-bottom: 20px;
-        }
+        /* UPDATED REVIEWS SECTION - FIXED FOR MOBILE */
+.review-container-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Changed from 25% to 100% */
+    margin: 0 auto;
+    max-width: 414px; /* Max width same as body */
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
 
-        .review-container {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-            gap: 15px
+.review-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    gap: 15px; /* Space between cards */
+    padding: 10px 5px; /* Reduced padding */
+}
 
-            padding: 10px 15px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 14px;
-            width: 100%;
-        }
+/* UPDATED REVIEW CARD - RESPONSIVE */
+.review-card {
+    flex: 0 0 calc(100% - 20px); /* Single card on mobile */
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    padding: 15px;
+    text-align: left;
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.8s ease-out;
+    animation-fill-mode: both;
+    opacity: 0;
+    transform: translateY(20px);
+    margin: 0 5px; /* Center cards */
+    min-height: 180px; /* Fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-        .review-card {
-            flex: 0 0 280px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            padding: 15px;
-            text-align: left;
-            transition: all 0.4s ease;
-            animation: fadeInUp 0.8s ease-out;
-            animation-fill-mode: both;
-            opacity: 0;
-            transform: translateY(20px);
-        }
+/* For tablet/desktop - show multiple cards */
+@media (min-width: 768px) {
+    .review-card {
+        flex: 0 0 calc(50% - 20px); /* 2 cards on tablet */
+    }
+}
 
-        .review-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+@media (min-width: 1024px) {
+    .review-card {
+        flex: 0 0 calc(33.33% - 20px); /* 3 cards on desktop */
+    }
+}
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .review-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
-        }
-        
-        .review-card p {
-            font-size: 14px;
-            color: #444;
-            line-height: 1.4;
-        }
-        
-        .review-card h4 {
-            margin-top: 1px;
-            color: #2e7d32;
-            font-weight: 600;
-        }
-        
-        .stars {
-            color: gold;
-            font-size: 16px;
-            margin-top: 5px;
-            animation: twinkle 3s infinite;
-        }
+/* Make review text responsive */
+.review-card p {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+}
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
+.review-card h4 {
+    margin-top: auto; /* Push to bottom */
+    color: #2e7d32;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
 
+.stars {
+    color: gold;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Hide navigation arrows on mobile if not needed */
+@media (max-width: 480px) {
+    .review-nav {
+        display: none; /* Hide arrows on very small screens */
+    }
+    
+    .review-container-wrapper {
+        padding: 0 5px;
+    }
+    
+    .review-card {
+        min-height: 160px; /* Slightly smaller on very small screens */
+    }
+}
         /* Review navigation arrows */
         .review-nav {
             position: absolute;
