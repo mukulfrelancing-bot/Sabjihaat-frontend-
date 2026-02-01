@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+y<!DOCTYPE html>
 <!-- saved from url=(0025)https://www.sabjihaat.in/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -5554,6 +5554,21 @@ function filterStockProducts() {
             }
         });
     }
+}
+        // About Us page show करने का function
+function showAboutPage() {
+    document.querySelector('.main-app').style.display = 'none';
+    document.getElementById('aboutPage').style.display = 'block';
+    document.getElementById('adminPanel').style.display = 'none';
+    closeAdminLogin();
+}
+
+// Home page show करने का function
+function showHomePage() {
+    document.querySelector('.main-app').style.display = 'block';
+    document.getElementById('aboutPage').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'none';
+    closeAdminLogin();
 }
         // DOMContentLoaded के अंदर initReviewsSlider() के बाद ये add कर दो:
 document.addEventListener('DOMContentLoaded', async function() {
