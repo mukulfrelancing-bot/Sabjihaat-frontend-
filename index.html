@@ -3762,6 +3762,11 @@ async function apiCall(endpoint, options = {}) {
         throw error;
     }
 }
+        // About Us button के लिए event listener
+document.getElementById('aboutButton').addEventListener('click', function(e) {
+    e.preventDefault();
+    showAboutPage();
+});
 
 // Products API
 const productsAPI = {
