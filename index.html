@@ -1806,39 +1806,6 @@
     border-left: 4px solid #2ecc71;
 }
 
-.payment-step::before {
-    counter-increment: step-counter;
-    content: counter(step-counter);
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    color: white;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-    font-weight: bold;
-    flex-shrink: 0;
-}
-
-.payment-step.warning {
-    border-left-color: #e74c3c;
-    background: #ffeaea;
-}
-
-.payment-step.warning::before {
-    background: linear-gradient(135deg, #ff9800, #ff5722);
-}
-
-.payment-step.success {
-    border-left-color: #2ecc71;
-    background: #e8f5e9;
-}
-
-.payment-step.success::before {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
-}
 
 .payment-highlight {
     color: #e74c3c;
@@ -2122,71 +2089,7 @@
         <div class="payment-highlight">
           ⚠️ Your order will be confirmed only after 50% advance payment
         </div>
-        <div class="payment-steps">
-          <div class="payment-step">
-            <div>
-              <strong>              Step 1: Add to Cart
-</strong>
-              <p>
-                Browse products and add desired items to your cart with correct quantities
-              </p>
-            </div>
-          </div>
-          <div class="payment-step">
-            <div>
-              <strong>              Step 2: Review Cart
-</strong>
-              <p>
-                Click the cart icon to review all items, quantities, and total amount
-              </p>
-            </div>
-          </div>
-          <div class="payment-step">
-            <div>
-              <strong>              Step 3: Checkout
-</strong>
-              <p>
-                Click &#34;Confirm Order via WhatsApp&#34; and fill your name &amp; phone number
-              </p>
-            </div>
-          </div>
-          <div class="payment-step warning">
-            <div>
-              <strong>              Step 4: Send 50% Advance Payment
-</strong>
-              <p>
-                Send 50% of total amount via GPay/PhonePe/UPI to ${BUSINESS_INFO.phone}
-              </p>
-            </div>
-          </div>
-          <div class="payment-step warning">
-            <div>
-              <strong>              Step 5: Send Payment Screenshot
-</strong>
-              <p>
-                Immediately send payment screenshot on the same WhatsApp chat
-              </p>
-            </div>
-          </div>
-          <div class="payment-step success">
-            <div>
-              <strong>              Step 6: Order Confirmation
-</strong>
-              <p>
-                Wait for order confirmation message with pickup time and details
-              </p>
-            </div>
-          </div>
-          <div class="payment-step">
-            <div>
-              <strong>              Step 7: Pickup from Store
-</strong>
-              <p>
-                Collect your order from our store with remaining 50% payment
-              </p>
-            </div>
-          </div>
-        </div>
+        
         <div class="payment-highlight" style="margin-top: 20px;">
           <i class="fas fa-exclamation-circle"></i>
           Remember: Order ID will be generated automatically and sent on WhatsApp
