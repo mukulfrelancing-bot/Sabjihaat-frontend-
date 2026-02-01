@@ -5549,6 +5549,18 @@ function filterStockProducts() {
         });
     }
 }
+        // DOMContentLoaded के अंदर initReviewsSlider() के बाद ये add कर दो:
+document.addEventListener('DOMContentLoaded', async function() {
+    // ... बाकी code ...
+    
+    // ✅ ये एक line add कर दो:
+    document.querySelectorAll('.review-card').forEach(card => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+    });
+    
+    // ... बाकी code ...
+});
 
 async function updateStock(productId, newStock) {
     if (!adminToken) {
