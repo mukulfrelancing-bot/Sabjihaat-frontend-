@@ -1844,6 +1844,18 @@
                 productsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 400);
         }
+        // नई function बनाएं
+async function checkAPIHealth() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/api/health`);
+        const data = await response.json();
+        console.log('API Health:', data);
+        return data.success;
+    } catch (error) {
+        console.error('API Health Check Failed:', error);
+        return false;
+    }
+}
 
         // ==================== PRODUCT MANAGEMENT ====================
         async function loadAllProducts() {
@@ -2464,54 +2476,63 @@
         }
 
         async function adminLogin() {
-            const username = document.getElementById('adminUsername').value;
-            const password = document.getElementById('adminPassword').value;
-            
-            if (!username || !password) {
-                showNotification('Please enter credentials', 'error');
-                return;
-            }
-            
-            try {
-                const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, password })
-                });
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data.success) {
-                        adminToken = data.data.token;
-                        localStorage.setItem('adminToken', adminToken);
-                        showAdminPanel();
-                        showNotification('Admin login successful');
-                    } else {
-                        showNotification(data.error || 'Login failed', 'error');
-                    }
-                } else {
-                    // Fallback for testing
-                    if (username === 'admin' && password === 'sabjihaat2025') {
-                        adminToken = 'test-token-' + Date.now();
-                        localStorage.setItem('adminToken', adminToken);
-                        showAdminPanel();
-                        showNotification('Admin login successful (offline mode)');
-                    } else {
-                        showNotification('Invalid credentials', 'error');
-                    }
-                }
-            } catch (error) {
-                console.error('Login error:', error);
-                // Fallback for offline testing
-                if (username === 'admin' && password === 'sabjihaat2025') {
-                    adminToken = 'offline-token-' + Date.now();
-                    localStorage.setItem('adminToken', adminToken);
-                    showAdminPanel();
-                    showNotification('Admin login successful (offline mode)');
-                } else {
-                    showNotification('Login failed. Check connection.', 'error');
-                }
-            }
+    const username = document.getElementById('adminUsername').value.trim();
+    const password = document.getElementById('adminPassword').value;
+    
+    if (!username || !password) {
+        showNotification('Please enter credentials', 'error');
+        return;
+    }
+    
+    // Offline fallback (development/testing)
+    if (username === 'admin' && password === 'sabjihaat2025') {
+        adminToken = 'dev-token-' + Date.now();
+        localStorage.setItem('adminToken', adminToken);
+        localStorage.setItem('adminUsername', 'admin');
+        showAdminPanel();
+        showNotification('Admin login successful (Offline Mode)');
+        return;
+    }
+    
+    try {
+        // Try online login
+        const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            adminToken = data.data.token;
+            localStorage.setItem('adminToken', adminToken);
+            localStorage.setItem('adminUsername', username);
+            showAdminPanel();
+            showNotification('Admin login successful');
+        } else {
+            showNotification(data.error || 'Invalid credentials', 'error');
+        }
+    } catch (error) {
+        console.error('Login failed:', error);
+        showNotification(`Login failed: ${error.message}. Using offline mode.`, 'error');
+        
+        // Fallback to offline for testing
+        if (username === 'admin' && password === 'sabjihaat2025') {
+            adminToken = 'offline-token-' + Date.now();
+            localStorage.setItem('adminToken', adminToken);
+            localStorage.setItem('adminUsername', 'admin');
+            showAdminPanel();
+            showNotification('Admin login successful (Fallback Mode)');
+        }
+    }
         }
 
         function showAdminPanel() {
