@@ -1509,15 +1509,19 @@
 
 // नया URL डालें:
 const API_BASE_URL = "http://sabjihaat-backend.onrender.com"; // या अपने VPS/Server का IP";
-        const BUSINESS_INFO = {
-            name: "Sabji Haat",
-            phone: "+919051410591",
-            address: "Jadavpur Sandhya Bazar Rd, West Bengal Kolkata-700075",
-            instagram: "https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=seyxfz6",
-            facebook: "https://www.facebook.com/share/1Dd7b3gxzG/",
-            googleReview: "https://maps.app.goo.gl/1DNV5UUPp2MXR81fA",
-            packagingCharge: 10
-        };
+        // Line 1641 के आस-पास:
+const BUSINESS_INFO = {
+    name: "Sabji Haat",
+    phone: "+919051410591",
+    address: "Jadavpur Sandhya Bazar Rd, West Bengal Kolkata-700075",
+    instagram: "https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=seyxfz6",
+    facebook: "https://www.facebook.com/share/1Dd7b3gxzG/",
+    googleReview: "https://maps.app.goo.gl/1DNV5UUPp2MXR81fA",
+    packagingCharge: 10,
+    
+    // नया add करें:
+    apiBaseUrl: "https://sabjihaat-backend.onrender.com"
+};
 
         // ==================== GLOBAL STATE ====================
         let PRODUCTS = { indian: [], exotic: [], leafy: [], others: [], puja: [] };
