@@ -3122,76 +3122,164 @@ function startServicesAutoSlide() {
 }
 
 // ==================== REVIEWS SLIDER ====================
+// ==================== REVIEWS SLIDER - COMPLETELY FIXED ====================
+let reviewsCurrentSlide = 0;
+let reviewsTotalSlides = 0;
+let reviewsInterval = null;
+
 function initReviewsSlider() {
+    console.log("🔄 Initializing reviews slider...");
+    
     const reviewCards = document.querySelectorAll('.review-card');
     reviewsTotalSlides = reviewCards.length - 1;
     
-    // Make cards visible with animation
+    if (reviewCards.length === 0) {
+        console.error("❌ No review cards found!");
+        return;
+    }
+    
+    console.log(`📊 Found ${reviewCards.length} review cards`);
+    
+    // Ensure all cards are visible and properly positioned
     reviewCards.forEach((card, index) => {
-        setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, index * 200);
+        card.style.opacity = '1';
+        card.style.transform = 'none';
+        card.style.transition = 'transform 0.3s ease';
     });
     
+    // Start auto-slide
     startReviewsAutoSlide();
     
     // Pause on hover
     const reviewContainer = document.getElementById('reviewContainer');
-    if (reviewContainer) {
-        reviewContainer.addEventListener('mouseenter', () => {
+    const reviewWrapper = document.querySelector('.review-container-wrapper');
+    
+    if (reviewWrapper) {
+        reviewWrapper.addEventListener('mouseenter', () => {
+            console.log("⏸️ Pausing reviews auto-slide");
             clearInterval(reviewsInterval);
         });
         
-        reviewContainer.addEventListener('mouseleave', () => {
+        reviewWrapper.addEventListener('mouseleave', () => {
+            console.log("▶️ Resuming reviews auto-slide");
             startReviewsAutoSlide();
         });
     }
+    
+    console.log("✅ Reviews slider initialized");
 }
 
 function slideReviews(direction) {
+    console.log(`🔄 Sliding reviews: ${direction}`);
+    
     if (direction === 'next') {
         reviewsCurrentSlide = reviewsCurrentSlide >= reviewsTotalSlides ? 0 : reviewsCurrentSlide + 1;
     } else {
         reviewsCurrentSlide = reviewsCurrentSlide <= 0 ? reviewsTotalSlides : reviewsCurrentSlide - 1;
     }
+    
     updateReviewsSlider();
+    
+    // Reset auto-slide timer
+    clearInterval(reviewsInterval);
+    startReviewsAutoSlide();
 }
 
 function updateReviewsSlider() {
     const reviewContainer = document.getElementById('reviewContainer');
-    if (reviewContainer) {
-        reviewContainer.style.transform = `translateX(-${reviewsCurrentSlide * 100}%)`;
+    
+    if (!reviewContainer) {
+        console.error("❌ Review container not found!");
+        return;
     }
+    
+    const translateX = -(reviewsCurrentSlide * 100);
+    reviewContainer.style.transform = `translateX(${translateX}%)`;
+    
+    console.log(`📊 Current review slide: ${reviewsCurrentSlide}, Translate: ${translateX}%`);
 }
 
 function startReviewsAutoSlide() {
     clearInterval(reviewsInterval);
+    
     reviewsInterval = setInterval(() => {
         reviewsCurrentSlide = reviewsCurrentSlide >= reviewsTotalSlides ? 0 : reviewsCurrentSlide + 1;
         updateReviewsSlider();
-    }, 4000);
+        console.log(`🔄 Auto-slide to: ${reviewsCurrentSlide}`);
+    }, 5000); // 5 seconds interval
 }
 
-// ==================== COUNTER ANIMATION ====================
+// ==================== COUNTER ANIMATION - FIXED ====================
 function initCounter() {
-    let count = 0;
-    const target = 1200;
+    console.log("🔢 Initializing counter animation...");
+    
     const counterElement = document.getElementById('happyCount');
     
-    if (!counterElement) return;
-    
-    function updateCounter() {
-        if (count < target) {
-            count += 24;
-            counterElement.textContent = count > target ? target : count;
-            setTimeout(updateCounter, 50);
-        }
+    if (!counterElement) {
+        console.error("❌ Counter element not found!");
+        return;
     }
     
-    // Start counter after page load
-    setTimeout(updateCounter, 1000);
+    // Set initial value
+    counterElement.textContent = '0';
+    
+    // Start animation after a delay
+    setTimeout(() => {
+        animateCounter(counterElement, 0, 1200, 2000);
+    }, 1000);
+    
+    console.log("✅ Counter animation initialized");
 }
+
+function animateCounter(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        
+        const value = Math.floor(progress * (end - start) + start);
+        element.textContent = value.toLocaleString();
+        
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    
+    window.requestAnimationFrame(step);
+}
+
+// ==================== DOMContentLoaded में add करें ====================
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("🚀 Sabji Haat App Starting...");
+    
+    // Initialize components
+    initServicesSlider();
+    initReviewsSlider(); // ✅ यह add करें
+    initCounter(); // ✅ यह add करें
+    setupAdminAccess();
+    setupEventListeners();
+    
+    // Load initial data
+    loadAllProducts();
+    setTimeout(() => {
+        loadCategoryProducts('indian');
+    }, 500);
+    
+    // Initialize first category as active
+    setTimeout(() => {
+        const firstCategory = document.querySelector('.category-item');
+        if (firstCategory) {
+            firstCategory.click();
+        }
+    }, 1000);
+    
+    console.log("✅ App Initialized");
+});
+
+// ==================== GLOBAL FUNCTIONS में add करें ====================
+window.slideReviews = slideReviews;
+window.initReviewsSlider = initReviewsSlider;
+window.initCounter = initCounter;
 
 // ==================== PRODUCT MANAGEMENT ====================
 async function loadAllProducts() {
