@@ -1253,6 +1253,66 @@
                 Add New Product
             </button>
         </div>
+        <!-- Add Product Modal -->
+<div class="modal" id="addProductModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Add New Product</h2>
+            <button class="close-modal" onclick="closeAddProductModal()">×</button>
+        </div>
+        <form id="addProductForm">
+            <div style="margin-bottom: 15px;">
+                <label>Product Name *</label>
+                <input type="text" id="productName" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label>Price (₹) *</label>
+                <input type="number" id="productPrice" min="1" step="0.01" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label>Unit *</label>
+                <select id="productUnit" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    <option value="kg">kg</option>
+                    <option value="piece">piece</option>
+                    <option value="bunch">bunch</option>
+                    <option value="packet">packet</option>
+                    <option value="tin">tin</option>
+                    <option value="bottle">bottle</option>
+                    <option value="liter">liter</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label>Category *</label>
+                <select id="productCategory" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    <option value="indian">Indian</option>
+                    <option value="exotic">Exotic</option>
+                    <option value="leafy">Leafy</option>
+                    <option value="others">Others</option>
+                    <option value="puja">Puja Needs</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label>Initial Stock</label>
+                <input type="number" id="productStock" min="0" value="0" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label>Product Image</label>
+                <input type="text" id="productImage" placeholder="Image URL" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                <small style="color: #666;">Or upload image to Cloudinary</small>
+            </div>
+            <div style="margin-bottom: 15px; display: flex; gap: 10px;">
+                <input type="file" id="imageUpload" accept="image/*" style="flex: 1;" onchange="handleImageUpload()">
+                <button type="button" onclick="uploadImageToCloudinary()" style="background: #3498db; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
+                    Upload
+                </button>
+            </div>
+            <div id="imagePreview" style="text-align: center; margin: 10px 0;"></div>
+            <button type="button" onclick="createProduct()" style="background: linear-gradient(135deg, #2ecc71, #27ae60); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; cursor: pointer;">
+                Create Product
+            </button>
+        </form>
+    </div>
+</div>
         
         <div class="admin-tab-content" id="settingsTab">
             <h3>Store Settings</h3>
@@ -2042,6 +2102,348 @@
                 </div>
             `;
         }
+        // ==================== PRODUCT MANAGEMENT FUNCTIONS ====================
+
+function showAddProductForm() {
+    document.getElementById('addProductModal').style.display = 'flex';
+    resetProductForm();
+}
+
+function closeAddProductModal() {
+    document.getElementById('addProductModal').style.display = 'none';
+    resetProductForm();
+}
+
+function resetProductForm() {
+    document.getElementById('productName').value = '';
+    document.getElementById('productPrice').value = '';
+    document.getElementById('productUnit').value = 'kg';
+    document.getElementById('productCategory').value = 'indian';
+    document.getElementById('productStock').value = '0';
+    document.getElementById('productImage').value = '';
+    document.getElementById('imageUpload').value = '';
+    document.getElementById('imagePreview').innerHTML = '';
+}
+
+let selectedImageBase64 = null;
+
+function handleImageUpload() {
+    const fileInput = document.getElementById('imageUpload');
+    const file = fileInput.files[0];
+    
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        selectedImageBase64 = e.target.result.split(',')[1]; // Get base64 part
+        
+        // Show preview
+        document.getElementById('imagePreview').innerHTML = `
+            <img src="${e.target.result}" style="max-width: 100px; max-height: 100px; border-radius: 8px; border: 2px solid #ddd;">
+            <p style="color: #666; font-size: 12px; margin-top: 5px;">Image ready to upload</p>
+        `;
+    };
+    reader.readAsDataURL(file);
+}
+
+async function uploadImageToCloudinary() {
+    if (!selectedImageBase64) {
+        showNotification('Please select an image first', 'error');
+        return;
+    }
+    
+    try {
+        showNotification('Uploading image...');
+        
+        const response = await fetch(`${API_BASE_URL}/api/upload-cloudinary`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${adminToken}`
+            },
+            body: JSON.stringify({ 
+                image: `data:image/jpeg;base64,${selectedImageBase64}` 
+            })
+        });
+        
+        if (response.ok) {
+            const result = await response.json();
+            if (result.success) {
+                document.getElementById('productImage').value = result.data.imageUrl;
+                showNotification('Image uploaded successfully!');
+                
+                // Show uploaded image
+                document.getElementById('imagePreview').innerHTML = `
+                    <img src="${result.data.imageUrl}" style="max-width: 100px; max-height: 100px; border-radius: 8px; border: 2px solid #2ecc71;">
+                    <p style="color: #2e7d32; font-size: 12px; margin-top: 5px;">✓ Image uploaded to Cloudinary</p>
+                `;
+            }
+        } else {
+            showNotification('Failed to upload image', 'error');
+        }
+    } catch (error) {
+        console.error('Image upload error:', error);
+        showNotification('Image upload failed', 'error');
+    }
+}
+
+async function createProduct() {
+    const name = document.getElementById('productName').value.trim();
+    const price = document.getElementById('productPrice').value;
+    const unit = document.getElementById('productUnit').value;
+    const category = document.getElementById('productCategory').value;
+    const stock = document.getElementById('productStock').value;
+    const image = document.getElementById('productImage').value;
+    
+    // Validate required fields
+    if (!name || !price || !unit || !category) {
+        showNotification('Please fill all required fields', 'error');
+        return;
+    }
+    
+    // If no image URL is provided but we have base64, use base64
+    let finalImage = image;
+    if (!image && selectedImageBase64) {
+        finalImage = `data:image/jpeg;base64,${selectedImageBase64}`;
+    }
+    
+    // If no image at all, use default
+    if (!finalImage) {
+        finalImage = 'https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';
+    }
+    
+    const productData = {
+        name,
+        price: parseFloat(price),
+        unit,
+        category,
+        stock: parseInt(stock) || 0,
+        image: finalImage
+    };
+    
+    try {
+        showNotification('Creating product...');
+        
+        const response = await fetch(`${API_BASE_URL}/api/products`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${adminToken}`
+            },
+            body: JSON.stringify(productData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showNotification('Product created successfully!');
+            closeAddProductModal();
+            loadAdminProducts(); // Refresh the list
+            
+            // Also refresh the main products view
+            if (currentCategory === category) {
+                loadCategoryProducts(currentCategory);
+            }
+            
+            // Add to local PRODUCTS array
+            if (!PRODUCTS[category]) {
+                PRODUCTS[category] = [];
+            }
+            
+            // Add a simple ID for local storage
+            const newProduct = {
+                id: Date.now(), // Temporary ID
+                ...productData,
+                image: finalImage
+            };
+            
+            PRODUCTS[category].push(newProduct);
+        } else {
+            showNotification(result.error || 'Failed to create product', 'error');
+        }
+    } catch (error) {
+        console.error('Create product error:', error);
+        
+        // Fallback: add product locally for demo
+        if (!PRODUCTS[category]) {
+            PRODUCTS[category] = [];
+        }
+        
+        const newProduct = {
+            id: Date.now(),
+            ...productData,
+            image: finalImage
+        };
+        
+        PRODUCTS[category].push(newProduct);
+        
+        showNotification('Product added locally (offline mode)');
+        closeAddProductModal();
+        loadAdminProducts();
+        
+        if (currentCategory === category) {
+            loadCategoryProducts(currentCategory);
+        }
+    }
+}
+
+async function editProduct(productId) {
+    // Find product
+    let product;
+    for (const cat in PRODUCTS) {
+        product = PRODUCTS[cat].find(p => p.id === productId);
+        if (product) break;
+    }
+    
+    if (!product) {
+        showNotification('Product not found', 'error');
+        return;
+    }
+    
+    // Pre-fill the add product form
+    document.getElementById('productName').value = product.name;
+    document.getElementById('productPrice').value = product.price;
+    document.getElementById('productUnit').value = product.unit;
+    document.getElementById('productCategory').value = product.category;
+    document.getElementById('productStock').value = product.stock || 0;
+    document.getElementById('productImage').value = product.image || '';
+    
+    // Show preview if image exists
+    if (product.image) {
+        document.getElementById('imagePreview').innerHTML = `
+            <img src="${product.image}" style="max-width: 100px; max-height: 100px; border-radius: 8px; border: 2px solid #ddd;">
+            <p style="color: #666; font-size: 12px; margin-top: 5px;">Current image</p>
+        `;
+    }
+    
+    // Change button text and action
+    const formButton = document.querySelector('#addProductForm button');
+    formButton.textContent = 'Update Product';
+    formButton.onclick = function() { updateProduct(productId); };
+    
+    document.getElementById('addProductModal').style.display = 'flex';
+}
+
+async function updateProduct(productId) {
+    const name = document.getElementById('productName').value.trim();
+    const price = document.getElementById('productPrice').value;
+    const unit = document.getElementById('productUnit').value;
+    const category = document.getElementById('productCategory').value;
+    const stock = document.getElementById('productStock').value;
+    const image = document.getElementById('productImage').value;
+    
+    // Validate required fields
+    if (!name || !price || !unit || !category) {
+        showNotification('Please fill all required fields', 'error');
+        return;
+    }
+    
+    const productData = {
+        name,
+        price: parseFloat(price),
+        unit,
+        category,
+        stock: parseInt(stock) || 0,
+        image: image || 'https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+    };
+    
+    try {
+        showNotification('Updating product...');
+        
+        const response = await fetch(`${API_BASE_URL}/api/products/${productId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${adminToken}`
+            },
+            body: JSON.stringify(productData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showNotification('Product updated successfully!');
+            closeAddProductModal();
+            loadAdminProducts();
+            
+            // Update in local PRODUCTS array
+            for (const cat in PRODUCTS) {
+                const index = PRODUCTS[cat].findIndex(p => p.id === productId);
+                if (index !== -1) {
+                    PRODUCTS[cat][index] = { id: productId, ...productData };
+                    break;
+                }
+            }
+            
+            // Refresh main view if category matches
+            if (currentCategory === category) {
+                loadCategoryProducts(currentCategory);
+            }
+        } else {
+            showNotification(result.error || 'Failed to update product', 'error');
+        }
+    } catch (error) {
+        console.error('Update product error:', error);
+        showNotification('Product update failed', 'error');
+    }
+}
+
+async function deleteProduct(productId) {
+    if (!confirm('Are you sure you want to delete this product?')) {
+        return;
+    }
+    
+    try {
+        showNotification('Deleting product...');
+        
+        const response = await fetch(`${API_BASE_URL}/api/products/${productId}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${adminToken}`
+            }
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showNotification('Product deleted successfully!');
+            loadAdminProducts();
+            
+            // Remove from local PRODUCTS array
+            for (const cat in PRODUCTS) {
+                PRODUCTS[cat] = PRODUCTS[cat].filter(p => p.id !== productId);
+            }
+            
+            // Refresh main view
+            loadCategoryProducts(currentCategory);
+        } else {
+            showNotification(result.error || 'Failed to delete product', 'error');
+        }
+    } catch (error) {
+        console.error('Delete product error:', error);
+        
+        // Fallback: delete locally
+        for (const cat in PRODUCTS) {
+            PRODUCTS[cat] = PRODUCTS[cat].filter(p => p.id !== productId);
+        }
+        
+        showNotification('Product deleted locally');
+        loadAdminProducts();
+        loadCategoryProducts(currentCategory);
+    }
+}
+
+// ==================== UPDATE GLOBAL FUNCTIONS ====================
+
+// Add these to your existing window.exports at the bottom:
+window.showAddProductForm = showAddProductForm;
+window.closeAddProductModal = closeAddProductModal;
+window.handleImageUpload = handleImageUpload;
+window.uploadImageToCloudinary = uploadImageToCloudinary;
+window.createProduct = createProduct;
+window.editProduct = editProduct;
+window.updateProduct = updateProduct;
+window.deleteProduct = deleteProduct;
 
         function updateCartItem(productId, change) {
             const item = cart.find(item => item.id === productId);
