@@ -1508,7 +1508,7 @@
 // const API_BASE_URL = "https://sabjihaat-backend.onrender.com"; // इसको COMMENT कर दें
 
 // नया URL डालें:
-const API_BASE_URL = "http://sabjihaat-backend.onrender.com"; // या अपने VPS/Server का IP";
+const API_BASE_URL = "https://sabjihaat-backend.onrender.com"; // या अपने VPS/Server का IP";
         // Line 1641 के आस-पास:
 const BUSINESS_INFO = {
     name: "Sabji Haat",
@@ -2492,18 +2492,10 @@ async function checkAPIHealth() {
         return;
     }
     
-    // Offline fallback (development/testing)
-    if (username === 'admin' && password === 'sabjihaat2025') {
-        adminToken = 'dev-token-' + Date.now();
-        localStorage.setItem('adminToken', adminToken);
-        localStorage.setItem('adminUsername', 'admin');
-        showAdminPanel();
-        showNotification('Admin login successful (Offline Mode)');
-        return;
-    }
+    // ✅ Debug log add करें
+    console.log('Attempting login with:', username);
     
     try {
-        // Try online login
         const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
             method: 'POST',
             headers: { 
@@ -2513,11 +2505,14 @@ async function checkAPIHealth() {
             body: JSON.stringify({ username, password })
         });
         
+        console.log('Login response status:', response.status);
+        
         if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
+            throw new Error(`HTTP ${response.status}: ${await response.text()}`);
         }
         
         const data = await response.json();
+        console.log('Login response data:', data);
         
         if (data.success) {
             adminToken = data.data.token;
@@ -2530,19 +2525,9 @@ async function checkAPIHealth() {
         }
     } catch (error) {
         console.error('Login failed:', error);
-        showNotification(`Login failed: ${error.message}. Using offline mode.`, 'error');
-        
-        // Fallback to offline for testing
-        if (username === 'admin' && password === 'sabjihaat2025') {
-            adminToken = 'offline-token-' + Date.now();
-            localStorage.setItem('adminToken', adminToken);
-            localStorage.setItem('adminUsername', 'admin');
-            showAdminPanel();
-            showNotification('Admin login successful (Fallback Mode)');
-        }
+        showNotification(`Login failed: ${error.message}`, 'error');
     }
-        }
-
+}
         function showAdminPanel() {
             closeAdminLogin();
             document.querySelector('.main-app').style.display = 'none';
