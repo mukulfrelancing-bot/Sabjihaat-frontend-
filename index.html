@@ -2483,51 +2483,7 @@ async function checkAPIHealth() {
             document.getElementById('adminPassword').value = '';
         }
 
-        async function adminLogin() {
-    const username = document.getElementById('adminUsername').value.trim();
-    const password = document.getElementById('adminPassword').value;
-    
-    if (!username || !password) {
-        showNotification('Please enter credentials', 'error');
-        return;
-    }
-    
-    // ✅ Debug log add करें
-    console.log('Attempting login with:', username);
-    
-    try {
-        const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
-            method: 'POST',
-            headers: { 
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({ username, password })
-        });
         
-        console.log('Login response status:', response.status);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: ${await response.text()}`);
-        }
-        
-        const data = await response.json();
-        console.log('Login response data:', data);
-        
-        if (data.success) {
-            adminToken = data.data.token;
-            localStorage.setItem('adminToken', adminToken);
-            localStorage.setItem('adminUsername', username);
-            showAdminPanel();
-            showNotification('Admin login successful');
-        } else {
-            showNotification(data.error || 'Invalid credentials', 'error');
-        }
-    } catch (error) {
-        console.error('Login failed:', error);
-        showNotification(`Login failed: ${error.message}`, 'error');
-    }
-}
         function showAdminPanel() {
             closeAdminLogin();
             document.querySelector('.main-app').style.display = 'none';
@@ -2543,7 +2499,60 @@ async function checkAPIHealth() {
             showNotification('Logged out successfully');
         }
 
-        function switchAdminTab(tabName) {
+        async function adminLogin() {
+    const username = document.getElementById('adminUsername').value.trim();
+    const password = document.getElementById('adminPassword').value;
+    
+    if (!username || !password) {
+        showNotification('Please enter credentials', 'error');
+        return;
+    }
+    
+    console.log('🔐 Attempting admin login...');
+    
+    try {
+        // Show loading
+        showNotification('Logging in...', 'info');
+        
+        const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ 
+                username: username.toLowerCase(),
+                password: password 
+            })
+        });
+        
+        const data = await response.json();
+        console.log('Login response:', data);
+        
+        if (data.success) {
+            adminToken = data.data.token;
+            localStorage.setItem('adminToken', adminToken);
+            localStorage.setItem('adminUsername', data.data.username);
+            
+            // Load products from database
+            await loadAllProducts();
+            
+            showAdminPanel();
+            showNotification('Admin login successful!');
+        } else {
+            // Check if offline mode is suggested
+            if (data.offlineMode) {
+                showNotification('Database unavailable. Try again later.', 'error');
+            } else {
+                showNotification(data.error || 'Login failed', 'error');
+            }
+        }
+        
+    } catch (error) {
+        console.error('Login error:', error);
+        showNotification('Connection failed. Check your internet.', 'error');
+    }
+        }function switchAdminTab(tabName) {
             // Hide all tabs
             document.querySelectorAll('.admin-tab-content').forEach(tab => {
                 tab.classList.remove('active');
