@@ -2567,57 +2567,35 @@ async function checkAPIHealth() {
                 loadAdminSettings();
             }
         }
-
-        async function loadAdminProducts() {
-            try {
-                const response = await fetch(`${API_BASE_URL}/api/products`);
-                let products = [];
-                
-                if (response.ok) {
-                    const result = await response.json();
-                    if (result.success) {
-                        products = result.data;
-                    }
-                } else {
-                    products = Object.values(PRODUCTS).flat();
-                }
-                
-                const container = document.getElementById('adminProductList');
-                if (!container) return;
-                
-                container.innerHTML = '';
-                
-                if (products.length === 0) {
-                    container.innerHTML = `
-                        <div style="text-align: center; padding: 40px; color: #666;">
-                            <i class="fas fa-box-open" style="font-size: 48px; opacity: 0.5;"></i>
-                            <p>No products found</p>
-                        </div>
-                    `;
-                    return;
-                }
-                
-                products.forEach(product => {
-                    const div = document.createElement('div');
-                    div.className = 'admin-product-item';
-                    
-                    div.innerHTML = `
-                        <div>
-                            <div class="product-name">${product.name}</div>
-                            <div class="product-details">₹${product.price}/${product.unit} | ${product.category} | Stock: ${product.stock || 0}</div>
-                        </div>
-                        <div class="admin-product-actions">
-                            <button class="btn-edit" onclick="editProduct(${product.id})">Edit</button>
-                            <button class="btn-delete" onclick="deleteProduct(${product.id})">Delete</button>
-                        </div>
-                    `;
-                    container.appendChild(div);
-                });
-            } catch (error) {
-                console.error('Error loading admin products:', error);
-                showNotification('Failed to load products', 'error');
-            }
+async function loadAdminProducts() {
+    try {
+        console.log('Loading admin products...');
+        console.log('API URL:', `${API_BASE_URL}/api/products`);
+        console.log('Token:', adminToken);
+        
+        const response = await fetch(`${API_BASE_URL}/api/products`, {
+            headers: adminToken ? {
+                'Authorization': `Bearer ${adminToken}`
+            } : {}
+        });
+        
+        console.log('Response status:', response.status);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${await response.text()}`);
         }
+        
+        const result = await response.json();
+        console.log('Products loaded:', result);
+        
+        if (result.success) {
+            // ... render products
+        }
+    } catch (error) {
+        console.error('Error loading admin products:', error);
+        showNotification(`Failed to load products: ${error.message}`, 'error');
+    }
+}
 
         function loadStockManagement() {
             const container = document.getElementById('stockList');
