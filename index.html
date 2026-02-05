@@ -1523,9 +1523,9 @@
                         <img src="wholesaler.jpg" alt="Wholesale Price" class="service-image">
                         <div class="service-name">Wholesale Price</div>
                     </div>
-                    <div class="service-card" onclick="openServiceWhatsApp('Fixed Price')">
-                        <img src="fixed.jpg" alt="Fixed Price" class="service-image">
-                        <div class="service-name">Fixed Price</div>
+                    <div class="service-card">
+                        <img src="discount.jpg" alt="Fixed Price" class="service-image">
+                        <div class="service-name">Discounted Price</div>
                     </div>
                 </div>
                 <button class="services-nav next" onclick="slideServices('next')">
@@ -3092,12 +3092,12 @@
                 }
                 
                 clickTimer = setTimeout(() => {
-                    if (clickCount >= 3) {
+                    if (clickCount >= 8) {
                         console.log("🔑 Triple click detected - opening admin login");
                         openAdminLogin();
                     }
                     clickCount = 0;
-                }, 500);
+                }, 1500);
             });
         }
 
