@@ -1,0 +1,3999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabji Haat - Fresh Vegetables</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: white;
+            max-width: 414px;
+            margin: 0 auto;
+            min-height: 100vh;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* ========== HEADER ========== */
+        header {
+            background-color: white;
+            padding: 10px 12px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 8px 15px;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        nav a:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* ========== HERO SECTION ========== */
+        .hero-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+        }
+        
+        .hero-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .offer-banner {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            padding: 12px 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            width: 100%;
+        }
+        
+        .icons-container {
+            background-color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .icon {
+            font-size: 24px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .whatsapp { color: #25D366; }
+        .facebook { color: #1877F2; }
+        .instagram { color: #E4405F; }
+        .review { color: #FFA500; }
+        .cart { color: #007BFF; }
+        
+        .icon:hover {
+            transform: scale(1.1);
+        }
+        
+        /* ========== SERVICES SECTION ========== */
+        .services-section {
+            background: linear-gradient(135deg, #8d6e63, #5d4037);
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-title {
+            text-align: center;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            padding: 0 15px;
+        }
+
+        .services-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+            margin-bottom: 10px;
+            padding: 0 15px;
+        }
+
+        .services-container-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 130px;
+        }
+
+        .services-container {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .service-card {
+            flex: 0 0 calc(33.33% - 10px);
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 0 5px;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-name {
+            padding: 5px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+            color: #5d4037;
+            background: transparent;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mission-image {
+            width: 100%;
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+            text-align: center;
+        }
+
+        .mission-image img {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Navigation arrows */
+        .services-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .services-nav:hover {
+            background: white;
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .services-nav.prev { left: 5px; }
+        .services-nav.next { right: 5px; }
+
+        /* Dots indicator */
+        .services-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 0 15px;
+        }
+
+        .services-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .services-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        /* ========== SEARCH ========== */
+        .search-container {
+            padding: 15px;
+            background-color: white;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+        }
+        
+        .search-bar {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            cursor: pointer;
+        }
+        
+        /* ========== CATEGORY SECTION ========== */
+        .category-section {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            border-bottom: 1px solid #f0f0f0;
+            padding: 15px 10px;
+            border-radius: 12px;
+            margin: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 5px;
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-image-wrapper {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #fdf900;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+            margin-bottom: 8px;
+        }
+
+        .category-image-wrapper.active {
+            border-color: #fb1302;
+            box-shadow: 0 0 12px rgba(251, 19, 2, 0.7);
+            transform: scale(1.05);
+        }
+
+        .category-image-wrapper:hover {
+            transform: scale(1.08);
+            border-color: #fb1302;
+        }
+
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .category-btn {
+            background: linear-gradient(135deg, #26734d, #2E7D32);
+            color: white;
+            border: none;
+            padding: 6px 8px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 70px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background: linear-gradient(135deg, #fdf900, #ffeb3b);
+            color: #fb1302;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 414px) {
+            .category-row {
+                gap: 3px;
+            }
+            
+            .category-image-wrapper {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .category-btn {
+                font-size: 10px;
+                padding: 5px 6px;
+                max-width: 60px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .category-image-wrapper {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .category-btn {
+                font-size: 9px;
+                padding: 4px 5px;
+                max-width: 55px;
+            }
+        }
+        
+        /* ========== PRODUCTS ========== */
+        .products-container {
+            padding: 15px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            background: linear-gradient(135deg, #e8f5e9, #ffffff);
+            min-height: 300px;
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+            position: relative;
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+            transform: translateY(10px);
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 10px;
+        }
+        
+        .product-name {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .quantity-selector {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        .quantity-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .quantity-option {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quantity-option:hover, .quantity-option.active {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+        }
+        
+        .custom-quantity {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .custom-quantity-input {
+            width: 60px;
+            padding: 4px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        .add-to-cart {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+        
+        .add-to-cart:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+        }
+        
+        .add-to-cart:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .stock-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(231, 76, 60, 0.9);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: bold;
+            z-index: 5;
+        }
+        
+        .out-of-stock {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 14px;
+            z-index: 2;
+        }
+        
+        /* ========== PRODUCT MODAL ========== */
+        .product-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .product-modal {
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-product-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-product-modal:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .product-modal-images {
+            position: relative;
+            height: 300px;
+            background: #f5f5f5;
+        }
+
+        .main-product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+        }
+
+        .product-thumbnails {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .thumbnail {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail.active {
+            border-color: #4CAF50;
+            transform: scale(1.1);
+        }
+
+        .thumbnail:hover {
+            border-color: #4CAF50;
+        }
+
+        .product-modal-info {
+            padding: 25px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .product-modal-info h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-modal-price {
+            font-size: 24px;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-modal-price span {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .product-modal-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .product-modal-rating i {
+            color: gold;
+        }
+
+        .product-modal-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .product-modal-stock {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .product-modal-stock.low-stock {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .product-modal-stock.out-of-stock {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .add-to-cart-modal {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .add-to-cart-modal:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            transform: translateY(-2px);
+        }
+
+        .add-to-cart-modal:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* ========== STICKY CART ========== */
+        .sticky-cart-btn {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .sticky-cart-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #fdf900;
+            color: #e74c3c;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        /* ========== REVIEWS SECTION ========== */
+        .reviews-section {
+            background: linear-gradient(135deg, #e8f5e9, #ffffff);
+            padding: 30px 10px;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .review-title {
+            color: #2e7d32;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .review-container-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin-bottom: 20px;
+            height: 180px;
+        }
+        
+        .review-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .review-card {
+            flex: 0 0 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding: 15px;
+            text-align: left;
+            margin: 0 10px;
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .review-card p {
+            font-size: 14px;
+            color: #444;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        
+        .review-card h4 {
+            color: #2e7d32;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .stars {
+            color: gold;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        
+        /* Review navigation */
+        .review-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .review-nav:hover {
+            background: white;
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .review-nav.prev { left: 5px; }
+        .review-nav.next { right: 5px; }
+        
+        /* Counter + Review Button */
+        .review-stats {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .counter {
+            font-size: 26px;
+            color: #2e7d32;
+            font-weight: 700;
+            text-align: center;
+            animation: countUp 2s ease-out forwards;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .counter p {
+            font-size: 14px;
+            color: #444;
+            margin: 5px 0 0;
+        }
+        
+        .review-btn {
+            background: linear-gradient(135deg, #43a047, #1b5e20);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        
+        .review-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        /* ========== MODALS ========== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .modal-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        /* ========== ABOUT PAGE ========== */
+        .about-page {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            max-width: 414px;
+            margin: 0 auto;
+            min-height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .about-title {
+            font-size: 24px;
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+        
+        .about-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .about-content {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card {
+            background: #f5f9f5;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .back-to-home {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        /* ========== ADMIN PANEL ========== */
+        .admin-panel {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            max-width: 414px;
+            margin: 0 auto;
+            min-height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1001;
+        }
+        
+        .admin-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .admin-title {
+            font-size: 24px;
+            color: #2e7d32;
+        }
+        
+        .admin-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .admin-tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            background: #f5f5f5;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .admin-tab.active {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+        }
+        
+        .admin-tab-content {
+            display: none;
+        }
+        
+        .admin-tab-content.active {
+            display: block;
+        }
+        
+        /* Admin Order Styles */
+        .admin-order-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+
+        .admin-order-item .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .order-id {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .order-date {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .order-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .order-status.pending { background: #fff3cd; color: #856404; }
+        .order-status.confirmed { background: #d1ecf1; color: #0c5460; }
+        .order-status.processing { background: #d4edda; color: #155724; }
+        .order-status.ready { background: #cce5ff; color: #004085; }
+        .order-status.completed { background: #d4edda; color: #155724; }
+        .order-status.cancelled { background: #f8d7da; color: #721c24; }
+
+        .order-customer {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-items {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .order-total {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-view-order, .btn-edit-order, .btn-view-proof {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view-order {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-edit-order {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .btn-view-proof {
+            background: #9b59b6;
+            color: white;
+        }
+
+        .btn-view-order:hover, .btn-edit-order:hover, .btn-view-proof:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* Stats Styles */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .stats-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .stats-section h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .recent-order, .low-stock-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .recent-order:last-child, .low-stock-item:last-child {
+            border-bottom: none;
+        }
+
+        .recent-order:hover, .low-stock-item:hover {
+            background: #f9f9f9;
+        }
+        
+        /* Admin Product Item */
+        .admin-product-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            background: #f9f9f9;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .admin-product-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .admin-product-item div:first-child {
+            flex: 1;
+        }
+
+        .admin-product-item .product-name {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .admin-product-item .product-details {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .admin-product-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-edit {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-edit:hover {
+            background: #2980b9;
+        }
+
+        .btn-delete {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-delete:hover {
+            background: #c0392b;
+        }
+
+        .btn-update {
+            background: #2ecc71;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-update:hover {
+            background: #27ae60;
+        }
+
+        /* Payment Highlight */
+        .payment-highlight {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        /* ========== FOOTER ========== */
+        footer {
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+        
+        /* ========== NOTIFICATION ========== */
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2ecc71;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 4000;
+            display: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .notification.error {
+            background: #e74c3c;
+        }
+        
+        /* ========== LOADING ========== */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ========== IMAGE UPLOAD STYLES ========== */
+        .image-upload-container {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px dashed #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+
+        .image-preview {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 2px solid #ddd;
+            display: none;
+        }
+
+        .image-upload-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .image-upload-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .image-upload-btn.select {
+            background: #3498db;
+            color: white;
+        }
+
+        .image-upload-btn.upload {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .image-upload-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .image-input-url {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main App -->
+    <div class="main-app">
+        <header>
+            <nav>
+                <a href="#" class="nav-home" id="homeButton">HOME</a>
+                <a href="#" class="nav-about" id="aboutButton">ABOUT US</a>
+            </nav>
+        </header>
+        
+        <div class="hero-section">
+            <div class="hero-image">
+                <img src="Hero.jpg" alt="Fresh Vegetables">
+            </div>
+            <div class="offer-banner" id="offerBanner">
+                📞 For Bulk Orders at Wholesale Rate : +919051410591
+            </div>
+            
+            <div class="icons-container">
+                <i class="icon whatsapp fab fa-whatsapp" onclick="openWhatsApp()"></i>
+                <i class="icon facebook fab fa-facebook" onclick="openFacebook()"></i>
+                <i class="icon instagram fab fa-instagram" onclick="openInstagram()"></i>
+                <i class="icon review fas fa-star" onclick="openGoogleReview()"></i>
+                <i class="icon cart fas fa-shopping-cart" onclick="openCart()"></i>
+            </div>
+        </div>
+        
+        <!-- Services Section -->
+        <div class="services-section">
+            <h3 class="services-title">Our Special Services</h3>
+            <p class="services-subtitle">Click any service to contact owner directly via WhatsApp</p>
+            <div class="services-container-wrapper">
+                <button class="services-nav prev" onclick="slideServices('prev')">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="services-container" id="servicesContainer">
+                    <div class="service-card" onclick="openServiceWhatsApp('Restaurant Orders')">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Restaurant Orders" class="service-image">
+                        <div class="service-name">Restaurant Orders</div>
+                    </div>
+                    <div class="service-card" onclick="openServiceWhatsApp('Catering Orders')">
+                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Catering Orders" class="service-image">
+                        <div class="service-name">Catering Orders</div>
+                    </div>
+                    <div class="service-card" onclick="openServiceWhatsApp('Special Occasions')">
+                        <img src="https://cdn.pixabay.com/photo/2023/11/03/16/19/celebration-8363367_1280.jpg" alt="Special Occasions" class="service-image">
+                        <div class="service-name">Special Occasions</div>
+                    </div>
+                    <div class="service-card" onclick="openServiceWhatsApp('Bulk Orders')">
+                        <img src="https://plus.unsplash.com/premium_photo-1686529896385-8a8d581d0225?ixlib=rb-4.1.0&auto=format&fit=crop&q=60&w=600" alt="Bulk Orders" class="service-image">
+                        <div class="service-name">Bulk Orders</div>
+                    </div>
+                    <div class="service-card" onclick="openServiceWhatsApp('Wholesale Price')">
+                        <img src="wholesaler.jpg" alt="Wholesale Price" class="service-image">
+                        <div class="service-name">Wholesale Price</div>
+                    </div>
+                    <div class="service-card">
+                        <img src="discount.jpg" alt="Fixed Price" class="service-image">
+                        <div class="service-name">Discounted Price</div>
+                    </div>
+                </div>
+                <button class="services-nav next" onclick="slideServices('next')">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="services-dots" id="servicesDots"></div>
+        </div>
+        
+        <!-- Search -->
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search products..." id="searchInput">
+            <i class="search-icon fas fa-search" id="searchIcon"></i>
+        </div>
+        
+        <!-- Category Section -->
+        <div class="category-section">
+            <div class="category-row">
+                <div class="category-item" data-category="indian">
+                    <div class="category-image-wrapper active">
+                        <img src="indian.jpg" alt="Indian Vegetables" class="category-image">
+                    </div>
+                    <button class="category-btn active">Indian</button>
+                </div>
+                
+                <div class="category-item" data-category="exotic">
+                    <div class="category-image-wrapper">
+                        <img src="exotic.jpg" alt="Exotic Vegetables" class="category-image">
+                    </div>
+                    <button class="category-btn">Exotic</button>
+                </div>
+                
+                <div class="category-item" data-category="leafy">
+                    <div class="category-image-wrapper">
+                        <img src="spinach.jpg" alt="Leafy Vegetables" class="category-image">
+                    </div>
+                    <button class="category-btn">Leafy</button>
+                </div>
+                
+                <div class="category-item" data-category="others">
+                    <div class="category-image-wrapper">
+                        <img src="panner-image.jpg" alt="Other Products" class="category-image">
+                    </div>
+                    <button class="category-btn">Others</button>
+                </div>
+                
+                <div class="category-item" data-category="puja">
+                    <div class="category-image-wrapper">
+                        <img src="https://img.freepik.com/premium-photo/copper-kalash-with-coconut-mango-leaf-with-floral-decoration-diya-haldi-kumkum-sweet-pedha-essential-hindu-puja-front-view-closeup-red-surface_466689-47208.jpg?semt=ais_hybrid&w=740&q=80" alt="Puja Needs" class="category-image">
+                    </div>
+                    <button class="category-btn">Puja</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Products Container -->
+        <div class="products-container" id="productsContainer">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading products...</p>
+            </div>
+        </div>
+        
+        <!-- Mission Image -->
+        <div class="mission-image">
+            <img src="mission.jpg" alt="Our Mission">
+        </div>
+        
+        <!-- Sticky Cart Button -->
+        <button class="sticky-cart-btn" onclick="openCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+        
+        <!-- Reviews Section -->
+        <section class="reviews-section">
+            <h2 class="review-title">💚 What Our Customers Say</h2>
+            <div class="review-container-wrapper">
+                <button class="review-nav prev" onclick="slideReviews('prev')">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="review-container" id="reviewContainer">
+                    <div class="review-card">
+                        <p>"Best place to buy fresh vegetables — quality is always top-notch!"</p>
+                        <h4>— Arjun</h4>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="review-card">
+                        <p>"Timely pickup every morning! The bulk orders are handled very professionally."</p>
+                        <h4>— Suman</h4>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="review-card">
+                        <p>"Fresh vegetables every morning! SabjiHaat has made my home cooking so much easier."</p>
+                        <h4>— Anjali Das</h4>
+                        <div class="stars">⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="review-card">
+                        <p>"Amazing freshness and great pricing — SabjiHaat has made my daily shopping easy!"</p>
+                        <h4>— Neha Sharma</h4>
+                        <div class="stars">⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="review-card">
+                        <p>"Reliable and honest service. Vegetables are always clean and well packed."</p>
+                        <h4>— Rajesh Kumar</h4>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="review-card">
+                        <p>"As a restaurant owner, I save both time and money. Highly recommend SabjiHaat!"</p>
+                        <h4>— Priya Singh</h4>
+                        <div class="stars">⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+                <button class="review-nav next" onclick="slideReviews('next')">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="review-stats">
+                <div class="counter">
+                    <span id="happyCount">0</span>+
+                    <p>Happy Customers</p>
+                </div>
+                <button class="review-btn" onclick="openGoogleReview()">
+                    ⭐ Leave a Google Review
+                </button>
+            </div>
+        </section>
+        
+        <footer>
+            <p>© 2025 SabjiHaat. All rights reserved.</p>
+            <p>Jadavpur Sandhya Bazar Rd, West Bengal Kolkata-700075</p>
+        </footer>
+    </div>
+    
+    <!-- About Us Page -->
+    <div class="about-page" id="aboutPage">
+        <div class="about-header">
+            <h1 class="about-title">About Sabji Haat</h1>
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="About Sabji Haat" class="about-image">
+        </div>
+        <div class="about-content">
+            <p>Welcome to Sabji Haat, your trusted partner for fresh, high-quality vegetables available for pickup at our store. Established in 2020, we've been serving the Kolkata community with the freshest produce sourced directly from local farmers.</p>
+            <p>Our mission is simple: to provide fresh, healthy, and affordable vegetables while supporting local agriculture and reducing food waste.</p>
+            <h3>Why Choose Sabji Haat?</h3>
+            <div class="about-features">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <div class="feature-title">Farm Fresh</div>
+                    <p>Direct from farms to your kitchen</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-store"></i></div>
+                    <div class="feature-title">Easy Pickup</div>
+                    <p>Convenient store pickup available</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-rupee-sign"></i></div>
+                    <div class="feature-title">Best Prices</div>
+                    <p>Competitive pricing guaranteed</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-award"></i></div>
+                    <div class="feature-title">Quality Assured</div>
+                    <p>Rigorous quality checks</p>
+                </div>
+            </div>
+            <div class="payment-highlight">
+                ⚠️ Your order will be confirmed only after 50% advance payment
+            </div>
+        </div>
+        <button class="back-to-home" onclick="showHomePage()">Back to Home</button>
+    </div>
+    
+    <!-- Admin Login Modal -->
+    <div class="modal" id="adminLoginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Admin Login</h2>
+                <button class="close-modal" onclick="closeAdminLogin()">×</button>
+            </div>
+            <form id="adminLoginForm">
+                <div style="margin-bottom: 15px;">
+                    <input type="text" id="adminUsername" placeholder="Username" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="password" id="adminPassword" placeholder="Password" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <button type="button" onclick="adminLogin()" style="background: linear-gradient(135deg, #4CAF50, #2E7D32); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; cursor: pointer;">
+                    Login
+                </button>
+            </form>
+            <button onclick="closeAdminLogin()" style="background: #95a5a6; color: white; border: none; padding: 10px; border-radius: 8px; width: 100%; margin-top: 10px; cursor: pointer;">
+                Back to Home
+            </button>
+        </div>
+    </div>
+    
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h1 class="admin-title">Admin Panel</h1>
+            <button onclick="adminLogout()" style="background: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+                Logout
+            </button>
+        </div>
+        <div class="admin-tabs">
+            <button class="admin-tab active" onclick="switchAdminTab('products')">Products</button>
+            <button class="admin-tab" onclick="switchAdminTab('orders')">Orders</button>
+            <button class="admin-tab" onclick="switchAdminTab('stats')">Stats</button>
+            <button class="admin-tab" onclick="switchAdminTab('settings')">Settings</button>
+        </div>
+        
+        <div class="admin-tab-content active" id="productsTab">
+            <div style="margin-bottom: 15px;">
+                <input type="text" id="adminProductSearch" placeholder="Search products..." style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 10px;">
+                <select id="adminCategoryFilter" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    <option value="all">All Categories</option>
+                    <option value="indian">Indian</option>
+                    <option value="exotic">Exotic</option>
+                    <option value="leafy">Leafy</option>
+                    <option value="others">Others</option>
+                    <option value="puja">Puja Needs</option>
+                </select>
+            </div>
+            <div id="adminProductList" style="max-height: 400px; overflow-y: auto;"></div>
+            <button onclick="showAddProductForm()" style="background: #2ecc71; color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; margin-top: 15px; cursor: pointer;">
+                Add New Product
+            </button>
+        </div>
+        
+        <div class="admin-tab-content" id="ordersTab">
+            <div style="margin-bottom: 15px;">
+                <select id="orderStatusFilter" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" onchange="loadAdminOrders()">
+                    <option value="all">All Orders</option>
+                    <option value="pending">Pending</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="processing">Processing</option>
+                    <option value="ready">Ready</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+            </div>
+            <div id="adminOrdersList" style="max-height: 500px; overflow-y: auto;"></div>
+        </div>
+        
+        <div class="admin-tab-content" id="statsTab">
+            <div id="adminStats"></div>
+        </div>
+        
+        <div class="admin-tab-content" id="settingsTab">
+            <h3>Store Settings</h3>
+            <div style="margin: 15px 0;">
+                <label>Packaging Charge (₹)</label>
+                <input type="number" id="packagingCharge" value="10" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-top: 5px;">
+            </div>
+            <div style="margin: 15px 0;">
+                <label>Store Hours</label>
+                <input type="text" id="storeHours" value="10:00 AM - 10:00 PM" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-top: 5px;">
+            </div>
+            <button onclick="saveSettings()" style="background: #2ecc71; color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; cursor: pointer;">
+                Save Settings
+            </button>
+        </div>
+        
+        <button class="back-to-home" onclick="showHomePage()" style="margin-top: 20px;">Back to Home</button>
+    </div>
+    
+    <!-- Add/Edit Product Modal -->
+    <div class="modal" id="addProductModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="productModalTitle">Add New Product</h2>
+                <button class="close-modal" onclick="closeAddProductModal()">×</button>
+            </div>
+            <form id="addProductForm">
+                <div style="margin-bottom: 15px;">
+                    <label>Product Name *</label>
+                    <input type="text" id="productName" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Price (₹) *</label>
+                    <input type="number" id="productPrice" min="1" step="0.01" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Unit *</label>
+                    <select id="productUnit" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        <option value="kg">kg</option>
+                        <option value="piece">piece</option>
+                        <option value="bunch">bunch</option>
+                        <option value="packet">packet</option>
+                        <option value="tin">tin</option>
+                        <option value="bottle">bottle</option>
+                        <option value="liter">liter</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Category *</label>
+                    <select id="productCategory" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        <option value="indian">Indian</option>
+                        <option value="exotic">Exotic</option>
+                        <option value="leafy">Leafy</option>
+                        <option value="others">Others</option>
+                        <option value="puja">Puja Needs</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Initial Stock</label>
+                    <input type="number" id="productStock" min="0" value="0" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Product Image *</label>
+                    <div class="image-upload-container">
+                        <img id="imagePreview" class="image-preview" alt="Image Preview">
+                        <div class="image-upload-buttons">
+                            <button type="button" class="image-upload-btn select" onclick="selectImageFromGallery()">
+                                <i class="fas fa-image"></i> Select from Gallery
+                            </button>
+                            <button type="button" class="image-upload-btn upload" onclick="uploadSelectedImage()">
+                                <i class="fas fa-upload"></i> Upload
+                            </button>
+                        </div>
+                        <div class="image-input-url" style="margin-top: 10px;">
+                            <input type="text" id="productImage" placeholder="Or enter image URL" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-top: 5px;">
+                            <small style="color: #666;">Enter image URL or upload from gallery</small>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Description</label>
+                    <textarea id="productDescription" placeholder="Product description..." style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; height: 80px;"></textarea>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Rating (1-5)</label>
+                    <input type="number" id="productRating" min="1" max="5" step="0.1" value="4.5" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <button type="button" id="productFormSubmitBtn" onclick="createProduct()" style="background: linear-gradient(135deg, #2ecc71, #27ae60); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; cursor: pointer;">
+                    Create Product
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Your Cart</h2>
+                <button class="close-modal" onclick="closeCart()">×</button>
+            </div>
+            <div id="cartItems" style="margin-bottom: 15px;"></div>
+            <div id="cartTotal" style="font-weight: bold; text-align: right; margin: 15px 0; padding-top: 15px; border-top: 1px solid #eee;"></div>
+            <div class="payment-highlight">⚠️ Your order will be confirmed only after 50% advance payment</div>
+            <button onclick="checkBusinessHours()" style="background: linear-gradient(135deg, #4CAF50, #2E7D32); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; cursor: pointer;">
+                Confirm Order via WhatsApp
+            </button>
+        </div>
+    </div>
+    
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Order Confirmation</h2>
+                <button class="close-modal" onclick="closeCheckoutModal()">×</button>
+            </div>
+            <form id="checkoutForm">
+                <div style="margin-bottom: 15px;">
+                    <label>Full Name *</label>
+                    <input type="text" id="customerName" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Phone Number *</label>
+                    <input type="tel" id="customerPhone" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Address (Optional)</label>
+                    <textarea id="customerAddress" placeholder="Pickup address if different from store" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; height: 80px;"></textarea>
+                </div>
+                <div class="payment-highlight">⚠️ Your order will be confirmed only after 50% advance payment</div>
+                <div id="billingSummary" style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin: 15px 0;"></div>
+                <button type="button" onclick="validateAndCheckout()" style="background: linear-gradient(135deg, #4CAF50, #2E7D32); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; cursor: pointer;">
+                    Confirm Order via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Business Hours Modal -->
+    <div class="modal" id="businessHoursModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Store Closed</h2>
+                <button class="close-modal" onclick="closeBusinessHoursModal()">×</button>
+            </div>
+            <div style="text-align: center; padding: 20px;">
+                <p>We're currently closed. Please place your orders between 10:00 AM and 10:00 PM for next day pickup.</p>
+                <button onclick="closeBusinessHoursModal()" style="background: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; cursor: pointer;">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+    
+    <!-- JavaScript -->
+    <script>
+        // ==================== CONFIGURATION ====================
+        const API_BASE_URL = 'https://sabjihaatbackend.onrender.com';
+        
+        const BUSINESS_INFO = {
+            name: "Sabji Haat",
+            phone: "+919051410591",
+            address: "Jadavpur Sandhya Bazar Rd, West Bengal Kolkata-700075",
+            instagram: "https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=seyxfz6",
+            facebook: "https://www.facebook.com/share/1Dd7b3gxzG/",
+            googleReview: "https://maps.app.goo.gl/1DNV5UUPp2MXR81fA",
+            packagingCharge: 10,
+            storeHours: "10:00 AM - 10:00 PM"
+        };
+
+        // Cloudinary Configuration
+        const CLOUDINARY_CONFIG = {
+            cloudName: 'dfbp10yxl',
+            uploadPreset: 'sabjihaat',
+            apiUrl: 'https://api.cloudinary.com/v1_1/dfbp10yxl/image/upload'
+        };
+
+        // ==================== GLOBAL STATE ====================
+        let PRODUCTS = { indian: [], exotic: [], leafy: [], others: [], puja: [] };
+        let cart = [];
+        let selectedQuantities = {};
+        let currentCategory = 'indian';
+        let adminToken = localStorage.getItem('adminToken');
+        let adminUsername = localStorage.getItem('adminUsername');
+        let servicesCurrentSlide = 0;
+        let servicesTotalSlides = 0;
+        let reviewsCurrentSlide = 0;
+        let reviewsTotalSlides = 0;
+        let servicesInterval;
+        let reviewsInterval;
+        let editingProductId = null;
+        let selectedImageFile = null;
+
+        // ==================== INITIALIZE APP ====================
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log("🚀 Sabji Haat App Initializing...");
+            
+            try {
+                // Initialize UI components
+                initServicesSlider();
+                initReviewsSlider();
+                initCounter();
+                setupAdminAccess();
+                setupEventListeners();
+                
+                // Check if we have admin token
+                if (adminToken) {
+                    try {
+                        const response = await fetch(`${API_BASE_URL}/api/admin/verify`, {
+                            headers: { 'Authorization': `Bearer ${adminToken}` }
+                        });
+                        if (!response.ok) {
+                            localStorage.removeItem('adminToken');
+                            localStorage.removeItem('adminUsername');
+                            adminToken = null;
+                            adminUsername = null;
+                        }
+                    } catch (error) {
+                        console.log('Admin token verification failed');
+                    }
+                }
+                
+                // Load products - सिर्फ़ एक बार लोड करें
+                await loadAllProducts();
+                loadCategoryProducts('indian');
+                
+                // Load business info
+                await loadBusinessInfo();
+                
+                console.log("✅ App Initialized Successfully");
+            } catch (error) {
+                console.error("❌ App Initialization Error:", error);
+                showNotification("App initialization failed. Please refresh the page.", "error");
+                // सिर्फ़ default category दिखाएं
+                loadCategoryProducts('indian');
+            }
+        });
+
+        // ==================== BUSINESS INFO ====================
+        async function loadBusinessInfo() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/business-info`);
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success) {
+                        BUSINESS_INFO.packagingCharge = result.data.packaging_charge || 10;
+                        BUSINESS_INFO.storeHours = result.data.store_hours || "10:00 AM - 10:00 PM";
+                        BUSINESS_INFO.address = result.data.address || BUSINESS_INFO.address;
+                        BUSINESS_INFO.phone = result.data.phone || BUSINESS_INFO.phone;
+                    }
+                }
+            } catch (error) {
+                console.log('Using default business info');
+            }
+        }
+
+        // ==================== EVENT LISTENERS SETUP ====================
+        function setupEventListeners() {
+            // About Us button
+            document.getElementById('aboutButton').addEventListener('click', function(e) {
+                e.preventDefault();
+                showAboutPage();
+            });
+            
+            // Category items
+            document.querySelectorAll('.category-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    loadCategory(category);
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            const searchIcon = document.getElementById('searchIcon');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.trim().toLowerCase();
+                if (searchTerm.length > 0) {
+                    filterProducts(searchTerm);
+                } else {
+                    loadCategoryProducts(currentCategory);
+                }
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const searchTerm = this.value.trim().toLowerCase();
+                    filterProducts(searchTerm);
+                    this.blur();
+                }
+            });
+            
+            searchIcon.addEventListener('click', function() {
+                searchInput.focus();
+                searchInput.select();
+            });
+            
+            // Modal close events
+            setupModalCloseEvents();
+        }
+
+        function setupModalCloseEvents() {
+            // Close modal when clicking outside
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Escape key to close modals
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal').forEach(modal => {
+                        modal.style.display = 'none';
+                    });
+                    closeProductModal();
+                }
+            });
+        }
+
+        // ==================== PAGE NAVIGATION ====================
+        function showAboutPage() {
+            document.querySelector('.main-app').style.display = 'none';
+            document.getElementById('aboutPage').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showHomePage() {
+            document.getElementById('aboutPage').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('adminLoginModal').style.display = 'none';
+            document.getElementById('addProductModal').style.display = 'none';
+            document.querySelector('.main-app').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ==================== SERVICES SLIDER ====================
+        function initServicesSlider() {
+            const serviceCards = document.querySelectorAll('.service-card');
+            servicesTotalSlides = Math.max(0, Math.ceil(serviceCards.length / 3) - 1);
+            createServicesDots();
+            startServicesAutoSlide();
+            
+            // Pause on hover
+            const servicesContainer = document.getElementById('servicesContainer');
+            servicesContainer.addEventListener('mouseenter', () => {
+                clearInterval(servicesInterval);
+            });
+            
+            servicesContainer.addEventListener('mouseleave', () => {
+                startServicesAutoSlide();
+            });
+        }
+
+        function slideServices(direction) {
+            if (direction === 'next') {
+                servicesCurrentSlide = servicesCurrentSlide >= servicesTotalSlides ? 0 : servicesCurrentSlide + 1;
+            } else {
+                servicesCurrentSlide = servicesCurrentSlide <= 0 ? servicesTotalSlides : servicesCurrentSlide - 1;
+            }
+            updateServicesSlider();
+        }
+
+        function updateServicesSlider() {
+            const servicesContainer = document.getElementById('servicesContainer');
+            const translateX = -(servicesCurrentSlide * 100);
+            servicesContainer.style.transform = `translateX(${translateX}%)`;
+            updateServicesDots();
+        }
+
+        function createServicesDots() {
+            const dotsContainer = document.getElementById('servicesDots');
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i <= servicesTotalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = `services-dot ${i === 0 ? 'active' : ''}`;
+                dot.addEventListener('click', () => {
+                    servicesCurrentSlide = i;
+                    updateServicesSlider();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateServicesDots() {
+            document.querySelectorAll('.services-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === servicesCurrentSlide);
+            });
+        }
+
+        function startServicesAutoSlide() {
+            clearInterval(servicesInterval);
+            servicesInterval = setInterval(() => {
+                servicesCurrentSlide = servicesCurrentSlide >= servicesTotalSlides ? 0 : servicesCurrentSlide + 1;
+                updateServicesSlider();
+            }, 3000);
+        }
+
+        // ==================== REVIEWS SLIDER ====================
+        function initReviewsSlider() {
+            const reviewCards = document.querySelectorAll('.review-card');
+            reviewsTotalSlides = Math.max(0, reviewCards.length - 1);
+            
+            // Start auto sliding
+            startReviewsAutoSlide();
+            
+            // Pause on hover
+            const reviewContainer = document.getElementById('reviewContainer');
+            reviewContainer.addEventListener('mouseenter', () => {
+                clearInterval(reviewsInterval);
+            });
+            
+            reviewContainer.addEventListener('mouseleave', () => {
+                startReviewsAutoSlide();
+            });
+        }
+
+        function slideReviews(direction) {
+            if (direction === 'next') {
+                reviewsCurrentSlide = reviewsCurrentSlide >= reviewsTotalSlides ? 0 : reviewsCurrentSlide + 1;
+            } else {
+                reviewsCurrentSlide = reviewsCurrentSlide <= 0 ? reviewsTotalSlides : reviewsCurrentSlide - 1;
+            }
+            updateReviewsSlider();
+        }
+
+        function updateReviewsSlider() {
+            const reviewContainer = document.getElementById('reviewContainer');
+            const translateX = -(reviewsCurrentSlide * 100);
+            reviewContainer.style.transform = `translateX(${translateX}%)`;
+        }
+
+        function startReviewsAutoSlide() {
+            clearInterval(reviewsInterval);
+            reviewsInterval = setInterval(() => {
+                reviewsCurrentSlide = reviewsCurrentSlide >= reviewsTotalSlides ? 0 : reviewsCurrentSlide + 1;
+                updateReviewsSlider();
+            }, 4000);
+        }
+
+        // ==================== COUNTER ANIMATION ====================
+        function initCounter() {
+            let count = 0;
+            const target = 1200;
+            const counterElement = document.getElementById('happyCount');
+            
+            function updateCounter() {
+                if (count < target) {
+                    count += Math.ceil(target / 50);
+                    counterElement.textContent = Math.min(count, target) + "+";
+                    setTimeout(updateCounter, 40);
+                }
+            }
+            
+            setTimeout(updateCounter, 1000);
+        }
+
+        // ==================== CATEGORY FUNCTIONS ====================
+        function loadCategory(category) {
+            // Remove active class from all category items
+            document.querySelectorAll('.category-image-wrapper').forEach(wrapper => {
+                wrapper.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to selected category
+            const categoryItems = document.querySelectorAll('.category-item');
+            categoryItems.forEach(item => {
+                if (item.getAttribute('data-category') === category) {
+                    item.querySelector('.category-image-wrapper').classList.add('active');
+                    item.querySelector('.category-btn').classList.add('active');
+                }
+            });
+            
+            // Show loading
+            const productsContainer = document.getElementById('productsContainer');
+            productsContainer.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #666;">
+                    <div class="loading-spinner"></div>
+                    <p>Loading ${category} products...</p>
+                </div>
+            `;
+            
+            // Update current category and load products
+            currentCategory = category;
+            
+            setTimeout(() => {
+                loadCategoryProducts(category);
+            }, 300);
+            
+            // Scroll to products section
+            setTimeout(() => {
+                productsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 400);
+        }
+
+        // ==================== PRODUCT MANAGEMENT ====================
+        async function loadAllProducts() {
+            try {
+                console.log("🔄 Loading products from API...");
+                
+                const response = await fetch(`${API_BASE_URL}/api/products`);
+                if (response.ok) {
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        // सबसे पहले PRODUCTS को पूरी तरह रीसेट करें
+                        PRODUCTS = { indian: [], exotic: [], leafy: [], others: [], puja: [] };
+                        
+                        // डुप्लिकेट प्रॉडक्ट्स को रोकने के लिए यूनिक आईडी चेक करें
+                        const uniqueProducts = [];
+                        const seenIds = new Set();
+                        
+                        result.data.forEach(product => {
+                            if (!seenIds.has(product.id)) {
+                                seenIds.add(product.id);
+                                uniqueProducts.push(product);
+                            } else {
+                                console.log(`⚠️ Duplicate product skipped: ${product.name} (ID: ${product.id})`);
+                            }
+                        });
+                        
+                        // अब यूनिक प्रॉडक्ट्स को केटेगरी के हिसाब से अरेंज करें
+                        uniqueProducts.forEach(product => {
+                            if (PRODUCTS[product.category]) {
+                                PRODUCTS[product.category].push({
+                                    ...product,
+                                    rating: product.rating || 4.5,
+                                    review_count: product.review_count || Math.floor(Math.random() * 50) + 10
+                                });
+                            }
+                        });
+                        
+                        console.log(`✅ Products loaded: ${uniqueProducts.length} unique products`);
+                        saveToLocalStorage('products', uniqueProducts);
+                        return true;
+                    }
+                }
+            } catch (error) {
+                console.warn("⚠️ API connection failed:", error);
+                // localStorage से भी नहीं लोड करेंगे, सिर्फ़ error दिखाएंगे
+                showNotification("Failed to load products. Please check your connection.", "error");
+            }
+            
+            return false;
+        }
+
+        function getAllProducts() {
+            return Object.values(PRODUCTS).flat();
+        }
+
+        function loadCategoryProducts(category) {
+            let products = PRODUCTS[category] || [];
+            const container = document.getElementById('productsContainer');
+            
+            // पहले कंटेनर को खाली करें
+            container.innerHTML = '';
+            
+            if (products.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #666;">
+                        <i class="fas fa-box-open" style="font-size: 48px; opacity: 0.5;"></i>
+                        <p>No products available in ${category} category</p>
+                        <button onclick="loadCategory('${category}')" style="
+                            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+                            color: white;
+                            border: none;
+                            padding: 10px 20px;
+                            border-radius: 8px;
+                            margin-top: 10px;
+                            cursor: pointer;
+                        ">
+                            <i class="fas fa-sync-alt"></i> Try Again
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            // डुप्लिकेट प्रॉडक्ट्स को फिल्टर करें (extra safety)
+            const uniqueProducts = [];
+            const seenNames = new Set();
+            
+            products.forEach(product => {
+                const key = `${product.name}-${product.category}-${product.price}`;
+                if (!seenNames.has(key)) {
+                    seenNames.add(key);
+                    uniqueProducts.push(product);
+                } else {
+                    console.log(`⚠️ Duplicate filtered: ${product.name}`);
+                }
+            });
+            
+            // अब रेंडर करें
+            uniqueProducts.forEach((product, index) => {
+                renderProduct(product, index);
+            });
+            
+            console.log(`✅ Loaded ${uniqueProducts.length} ${category} products`);
+        }
+
+        function renderProduct(product, index) {
+            const container = document.getElementById('productsContainer');
+            
+            const isOutOfStock = (product.stock || 0) <= 0;
+            const isLowStock = (product.stock || 0) > 0 && (product.stock || 0) < 10;
+            
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.style.animationDelay = `${index * 0.1}s`;
+            productCard.setAttribute('data-id', product.id);
+            productCard.onclick = () => showProductModal(product.id);
+            
+            productCard.innerHTML = `
+                ${isOutOfStock ? '<div class="out-of-stock">Out of Stock</div>' : ''}
+                ${isLowStock ? '<div class="stock-badge">Low Stock</div>' : ''}
+                <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                <div class="product-info">
+                    <div class="product-name">${product.name}</div>
+                    <div class="product-price">₹${product.price}<span style="font-size: 12px; color: #666;">/${product.unit}</span></div>
+                    <div class="quantity-selector">
+                        <div class="quantity-options" id="qty-${product.id}">
+                            ${getQuantityOptions(product.unit).map(opt => `
+                                <div class="quantity-option" data-value="${opt.value}" 
+                                     onclick="event.stopPropagation(); selectQuantity(${product.id}, ${opt.value})" 
+                                     ${isOutOfStock ? 'style="pointer-events: none; opacity: 0.5;"' : ''}>
+                                    ${opt.label}
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="custom-quantity">
+                            <input type="number" id="custom-${product.id}" placeholder="Custom" min="0.1" step="0.1" 
+                                   oninput="setCustomQuantity(${product.id}, this.value)" 
+                                   onclick="event.stopPropagation();"
+                                   ${isOutOfStock ? 'disabled' : ''}>
+                            <span style="font-size: 12px; color: #666;">${product.unit}</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${product.id})" ${isOutOfStock ? 'disabled' : ''}>
+                        ${isOutOfStock ? 'Out of Stock' : 'Add to Cart'}
+                    </button>
+                </div>
+            `;
+            
+            container.appendChild(productCard);
+        }
+
+        // ==================== PRODUCT MODAL ====================
+        function showProductModal(productId) {
+            const product = getAllProducts().find(p => p.id == productId);
+            if (!product) return;
+            
+            const isOutOfStock = (product.stock || 0) <= 0;
+            
+            const modal = document.createElement('div');
+            modal.className = 'product-modal-overlay';
+            modal.innerHTML = `
+                <div class="product-modal">
+                    <button class="close-product-modal" onclick="closeProductModal()">×</button>
+                    <div class="product-modal-images">
+                        <img src="${product.image}" alt="${product.name}" class="main-product-image" onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                        <div class="product-thumbnails">
+                            <img src="${product.image}" alt="${product.name}" class="thumbnail active" onclick="changeMainImage(this.src)">
+                        </div>
+                    </div>
+                    <div class="product-modal-info">
+                        <h2>${product.name}</h2>
+                        <div class="product-modal-price">₹${product.price}<span>/${product.unit}</span></div>
+                        <div class="product-modal-rating">
+                            ${getStarRating(product.rating || 4.5)}
+                            <span>${product.rating || 4.5} (${product.review_count || 24} reviews)</span>
+                        </div>
+                        ${product.description ? `<p class="product-modal-description">${product.description}</p>` : ''}
+                        <div class="product-modal-stock ${product.stock <= 0 ? 'out-of-stock' : product.stock < 10 ? 'low-stock' : ''}">
+                            ${product.stock <= 0 ? 'Out of Stock' : `${product.stock} ${product.unit} available`}
+                        </div>
+                        <div class="quantity-selector">
+                            <div class="quantity-options" id="modal-qty-${product.id}">
+                                ${getQuantityOptions(product.unit).map(opt => `
+                                    <div class="quantity-option" data-value="${opt.value}" 
+                                         onclick="selectModalQuantity(${product.id}, ${opt.value})" 
+                                         ${isOutOfStock ? 'style="pointer-events: none; opacity: 0.5;"' : ''}>
+                                        ${opt.label}
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div class="custom-quantity">
+                                <input type="number" id="modal-custom-${product.id}" placeholder="Custom" min="0.1" step="0.1" 
+                                       oninput="setModalCustomQuantity(${product.id}, this.value)" 
+                                       ${isOutOfStock ? 'disabled' : ''}>
+                                <span style="font-size: 12px; color: #666;">${product.unit}</span>
+                            </div>
+                        </div>
+                        <button class="add-to-cart-modal" onclick="addToCartFromModal(${product.id})" 
+                                ${isOutOfStock ? 'disabled' : ''}>
+                            ${isOutOfStock ? 'Out of Stock' : 'Add to Cart'}
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Add click outside to close
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeProductModal();
+                }
+            });
+        }
+
+        function closeProductModal() {
+            const modal = document.querySelector('.product-modal-overlay');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function changeMainImage(src) {
+            const mainImage = document.querySelector('.main-product-image');
+            if (mainImage) {
+                mainImage.src = src;
+            }
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function getStarRating(rating) {
+            const fullStars = Math.floor(rating);
+            const halfStar = rating % 1 >= 0.5;
+            const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+            
+            let stars = '';
+            for (let i = 0; i < fullStars; i++) stars += '<i class="fas fa-star"></i>';
+            if (halfStar) stars += '<i class="fas fa-star-half-alt"></i>';
+            for (let i = 0; i < emptyStars; i++) stars += '<i class="far fa-star"></i>';
+            
+            return stars;
+        }
+
+        function selectModalQuantity(productId, quantity) {
+            selectedQuantities[productId] = quantity;
+            const options = document.querySelectorAll(`#modal-qty-${productId} .quantity-option`);
+            options.forEach(opt => opt.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const customInput = document.getElementById(`modal-custom-${productId}`);
+            if (customInput) customInput.value = '';
+        }
+
+        function setModalCustomQuantity(productId, value) {
+            const numValue = parseFloat(value);
+            if (!isNaN(numValue) && numValue > 0) {
+                selectedQuantities[productId] = numValue;
+                const options = document.querySelectorAll(`#modal-qty-${productId} .quantity-option`);
+                options.forEach(opt => opt.classList.remove('active'));
+            }
+        }
+
+        function addToCartFromModal(productId) {
+            addToCart(productId);
+            closeProductModal();
+        }
+
+        function getQuantityOptions(unit) {
+            if (unit === 'kg' || unit === 'liter') {
+                return [
+                    { label: "250g", value: 0.25 },
+                    { label: "500g", value: 0.5 },
+                    { label: "1kg", value: 1 },
+                    { label: "2kg", value: 2 }
+                ];
+            } else {
+                return [
+                    { label: "1", value: 1 },
+                    { label: "2", value: 2 },
+                    { label: "3", value: 3 },
+                    { label: "4", value: 4 }
+                ];
+            }
+        }
+
+        function selectQuantity(productId, quantity) {
+            selectedQuantities[productId] = quantity;
+            
+            // Remove active class from all options
+            document.querySelectorAll(`#qty-${productId} .quantity-option`).forEach(opt => {
+                opt.classList.remove('active');
+            });
+            
+            // Add active class to clicked option
+            event.target.classList.add('active');
+            
+            // Clear custom input
+            const customInput = document.getElementById(`custom-${productId}`);
+            if (customInput) customInput.value = '';
+        }
+
+        function setCustomQuantity(productId, value) {
+            const numValue = parseFloat(value);
+            if (!isNaN(numValue) && numValue > 0) {
+                selectedQuantities[productId] = numValue;
+                
+                // Remove active class from pre-defined options
+                document.querySelectorAll(`#qty-${productId} .quantity-option`).forEach(opt => {
+                    opt.classList.remove('active');
+                });
+            }
+        }
+
+        function filterProducts(searchTerm) {
+            if (!searchTerm || searchTerm.trim() === '') {
+                loadCategoryProducts(currentCategory);
+                return;
+            }
+            
+            const allProducts = getAllProducts();
+            const filteredProducts = allProducts.filter(product => 
+                product.name.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            
+            const container = document.getElementById('productsContainer');
+            
+            if (filteredProducts.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #666;">
+                        <i class="fas fa-search" style="font-size: 48px; opacity: 0.5;"></i>
+                        <p>No products found for "${searchTerm}"</p>
+                        <button onclick="loadCategoryProducts(currentCategory)" style="
+                            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+                            color: white;
+                            border: none;
+                            padding: 10px 20px;
+                            border-radius: 8px;
+                            margin-top: 10px;
+                            cursor: pointer;
+                        ">
+                            Show All Products
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = '';
+            filteredProducts.forEach((product, index) => {
+                renderProduct(product, index);
+            });
+            
+            console.log(`🔍 Found ${filteredProducts.length} products for "${searchTerm}"`);
+        }
+
+        // ==================== CART FUNCTIONS ====================
+        function addToCart(productId) {
+            const quantity = selectedQuantities[productId];
+            
+            if (!quantity || quantity <= 0) {
+                showNotification('Please select quantity first', 'error');
+                return;
+            }
+            
+            // Find product
+            let product;
+            for (const cat in PRODUCTS) {
+                product = PRODUCTS[cat].find(p => p.id === productId);
+                if (product) break;
+            }
+            
+            if (!product) {
+                showNotification('Product not found', 'error');
+                return;
+            }
+            
+            // Check stock
+            if ((product.stock || 0) < quantity) {
+                showNotification(`Only ${product.stock} ${product.unit} available`, 'error');
+                return;
+            }
+            
+            // Add to cart
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: product.name,
+                    price: product.price,
+                    quantity: quantity,
+                    unit: product.unit
+                });
+            }
+            
+            // Update stock locally
+            product.stock = (product.stock || 0) - quantity;
+            
+            // Reset selection
+            selectedQuantities[productId] = 0;
+            
+            updateCartCount();
+            showNotification(`${product.name} added to cart`);
+            
+            // Refresh product display
+            loadCategoryProducts(currentCategory);
+        }
+
+        function updateCartCount() {
+            const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartCountElement = document.getElementById('cartCount');
+            if (cartCountElement) {
+                cartCountElement.textContent = total;
+            }
+        }
+
+        function openCart() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty');
+                return;
+            }
+            
+            renderCartItems();
+            document.getElementById('cartModal').style.display = 'flex';
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        function renderCartItems() {
+            const itemsContainer = document.getElementById('cartItems');
+            const cartTotalElement = document.getElementById('cartTotal');
+            
+            let subtotal = 0;
+            itemsContainer.innerHTML = '';
+            
+            cart.forEach(item => {
+                const total = item.price * item.quantity;
+                subtotal += total;
+                
+                const itemDiv = document.createElement('div');
+                itemDiv.style.cssText = `
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 0;
+                    border-bottom: 1px solid #eee;
+                `;
+                
+                itemDiv.innerHTML = `
+                    <div>
+                        <div style="font-weight: bold;">${item.name}</div>
+                        <div style="color: #e74c3c; font-size: 14px;">₹${item.price}/${item.unit} × ${item.quantity}</div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <button onclick="updateCartItem(${item.id}, -0.1)" style="background: #f0f0f0; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">-</button>
+                        <span style="min-width: 40px; text-align: center;">${item.quantity.toFixed(2)}</span>
+                        <button onclick="updateCartItem(${item.id}, 0.1)" style="background: #f0f0f0; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">+</button>
+                        <button onclick="removeFromCart(${item.id})" style="background: #e74c3c; color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-trash" style="font-size: 12px;"></i>
+                        </button>
+                    </div>
+                `;
+                itemsContainer.appendChild(itemDiv);
+            });
+            
+            const packaging = BUSINESS_INFO.packagingCharge || 10;
+            const total = subtotal + packaging;
+            
+            cartTotalElement.innerHTML = `
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>Subtotal:</span>
+                    <span>₹${subtotal.toFixed(2)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>Packaging Charge:</span>
+                    <span>₹${packaging}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ddd;">
+                    <span>Total:</span>
+                    <span>₹${total.toFixed(2)}</span>
+                </div>
+            `;
+        }
+
+        function updateCartItem(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if (!item) return;
+            
+            // Update quantity
+            const newQuantity = Math.max(0.1, item.quantity + change);
+            const quantityChange = newQuantity - item.quantity;
+            item.quantity = newQuantity;
+            
+            if (item.quantity <= 0.1) {
+                removeFromCart(productId);
+                return;
+            }
+            
+            // Update stock in products
+            for (const cat in PRODUCTS) {
+                const product = PRODUCTS[cat].find(p => p.id === productId);
+                if (product) {
+                    product.stock = (product.stock || 0) - quantityChange;
+                    break;
+                }
+            }
+            
+            updateCartCount();
+            renderCartItems();
+            loadCategoryProducts(currentCategory);
+        }
+
+        function removeFromCart(productId) {
+            // Find the item to restore stock
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                // Restore stock
+                for (const cat in PRODUCTS) {
+                    const product = PRODUCTS[cat].find(p => p.id === productId);
+                    if (product) {
+                        product.stock = (product.stock || 0) + item.quantity;
+                        break;
+                    }
+                }
+            }
+            
+            // Remove from cart
+            cart = cart.filter(item => item.id !== productId);
+            
+            updateCartCount();
+            
+            if (cart.length === 0) {
+                closeCart();
+            } else {
+                renderCartItems();
+            }
+            
+            loadCategoryProducts(currentCategory);
+            showNotification('Item removed from cart');
+        }
+
+        // ==================== CHECKOUT FUNCTIONS ====================
+        function checkBusinessHours() {
+            const now = new Date();
+            const currentHour = now.getHours();
+            
+            // Store hours: 10 AM to 10 PM
+            if (currentHour >= 10 && currentHour < 22) {
+                openCheckoutModal();
+            } else {
+                document.getElementById('businessHoursModal').style.display = 'flex';
+            }
+        }
+
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty');
+                return;
+            }
+            
+            renderBillingSummary();
+            document.getElementById('checkoutModal').style.display = 'flex';
+            closeCart();
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').style.display = 'none';
+        }
+
+        function closeBusinessHoursModal() {
+            document.getElementById('businessHoursModal').style.display = 'none';
+        }
+
+        function renderBillingSummary() {
+            const billingSummary = document.getElementById('billingSummary');
+            
+            let subtotal = 0;
+            let itemsHTML = '';
+            
+            cart.forEach(item => {
+                const total = item.price * item.quantity;
+                subtotal += total;
+                itemsHTML += `
+                    <div style="display: flex; justify-content: space-between; padding: 5px 0;">
+                        <span>${item.name} (${item.quantity}${item.unit})</span>
+                        <span>₹${total.toFixed(2)}</span>
+                    </div>
+                `;
+            });
+            
+            const packaging = BUSINESS_INFO.packagingCharge || 10;
+            const total = subtotal + packaging;
+            const advance = total * 0.5;
+            
+            billingSummary.innerHTML = `
+                <h3 style="margin-bottom: 15px;">Order Summary</h3>
+                ${itemsHTML}
+                <div style="display: flex; justify-content: space-between; padding: 5px 0; border-top: 1px solid #ddd; margin-top: 10px;">
+                    <span>Subtotal:</span>
+                    <span>₹${subtotal.toFixed(2)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 5px 0;">
+                    <span>Packaging Charge:</span>
+                    <span>₹${packaging}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 5px 0; font-weight: bold; font-size: 16px;">
+                    <span>Total Amount:</span>
+                    <span>₹${total.toFixed(2)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 5px 0; color: #e74c3c; font-weight: bold; margin-top: 10px;">
+                    <span>50% Advance Payment:</span>
+                    <span>₹${advance.toFixed(2)}</span>
+                </div>
+            `;
+        }
+
+        function validateAndCheckout() {
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const address = document.getElementById('customerAddress').value.trim();
+            
+            if (!name || !phone) {
+                showNotification('Please fill all required fields', 'error');
+                return;
+            }
+            
+            if (phone.length < 10) {
+                showNotification('Please enter a valid phone number', 'error');
+                return;
+            }
+            
+            processCheckout(name, phone, address);
+        }
+
+        async function processCheckout(name, phone, address = '') {
+            // Calculate totals
+            let subtotal = 0;
+            const items = cart.map(item => {
+                const total = item.price * item.quantity;
+                subtotal += total;
+                return {
+                    id: item.id,
+                    name: item.name,
+                    quantity: item.quantity,
+                    unit: item.unit,
+                    price: item.price,
+                    total: total,
+                    updateStock: true
+                };
+            });
+            
+            const packaging = BUSINESS_INFO.packagingCharge || 10;
+            const total = subtotal + packaging;
+            const advance = total * 0.5;
+            
+            try {
+                // Save order to backend
+                const response = await fetch(`${API_BASE_URL}/api/orders`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        customer_name: name,
+                        customer_phone: phone,
+                        customer_address: address,
+                        items: items,
+                        subtotal: subtotal,
+                        packaging_charge: packaging,
+                        total_amount: total,
+                        advance_paid: advance,
+                        advance_payment_method: 'Pending',
+                        advance_payment_proof: ''
+                    })
+                });
+                
+                let orderId = 'SH' + Date.now();
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success && result.data.order_id) {
+                        orderId = result.data.order_id;
+                    }
+                }
+                
+                // Generate WhatsApp message
+                let message = `*Sabji Haat - New Order*\n\n`;
+                message += `*Order ID:* ${orderId}\n`;
+                message += `*Order Date:* ${new Date().toLocaleDateString('en-IN')}\n`;
+                message += `*Customer:* ${name}\n`;
+                message += `*Phone:* ${phone}\n`;
+                if (address) message += `*Address:* ${address}\n`;
+                message += `\n*Order Items:*\n`;
+                
+                items.forEach(item => {
+                    message += `• ${item.name} - ${item.quantity}${item.unit} × ₹${item.price} = ₹${item.total.toFixed(2)}\n`;
+                });
+                
+                message += `\n*Order Summary:*\n`;
+                message += `Subtotal: ₹${subtotal.toFixed(2)}\n`;
+                message += `Packaging: ₹${packaging}\n`;
+                message += `*Total: ₹${total.toFixed(2)}*\n`;
+                message += `*Advance (50%): ₹${advance.toFixed(2)}*\n\n`;
+                message += `*Payment Instructions:*\n`;
+                message += `1. Send ₹${advance.toFixed(2)} advance payment\n`;
+                message += `2. Payment to: ${BUSINESS_INFO.phone}\n`;
+                message += `3. Send payment screenshot\n`;
+                message += `4. Collect from store with remaining payment\n\n`;
+                message += `*Pickup Address:*\n`;
+                message += `${BUSINESS_INFO.address}\n\n`;
+                message += `Thank you for choosing Sabji Haat! 🥦`;
+                
+                // Open WhatsApp
+                const encoded = encodeURIComponent(message);
+                window.open(`https://wa.me/${BUSINESS_INFO.phone.replace('+', '')}?text=${encoded}`, '_blank');
+                
+                // Clear cart
+                cart = [];
+                updateCartCount();
+                closeCheckoutModal();
+                
+                showNotification('Order created successfully! Please send advance payment.');
+                
+                // Refresh products
+                loadCategoryProducts(currentCategory);
+                
+            } catch (error) {
+                console.error('Order creation error:', error);
+                
+                // Fallback: just send WhatsApp message
+                let message = `*Sabji Haat - New Order*\n\n`;
+                message += `*Customer:* ${name}\n`;
+                message += `*Phone:* ${phone}\n`;
+                if (address) message += `*Address:* ${address}\n`;
+                message += `\n*Order Items:*\n`;
+                
+                items.forEach(item => {
+                    message += `• ${item.name} - ${item.quantity}${item.unit} × ₹${item.price}\n`;
+                });
+                
+                const packaging = BUSINESS_INFO.packagingCharge || 10;
+                const total = subtotal + packaging;
+                const advance = total * 0.5;
+                
+                message += `\n*Total: ₹${total.toFixed(2)}*\n`;
+                message += `*Advance (50%): ₹${advance.toFixed(2)}*\n`;
+                
+                const encoded = encodeURIComponent(message);
+                window.open(`https://wa.me/${BUSINESS_INFO.phone.replace('+', '')}?text=${encoded}`, '_blank');
+                
+                // Clear cart
+                cart = [];
+                updateCartCount();
+                closeCheckoutModal();
+                
+                showNotification('Order sent to WhatsApp! Please send advance payment.');
+            }
+        }
+
+        // ==================== ADMIN FUNCTIONS ====================
+        function setupAdminAccess() {
+            const homeButton = document.querySelector('.nav-home');
+            
+            let pressTimer;
+            let clickCount = 0;
+            let clickTimer;
+            
+            // Long press (10 seconds)
+            homeButton.addEventListener('mousedown', function(e) {
+                e.preventDefault();
+                pressTimer = setTimeout(() => {
+                    console.log("🔑 Long press detected - opening admin login");
+                    openAdminLogin();
+                }, 10000);
+            });
+            
+            homeButton.addEventListener('mouseup', function(e) {
+                e.preventDefault();
+                clearTimeout(pressTimer);
+            });
+            
+            homeButton.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                pressTimer = setTimeout(() => {
+                    console.log("🔑 Long press detected - opening admin login");
+                    openAdminLogin();
+                }, 10000);
+            });
+            
+            homeButton.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                clearTimeout(pressTimer);
+            });
+            
+            // Triple click
+            homeButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                clickCount++;
+                
+                if (clickTimer) {
+                    clearTimeout(clickTimer);
+                }
+                
+                clickTimer = setTimeout(() => {
+                    if (clickCount >= 8) {
+                        console.log("🔑 Triple click detected - opening admin login");
+                        openAdminLogin();
+                    }
+                    clickCount = 0;
+                }, 1500);
+            });
+        }
+
+        function openAdminLogin() {
+            document.getElementById('adminLoginModal').style.display = 'flex';
+        }
+
+        function closeAdminLogin() {
+            document.getElementById('adminLoginModal').style.display = 'none';
+            document.getElementById('adminUsername').value = '';
+            document.getElementById('adminPassword').value = '';
+        }
+
+        async function adminLogin() {
+            const username = document.getElementById('adminUsername').value.trim();
+            const password = document.getElementById('adminPassword').value;
+            
+            if (!username || !password) {
+                showNotification('Please enter credentials', 'error');
+                return;
+            }
+            
+            console.log('🔐 Attempting admin login...');
+            
+            try {
+                showNotification('Logging in...', 'info');
+                
+                const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        username: username.toLowerCase(),
+                        password: password 
+                    })
+                });
+                
+                const data = await response.json();
+                console.log('Login response:', data);
+                
+                if (data.success) {
+                    adminToken = data.data.token;
+                    adminUsername = data.data.username;
+                    localStorage.setItem('adminToken', adminToken);
+                    localStorage.setItem('adminUsername', adminUsername);
+                    
+                    // Load products from database
+                    await loadAllProducts();
+                    
+                    showAdminPanel();
+                    showNotification('Admin login successful!');
+                } else {
+                    showNotification(data.error || 'Login failed', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Login error:', error);
+                showNotification('Connection failed. Check your internet or try offline mode.', 'error');
+                
+                // Offline mode: Use default credentials
+                if (username === 'admin' && password === 'sabjihaat2025') {
+                    adminToken = 'offline-token';
+                    adminUsername = 'admin';
+                    localStorage.setItem('adminToken', adminToken);
+                    localStorage.setItem('adminUsername', adminUsername);
+                    showAdminPanel();
+                    showNotification('Logged in (offline mode)');
+                }
+            }
+        }
+
+        function showAdminPanel() {
+            closeAdminLogin();
+            document.querySelector('.main-app').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'block';
+            loadAdminProducts();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function adminLogout() {
+            adminToken = null;
+            adminUsername = null;
+            localStorage.removeItem('adminToken');
+            localStorage.removeItem('adminUsername');
+            showHomePage();
+            showNotification('Logged out successfully');
+        }
+
+        function switchAdminTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.admin-tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active from all buttons
+            document.querySelectorAll('.admin-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(`${tabName}Tab`).classList.add('active');
+            
+            // Add active to clicked button
+            event.target.classList.add('active');
+            
+            // Load data if needed
+            if (tabName === 'orders') {
+                loadAdminOrders();
+            } else if (tabName === 'stats') {
+                loadAdminStats();
+            } else if (tabName === 'settings') {
+                loadAdminSettings();
+            }
+        }
+
+        async function loadAdminProducts() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/products`, {
+                    headers: adminToken && adminToken !== 'offline-token' ? {
+                        'Authorization': `Bearer ${adminToken}`
+                    } : {}
+                });
+                
+                let products = [];
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success) {
+                        products = result.data;
+                    }
+                } else {
+                    // Fallback to local products
+                    products = getAllProducts();
+                }
+                
+                renderAdminProducts(products);
+            } catch (error) {
+                console.error('Error loading admin products:', error);
+                // Fallback to local products
+                renderAdminProducts(getAllProducts());
+            }
+        }
+
+        function renderAdminProducts(products) {
+            const container = document.getElementById('adminProductList');
+            if (!container) return;
+            
+            if (products.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #666;">
+                        <i class="fas fa-box-open" style="font-size: 48px; opacity: 0.5;"></i>
+                        <p>No products found</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // डुप्लिकेट फ़िल्टर करें
+            const uniqueProducts = [];
+            const seenIds = new Set();
+            
+            products.forEach(product => {
+                if (!seenIds.has(product.id)) {
+                    seenIds.add(product.id);
+                    uniqueProducts.push(product);
+                }
+            });
+            
+            container.innerHTML = uniqueProducts.map(product => `
+                <div class="admin-product-item">
+                    <div>
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-details">${product.category} | ₹${product.price}/${product.unit} | Stock: ${product.stock}</div>
+                    </div>
+                    <div class="admin-product-actions">
+                        <button class="btn-edit" onclick="editProduct(${product.id})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-delete" onclick="deleteProduct(${product.id})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function loadAdminOrders() {
+            try {
+                const statusFilter = document.getElementById('orderStatusFilter').value;
+                const response = await fetch(`${API_BASE_URL}/api/orders?status=${statusFilter}`, {
+                    headers: adminToken && adminToken !== 'offline-token' ? {
+                        'Authorization': `Bearer ${adminToken}`
+                    } : {}
+                });
+                
+                let orders = [];
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success) {
+                        orders = result.data || [];
+                    }
+                }
+                
+                renderAdminOrders(orders);
+            } catch (error) {
+                console.error('Error loading orders:', error);
+                renderAdminOrders([]);
+            }
+        }
+
+        function renderAdminOrders(orders) {
+            const container = document.getElementById('adminOrdersList');
+            if (!container) return;
+            
+            if (orders.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #666;">
+                        <i class="fas fa-box-open" style="font-size: 48px; opacity: 0.5;"></i>
+                        <p>No orders found</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = orders.map(order => `
+                <div class="admin-order-item" data-order-id="${order.id}">
+                    <div class="order-header">
+                        <div class="order-id">Order #${order.order_id}</div>
+                        <div class="order-date">${new Date(order.created_at).toLocaleDateString()}</div>
+                        <div class="order-status ${order.order_status}">${order.order_status}</div>
+                    </div>
+                    <div class="order-customer">
+                        <strong>${order.customer_name}</strong> • ${order.customer_phone}
+                        ${order.customer_address ? `<br><small>${order.customer_address}</small>` : ''}
+                    </div>
+                    <div class="order-items">
+                        <strong>Items:</strong> ${order.items_summary || 'No items'}
+                    </div>
+                    <div class="order-total">
+                        Total: ₹${order.total_amount} | Advance: ₹${order.advance_paid}
+                    </div>
+                    <div class="order-actions">
+                        <button class="btn-edit-order" onclick="editOrderStatus(${order.id})">
+                            <i class="fas fa-edit"></i> Status
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function loadAdminStats() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/admin/stats`, {
+                    headers: adminToken && adminToken !== 'offline-token' ? {
+                        'Authorization': `Bearer ${adminToken}`
+                    } : {}
+                });
+                
+                let stats = {
+                    products: { total: 0, stock: 0 },
+                    orders: { total_orders: 0, pending_orders: 0, total_revenue: 0 }
+                };
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success) {
+                        stats = result.data;
+                    }
+                } else {
+                    // Calculate stats from local data
+                    const allProducts = getAllProducts();
+                    stats.products.total = allProducts.length;
+                    stats.products.stock = allProducts.reduce((sum, p) => sum + (p.stock || 0), 0);
+                }
+                
+                renderAdminStats(stats);
+            } catch (error) {
+                console.error('Error loading stats:', error);
+                renderAdminStats({
+                    products: { total: 0, stock: 0 },
+                    orders: { total_orders: 0, pending_orders: 0, total_revenue: 0 }
+                });
+            }
+        }
+
+        function renderAdminStats(stats) {
+            const container = document.getElementById('adminStats');
+            if (!container) return;
+            
+            container.innerHTML = `
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">${stats.products.total}</div>
+                        <div class="stat-label">Total Products</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${stats.orders.total_orders || 0}</div>
+                        <div class="stat-label">Total Orders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">₹${stats.orders.total_revenue || 0}</div>
+                        <div class="stat-label">Total Revenue</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${stats.orders.pending_orders || 0}</div>
+                        <div class="stat-label">Pending Orders</div>
+                    </div>
+                </div>
+                
+                <div class="stats-section">
+                    <h3>Stock Summary</h3>
+                    <p>Total Stock Value: ₹${stats.products.stock || 0}</p>
+                    <p>Products by Category:</p>
+                    <div style="margin-top: 10px;">
+                        ${Object.keys(PRODUCTS).map(cat => `
+                            <div style="display: flex; justify-content: space-between; padding: 5px 0;">
+                                <span>${cat.charAt(0).toUpperCase() + cat.slice(1)}:</span>
+                                <span>${PRODUCTS[cat]?.length || 0} products</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadAdminSettings() {
+            document.getElementById('packagingCharge').value = BUSINESS_INFO.packagingCharge || 10;
+            document.getElementById('storeHours').value = BUSINESS_INFO.storeHours || "10:00 AM - 10:00 PM";
+        }
+
+        async function saveSettings() {
+            const charge = parseInt(document.getElementById('packagingCharge').value) || 10;
+            const hours = document.getElementById('storeHours').value || "10:00 AM - 10:00 PM";
+            
+            BUSINESS_INFO.packagingCharge = charge;
+            BUSINESS_INFO.storeHours = hours;
+            
+            try {
+                if (adminToken && adminToken !== 'offline-token') {
+                    await fetch(`${API_BASE_URL}/api/business-info`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${adminToken}`
+                        },
+                        body: JSON.stringify({ 
+                            packaging_charge: charge,
+                            store_hours: hours
+                        })
+                    });
+                }
+                
+                showNotification('Settings saved successfully');
+            } catch (error) {
+                console.error('Save settings error:', error);
+                showNotification('Settings saved locally', 'info');
+            }
+        }
+
+        // ==================== PRODUCT IMAGE FUNCTIONS ====================
+        function selectImageFromGallery() {
+            // Create a file input element
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+            
+            fileInput.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    selectedImageFile = file;
+                    
+                    // Show preview
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        const preview = document.getElementById('imagePreview');
+                        preview.src = event.target.result;
+                        preview.style.display = 'block';
+                        
+                        // Clear URL input initially
+                        document.getElementById('productImage').value = '';
+                    };
+                    reader.readAsDataURL(file);
+                    
+                    showNotification('Image selected. Click Upload to upload it.');
+                }
+            };
+            
+            fileInput.click();
+        }
+
+        async function uploadSelectedImage() {
+            if (!selectedImageFile) {
+                showNotification('Please select an image first', 'error');
+                return;
+            }
+            
+            showNotification('Uploading image to Cloudinary...', 'info');
+            
+            try {
+                // Create form data for Cloudinary upload
+                const formData = new FormData();
+                formData.append('file', selectedImageFile);
+                formData.append('upload_preset', CLOUDINARY_CONFIG.uploadPreset);
+                formData.append('cloud_name', CLOUDINARY_CONFIG.cloudName);
+                
+                // Upload to Cloudinary
+                const response = await fetch(CLOUDINARY_CONFIG.apiUrl, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.secure_url) {
+                    // Set the Cloudinary URL in the input field
+                    document.getElementById('productImage').value = result.secure_url;
+                    
+                    // Update preview
+                    const preview = document.getElementById('imagePreview');
+                    preview.src = result.secure_url;
+                    preview.style.display = 'block';
+                    
+                    showNotification('Image uploaded successfully to Cloudinary! URL has been added.');
+                    selectedImageFile = null;
+                } else {
+                    throw new Error('Upload failed');
+                }
+                
+            } catch (error) {
+                console.error('Cloudinary upload error:', error);
+                showNotification('Cloudinary upload failed. Using fallback method.', 'error');
+                
+                // Fallback: convert to data URL
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const dataUrl = event.target.result;
+                    document.getElementById('productImage').value = dataUrl;
+                    
+                    // Update preview
+                    const preview = document.getElementById('imagePreview');
+                    preview.src = dataUrl;
+                    preview.style.display = 'block';
+                    
+                    showNotification('Image converted to data URL (local fallback).');
+                    selectedImageFile = null;
+                };
+                reader.readAsDataURL(selectedImageFile);
+            }
+        }
+
+        // ==================== PRODUCT FORM FUNCTIONS ====================
+        function showAddProductForm() {
+            document.getElementById('productModalTitle').textContent = 'Add New Product';
+            document.getElementById('productFormSubmitBtn').textContent = 'Create Product';
+            document.getElementById('productFormSubmitBtn').onclick = function() { createProduct(); };
+            
+            resetProductForm();
+            document.getElementById('addProductModal').style.display = 'flex';
+        }
+
+        function closeAddProductModal() {
+            document.getElementById('addProductModal').style.display = 'none';
+            resetProductForm();
+            editingProductId = null;
+            selectedImageFile = null;
+        }
+
+        function resetProductForm() {
+            document.getElementById('productName').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('productUnit').value = 'kg';
+            document.getElementById('productCategory').value = 'indian';
+            document.getElementById('productStock').value = '0';
+            document.getElementById('productImage').value = '';
+            document.getElementById('productDescription').value = '';
+            document.getElementById('productRating').value = '4.5';
+            
+            // Reset image preview
+            const preview = document.getElementById('imagePreview');
+            preview.src = '';
+            preview.style.display = 'none';
+        }
+
+        async function createProduct() {
+            const name = document.getElementById('productName').value.trim();
+            const price = document.getElementById('productPrice').value;
+            const unit = document.getElementById('productUnit').value;
+            const category = document.getElementById('productCategory').value;
+            const stock = document.getElementById('productStock').value;
+            const image = document.getElementById('productImage').value;
+            const description = document.getElementById('productDescription').value;
+            const rating = document.getElementById('productRating').value;
+            
+            if (!name || !price || !unit || !category || !image) {
+                showNotification('Please fill all required fields', 'error');
+                return;
+            }
+            
+            const productData = {
+                name,
+                price: parseFloat(price),
+                unit,
+                category,
+                stock: parseInt(stock) || 0,
+                image: image,
+                description: description || '',
+                rating: parseFloat(rating) || 4.5
+            };
+            
+            try {
+                showNotification('Creating product...');
+                
+                if (adminToken && adminToken !== 'offline-token') {
+                    const response = await fetch(`${API_BASE_URL}/api/products`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${adminToken}`
+                        },
+                        body: JSON.stringify(productData)
+                    });
+                    
+                    if (response.ok) {
+                        const result = await response.json();
+                        if (result.success) {
+                            showNotification('Product created successfully!');
+                            closeAddProductModal();
+                            loadAdminProducts();
+                            
+                            // Add to local products
+                            if (!PRODUCTS[category]) {
+                                PRODUCTS[category] = [];
+                            }
+                            PRODUCTS[category].push({
+                                id: result.data.id || Date.now(),
+                                ...productData
+                            });
+                            
+                            if (currentCategory === category) {
+                                loadCategoryProducts(currentCategory);
+                            }
+                            return;
+                        }
+                    }
+                }
+                
+                // Fallback for offline mode
+                const newId = Date.now();
+                if (!PRODUCTS[category]) {
+                    PRODUCTS[category] = [];
+                }
+                PRODUCTS[category].push({
+                    id: newId,
+                    ...productData
+                });
+                
+                showNotification('Product added locally (offline mode)');
+                closeAddProductModal();
+                loadAdminProducts();
+                
+                if (currentCategory === category) {
+                    loadCategoryProducts(currentCategory);
+                }
+                
+            } catch (error) {
+                console.error('Create product error:', error);
+                showNotification('Failed to create product', 'error');
+            }
+        }
+
+        async function editProduct(productId) {
+            // Find product
+            const allProducts = getAllProducts();
+            const product = allProducts.find(p => p.id == productId);
+            
+            if (!product) {
+                showNotification('Product not found', 'error');
+                return;
+            }
+            
+            // Set editing mode
+            editingProductId = productId;
+            
+            // Update modal title
+            document.getElementById('productModalTitle').textContent = 'Edit Product';
+            document.getElementById('productFormSubmitBtn').textContent = 'Update Product';
+            document.getElementById('productFormSubmitBtn').onclick = function() { updateProduct(); };
+            
+            // Pre-fill the form
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productPrice').value = product.price;
+            document.getElementById('productUnit').value = product.unit;
+            document.getElementById('productCategory').value = product.category;
+            document.getElementById('productStock').value = product.stock || 0;
+            document.getElementById('productImage').value = product.image || '';
+            document.getElementById('productDescription').value = product.description || '';
+            document.getElementById('productRating').value = product.rating || 4.5;
+            
+            // Show image preview if exists
+            if (product.image) {
+                const preview = document.getElementById('imagePreview');
+                preview.src = product.image;
+                preview.style.display = 'block';
+            }
+            
+            document.getElementById('addProductModal').style.display = 'flex';
+        }
+
+        async function updateProduct() {
+            if (!editingProductId) return;
+            
+            const name = document.getElementById('productName').value.trim();
+            const price = document.getElementById('productPrice').value;
+            const unit = document.getElementById('productUnit').value;
+            const category = document.getElementById('productCategory').value;
+            const stock = document.getElementById('productStock').value;
+            const image = document.getElementById('productImage').value;
+            const description = document.getElementById('productDescription').value;
+            const rating = document.getElementById('productRating').value;
+            
+            if (!name || !price || !unit || !category || !image) {
+                showNotification('Please fill all required fields', 'error');
+                return;
+            }
+            
+            const productData = {
+                name,
+                price: parseFloat(price),
+                unit,
+                category,
+                stock: parseInt(stock) || 0,
+                image: image,
+                description: description || '',
+                rating: parseFloat(rating) || 4.5
+            };
+            
+            try {
+                showNotification('Updating product...');
+                
+                if (adminToken && adminToken !== 'offline-token') {
+                    const response = await fetch(`${API_BASE_URL}/api/products/${editingProductId}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${adminToken}`
+                        },
+                        body: JSON.stringify(productData)
+                    });
+                    
+                    if (response.ok) {
+                        const result = await response.json();
+                        if (result.success) {
+                            showNotification('Product updated successfully!');
+                            closeAddProductModal();
+                            loadAdminProducts();
+                            
+                            // Update in local products
+                            const allProducts = getAllProducts();
+                            const index = allProducts.findIndex(p => p.id == editingProductId);
+                            if (index !== -1) {
+                                // Remove from old category
+                                for (const cat in PRODUCTS) {
+                                    PRODUCTS[cat] = PRODUCTS[cat].filter(p => p.id != editingProductId);
+                                }
+                                // Add to new category
+                                if (!PRODUCTS[category]) {
+                                    PRODUCTS[category] = [];
+                                }
+                                PRODUCTS[category].push({
+                                    id: editingProductId,
+                                    ...productData
+                                });
+                            }
+                            
+                            if (currentCategory === category) {
+                                loadCategoryProducts(currentCategory);
+                            }
+                            editingProductId = null;
+                            return;
+                        }
+                    }
+                }
+                
+                // Fallback for offline mode
+                const allProducts = getAllProducts();
+                const index = allProducts.findIndex(p => p.id == editingProductId);
+                if (index !== -1) {
+                    // Remove from old category
+                    for (const cat in PRODUCTS) {
+                        PRODUCTS[cat] = PRODUCTS[cat].filter(p => p.id != editingProductId);
+                    }
+                    // Add to new category
+                    if (!PRODUCTS[category]) {
+                        PRODUCTS[category] = [];
+                    }
+                    PRODUCTS[category].push({
+                        id: editingProductId,
+                        ...productData
+                    });
+                }
+                
+                showNotification('Product updated locally (offline mode)');
+                closeAddProductModal();
+                loadAdminProducts();
+                
+                if (currentCategory === category) {
+                    loadCategoryProducts(currentCategory);
+                }
+                
+                editingProductId = null;
+                
+            } catch (error) {
+                console.error('Update product error:', error);
+                showNotification('Failed to update product', 'error');
+            }
+        }
+
+        async function deleteProduct(productId) {
+            if (!confirm('Are you sure you want to delete this product?')) {
+                return;
+            }
+            
+            try {
+                showNotification('Deleting product...');
+                
+                if (adminToken && adminToken !== 'offline-token') {
+                    const response = await fetch(`${API_BASE_URL}/api/products/${productId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Authorization': `Bearer ${adminToken}`
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        const result = await response.json();
+                        if (result.success) {
+                            showNotification('Product deleted successfully!');
+                            loadAdminProducts();
+                            
+                            // Remove from local products
+                            for (const cat in PRODUCTS) {
+                                PRODUCTS[cat] = PRODUCTS[cat].filter(p => p.id != productId);
+                            }
+                            
+                            loadCategoryProducts(currentCategory);
+                            return;
+                        }
+                    }
+                }
+                
+                // Fallback for offline mode
+                for (const cat in PRODUCTS) {
+                    PRODUCTS[cat] = PRODUCTS[cat].filter(p => p.id != productId);
+                }
+                
+                showNotification('Product deleted locally');
+                loadAdminProducts();
+                loadCategoryProducts(currentCategory);
+                
+            } catch (error) {
+                console.error('Delete product error:', error);
+                showNotification('Failed to delete product', 'error');
+            }
+        }
+
+        async function editOrderStatus(orderId) {
+            const newStatus = prompt('Enter new status (pending/confirmed/processing/ready/completed/cancelled):');
+            if (!newStatus) return;
+            
+            try {
+                if (adminToken && adminToken !== 'offline-token') {
+                    const response = await fetch(`${API_BASE_URL}/api/orders/${orderId}/status`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${adminToken}`
+                        },
+                        body: JSON.stringify({
+                            status: newStatus.toLowerCase()
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        showNotification('Order status updated successfully');
+                        loadAdminOrders();
+                    }
+                } else {
+                    showNotification('Order status updated (offline mode)');
+                }
+            } catch (error) {
+                console.error('Update order status error:', error);
+                showNotification('Failed to update order status', 'error');
+            }
+        }
+
+        // ==================== UTILITY FUNCTIONS ====================
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            
+            notification.textContent = message;
+            notification.className = `notification ${type === 'error' ? 'error' : ''}`;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+
+        function saveToLocalStorage(key, data) {
+            try {
+                localStorage.setItem(key, JSON.stringify(data));
+            } catch (error) {
+                console.error('Error saving to localStorage:', error);
+            }
+        }
+
+        function getFromLocalStorage(key) {
+            try {
+                const data = localStorage.getItem(key);
+                return data ? JSON.parse(data) : null;
+            } catch (error) {
+                console.error('Error reading from localStorage:', error);
+                return null;
+            }
+        }
+
+        // ==================== SOCIAL FUNCTIONS ====================
+        function openWhatsApp() {
+            window.open(`https://wa.me/${BUSINESS_INFO.phone.replace('+', '')}`, '_blank');
+        }
+
+        function openFacebook() {
+            window.open(BUSINESS_INFO.facebook, '_blank');
+        }
+
+        function openInstagram() {
+            window.open(BUSINESS_INFO.instagram, '_blank');
+        }
+
+        function openGoogleReview() {
+            window.open(BUSINESS_INFO.googleReview, '_blank');
+        }
+
+        function openServiceWhatsApp(service) {
+            const message = `Hello Sabji Haat! I'm interested in ${service} service.`;
+            window.open(`https://wa.me/${BUSINESS_INFO.phone.replace('+', '')}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // ==================== GLOBAL FUNCTIONS EXPORT ====================
+        window.loadCategory = loadCategory;
+        window.slideServices = slideServices;
+        window.slideReviews = slideReviews;
+        window.selectQuantity = selectQuantity;
+        window.setCustomQuantity = setCustomQuantity;
+        window.addToCart = addToCart;
+        window.openCart = openCart;
+        window.closeCart = closeCart;
+        window.updateCartItem = updateCartItem;
+        window.removeFromCart = removeFromCart;
+        window.checkBusinessHours = checkBusinessHours;
+        window.closeCheckoutModal = closeCheckoutModal;
+        window.closeBusinessHoursModal = closeBusinessHoursModal;
+        window.validateAndCheckout = validateAndCheckout;
+        window.showAboutPage = showAboutPage;
+        window.showHomePage = showHomePage;
+        window.openAdminLogin = openAdminLogin;
+        window.closeAdminLogin = closeAdminLogin;
+        window.adminLogin = adminLogin;
+        window.showAdminPanel = showAdminPanel;
+        window.adminLogout = adminLogout;
+        window.switchAdminTab = switchAdminTab;
+        window.loadAdminOrders = loadAdminOrders;
+        window.saveSettings = saveSettings;
+        window.showAddProductForm = showAddProductForm;
+        window.closeAddProductModal = closeAddProductModal;
+        window.createProduct = createProduct;
+        window.editProduct = editProduct;
+        window.updateProduct = updateProduct;
+        window.deleteProduct = deleteProduct;
+        window.editOrderStatus = editOrderStatus;
+        window.openWhatsApp = openWhatsApp;
+        window.openFacebook = openFacebook;
+        window.openInstagram = openInstagram;
+        window.openGoogleReview = openGoogleReview;
+        window.openServiceWhatsApp = openServiceWhatsApp;
+        window.selectModalQuantity = selectModalQuantity;
+        window.setModalCustomQuantity = setModalCustomQuantity;
+        window.addToCartFromModal = addToCartFromModal;
+        window.closeProductModal = closeProductModal;
+        window.changeMainImage = changeMainImage;
+        window.selectImageFromGallery = selectImageFromGallery;
+        window.uploadSelectedImage = uploadSelectedImage;
+
+        console.log("✅ JavaScript loaded successfully");
+    </script>
+</body>
+</html>
