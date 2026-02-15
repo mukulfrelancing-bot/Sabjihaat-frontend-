@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://sabjihaat.in/sitemap.xml
+Sitemap: https://www.sabjihaat.in/sitemap.xml
 Host: https://sabjihaat.in
